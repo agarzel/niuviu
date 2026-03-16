@@ -238,6 +238,8 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 32,
+                "enable_custom_border_radius_px": true,
+                "custom_border_radius_px": "500",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -457,7 +459,7 @@
       },
       "name": "Featured collection",
       "settings": {
-        "collection": "all",
+        "collection": "bestsellery",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
