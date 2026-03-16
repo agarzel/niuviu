@@ -285,31 +285,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_QGdpYw": {
-                  "type": "text",
-                  "settings": {
-                    "text": "<h4>{{ closest.product.title }}</h4>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h5",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
                 "product_title_xGHMb3": {
                   "type": "product-title",
                   "name": "t:names.title",
@@ -356,61 +331,11 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "sku_YNVW47": {
-                  "type": "sku",
-                  "name": "t:names.product_sku",
-                  "settings": {
-                    "type_preset": "",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "color": "var(--color-foreground)",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "review_GXpU7f": {
-                  "type": "review",
-                  "name": "t:names.product_review_stars",
-                  "settings": {
-                    "stars_style": "shaded",
-                    "show_number": true,
-                    "rating_color": "primary",
-                    "type_preset": "paragraph",
-                    "width": "100%",
-                    "alignment": "left"
-                  },
-                  "blocks": {}
-                },
-                "swatches_ExhD3a": {
-                  "type": "swatches",
-                  "settings": {
-                    "product_swatches_alignment": "flex-start",
-                    "product_swatches_alignment_mobile": "flex-start",
-                    "hide_padding": false,
-                    "product_swatches_padding_top": 4,
-                    "product_swatches_padding_bottom": 0,
-                    "product_swatches_padding_left": 0,
-                    "product_swatches_padding_right": 0
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
-                "text_QGdpYw",
                 "product_title_xGHMb3",
-                "price_d6U8n4",
-                "sku_YNVW47",
-                "review_GXpU7f",
-                "swatches_ExhD3a"
+                "price_d6U8n4"
               ]
             },
             "buy_buttons_beChUH": {
@@ -428,6 +353,7 @@
               "blocks": {
                 "quantity": {
                   "type": "quantity",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -442,6 +368,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
