@@ -240,6 +240,7 @@
                 "border_radius": 32,
                 "enable_custom_border_radius_px": true,
                 "custom_border_radius_px": "500",
+                "hide_added_state_on_product_card": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
