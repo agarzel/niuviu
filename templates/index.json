@@ -85,7 +85,7 @@
       ],
       "custom_css": [
         ".text-block p {font-weight: 400; font-size: 40px; letter-spacing: 0%;}",
-        "@media (max-width: 767px) {.hero-logo-block, .text-block {display: none; } .hero__content-wrapper {display: flex; place-items: center; }}"
+        "@media (max-width: 767px) {.hero-logo-block, .text-block {display: none; } .hero__content-wrapper {display: flex; align-items: center; justify-content: center; }}"
       ],
       "name": "t:names.hero_bottom_aligned",
       "settings": {
