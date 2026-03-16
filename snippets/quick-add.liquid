@@ -5,7 +5,6 @@
   @param {string} section_id - The section ID
   @param {object} [block] - The block object
   @param {string} [color_scheme] - The color scheme to use
-  @param {boolean} [hide_added_state] - Hides add-to-cart added-state UI in product cards
 {%- enddoc -%}
 
 {% liquid
@@ -30,7 +29,7 @@
 %}
 
 <quick-add-component
-  class="quick-add color-{{ color_scheme }}{% if hide_added_state %} quick-add--hide-added-state{% endif %}"
+  class="quick-add color-{{ color_scheme }} "
   ref="quickAdd"
   data-product-title="{{ product.title }}"
   data-quick-add-button="{{ quick_add_button }}"
@@ -200,14 +199,8 @@
     height: 22px;
   }
 
-  .quick-add.quick-add--hide-added-state .quick-add__button .add-to-cart__added,
-  .quick-add.quick-add--hide-added-state .quick-add__button .add-to-cart-text--added,
-  .quick-add.quick-add--hide-added-state .quick-add__button[data-added='true'] .add-to-cart__added,
-  .quick-add.quick-add--hide-added-state .quick-add__button[data-added='true'] .add-to-cart-text--added {
-    display: none !important;
-    animation: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+  .quick-add__button .add-to-cart__added {
+    display: none;
   }
 
   .quick-add__button .add-to-cart-icon {
@@ -233,7 +226,7 @@
     }
   }
 
-  .quick-add.quick-add--hide-added-state .quick-add__button[data-added='true'] .add-to-cart-text {
+  .quick-add__button[data-added='true'] .add-to-cart-text {
     animation-name: none;
     opacity: 1;
     translate: 0 0;
