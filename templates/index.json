@@ -63,7 +63,7 @@
         "text_A3iDKF"
       ],
       "custom_css": [
-        ".text-block p {font-weight: 400; font-size: 40px; line-height: 100%; letter-spacing: 0%;}"
+        ".text-block p {font-weight: 400; font-size: 40px; letter-spacing: 0%;}"
       ],
       "name": "t:names.hero_bottom_aligned",
       "settings": {
