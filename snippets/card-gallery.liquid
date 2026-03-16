@@ -69,6 +69,9 @@
   style="
     {% render 'border-override', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
+    {% if block_settings.enable_custom_border_radius_px %}
+      --border-radius: {{ block_settings.custom_border_radius_px | remove: 'px' }}px;
+    {% endif %}
     --gallery-aspect-ratio: {{ ratio }};
   "
   data-product-id="{{ product.id }}"
@@ -215,7 +218,7 @@
   }
 
   .card-gallery svg {
-    aspect-ratio: 403 / 653;
+    aspect-ratio: var(--gallery-aspect-ratio, var(--ratio));
   }
 
   .product-card-gallery__title-placeholder {
