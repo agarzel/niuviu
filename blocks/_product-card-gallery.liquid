@@ -175,6 +175,20 @@
       "default": 0
     },
     {
+      "type": "checkbox",
+      "id": "enable_custom_border_radius_px",
+      "label": "Enable custom corner radius (px)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_border_radius_px",
+      "label": "Custom corner radius (px)",
+      "default": "500",
+      "info": "Enter number, e.g. 500",
+      "visible_if": "{{ block.settings.enable_custom_border_radius_px }}"
+    },
+    {
       "type": "header",
       "content": "t:content.padding"
     },
