@@ -90,13 +90,27 @@
     --border-radius: var(--product-list-image-radius, var(--border-radius));
     border-radius: var(--product-list-image-radius, var(--border-radius));
   }
-  .ui-test-product-list .card-gallery .text-block p {
-    font-weight: 400 !important;
-    font-style: Regular !important;
-    font-size: 40px !important;
-    line-height: 100% !important;
-    letter-spacing: 0% !important;
+
+  .ui-test-product-list .product-card__content .group-block-content {
+    align-items: center;
+  }
+
+  .ui-test-product-list .product-card__content .text-block,
+  .ui-test-product-list .product-card__content product-price {
+    width: 100%;
+    align-items: center;
+  }
+
+  .ui-test-product-list .product-card__content .text-block > *,
+  .ui-test-product-list .product-card__content product-price .price {
+    width: 100%;
     text-align: center !important;
+    font-family: 'DM Sans', var(--font-body--family);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 0;
   }
 {% endstylesheet %}
 
