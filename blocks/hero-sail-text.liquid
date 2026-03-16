@@ -1,0 +1,222 @@
+{% liquid
+  assign block_settings = block.settings
+%}
+
+<div
+  class="hero-logo-block hero-logo-block--sail spacing-style"
+  style="
+    --hero-logo-width: {{ block_settings.width_desktop }}px;
+    --hero-logo-width-mobile: {{ block_settings.width_mobile }}px;
+    --hero-logo-offset-right: {{ block_settings.offset_right_desktop }}px;
+    --hero-logo-offset-right-mobile: {{ block_settings.offset_right_mobile }}px;
+    --hero-sail-size-desktop: {{ block_settings.font_size_desktop }}px;
+    --hero-sail-size-mobile: {{ block_settings.font_size_mobile }}px;
+    --hero-sail-color: {{ block_settings.text_color }};
+    {% if block_settings.vertical_position_desktop == 'top' %}
+      --hero-logo-offset-top: {{ block_settings.offset_top_desktop }}px;
+      --hero-logo-offset-bottom: auto;
+    {% else %}
+      --hero-logo-offset-top: auto;
+      --hero-logo-offset-bottom: {{ block_settings.offset_bottom_desktop }}px;
+    {% endif %}
+    {% if block_settings.vertical_position_mobile == 'top' %}
+      --hero-logo-offset-top-mobile: {{ block_settings.offset_top_mobile }}px;
+      --hero-logo-offset-bottom-mobile: auto;
+    {% else %}
+      --hero-logo-offset-top-mobile: auto;
+      --hero-logo-offset-bottom-mobile: {{ block_settings.offset_bottom_mobile }}px;
+    {% endif %}
+    {% render 'spacing-style', settings: block_settings %}
+  "
+  {{ block.shopify_attributes }}
+>
+  <p class="hero-logo-block__text-sail">{{ block_settings.text | escape | newline_to_br }}</p>
+</div>
+
+<style>
+  @font-face {
+    font-family: 'SailPL';
+    src: url('{{ 'SailPL.woff2' | asset_url }}') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+</style>
+
+{% stylesheet %}
+  .hero-logo-block--sail .hero-logo-block__text-sail {
+    margin: 0;
+    color: var(--hero-sail-color, currentcolor);
+    font-family: 'SailPL', var(--font-heading--family);
+    font-size: var(--hero-sail-size-desktop);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: 0;
+    text-align: right;
+    text-wrap: balance;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+
+    @media screen and (max-width: 749px) {
+      font-size: var(--hero-sail-size-mobile);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero sail text",
+  "tag": null,
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "simple care,\nreal effect"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#f7e3ea"
+    },
+    {
+      "type": "header",
+      "content": "Desktop position and size"
+    },
+    {
+      "type": "range",
+      "id": "width_desktop",
+      "label": "Width",
+      "min": 80,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "label": "Font size",
+      "min": 18,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 62
+    },
+    {
+      "type": "range",
+      "id": "offset_right_desktop",
+      "label": "Right offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "vertical_position_desktop",
+      "label": "Vertical anchor",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "range",
+      "id": "offset_top_desktop",
+      "label": "Top offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ block.settings.vertical_position_desktop == 'top' }}"
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_desktop",
+      "label": "Bottom offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ block.settings.vertical_position_desktop == 'bottom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Mobile position and size"
+    },
+    {
+      "type": "range",
+      "id": "width_mobile",
+      "label": "Width",
+      "min": 60,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "default": 190
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font size",
+      "min": 14,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "offset_right_mobile",
+      "label": "Right offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "vertical_position_mobile",
+      "label": "Vertical anchor",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "range",
+      "id": "offset_top_mobile",
+      "label": "Top offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.vertical_position_mobile == 'top' }}"
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mobile",
+      "label": "Bottom offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.vertical_position_mobile == 'bottom' }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero sail text"
+    }
+  ]
+}
+{% endschema %}
+ 
