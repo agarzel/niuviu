@@ -591,6 +591,7 @@
   .hero__content-wrapper .hero-logo-block {
     position: absolute;
     right: var(--hero-logo-offset-right, 24px);
+    top: var(--hero-logo-offset-top, auto);
     bottom: var(--hero-logo-offset-bottom, 24px);
     width: var(--hero-logo-width, 220px);
     max-width: min(40vw, 320px);
@@ -599,6 +600,7 @@
 
     @media screen and (max-width: 749px) {
       right: var(--hero-logo-offset-right-mobile, var(--hero-logo-offset-right, 16px));
+      top: var(--hero-logo-offset-top-mobile, var(--hero-logo-offset-top, auto));
       bottom: var(--hero-logo-offset-bottom-mobile, var(--hero-logo-offset-bottom, 16px));
       width: var(--hero-logo-width-mobile, var(--hero-logo-width, 160px));
       max-width: 50vw;

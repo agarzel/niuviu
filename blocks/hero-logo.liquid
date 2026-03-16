@@ -9,9 +9,21 @@
     --hero-logo-width: {{ block_settings.width_desktop }}px;
     --hero-logo-width-mobile: {{ block_settings.width_mobile }}px;
     --hero-logo-offset-right: {{ block_settings.offset_right_desktop }}px;
-    --hero-logo-offset-bottom: {{ block_settings.offset_bottom_desktop }}px;
     --hero-logo-offset-right-mobile: {{ block_settings.offset_right_mobile }}px;
-    --hero-logo-offset-bottom-mobile: {{ block_settings.offset_bottom_mobile }}px;
+    {% if block_settings.vertical_position_desktop == 'top' %}
+      --hero-logo-offset-top: {{ block_settings.offset_top_desktop }}px;
+      --hero-logo-offset-bottom: auto;
+    {% else %}
+      --hero-logo-offset-top: auto;
+      --hero-logo-offset-bottom: {{ block_settings.offset_bottom_desktop }}px;
+    {% endif %}
+    {% if block_settings.vertical_position_mobile == 'top' %}
+      --hero-logo-offset-top-mobile: {{ block_settings.offset_top_mobile }}px;
+      --hero-logo-offset-bottom-mobile: auto;
+    {% else %}
+      --hero-logo-offset-top-mobile: auto;
+      --hero-logo-offset-bottom-mobile: {{ block_settings.offset_bottom_mobile }}px;
+    {% endif %}
     {% render 'spacing-style', settings: block_settings %}
   "
   {{ block.shopify_attributes }}
@@ -103,6 +115,33 @@
       "default": 32
     },
     {
+      "type": "select",
+      "id": "vertical_position_desktop",
+      "label": "Vertical anchor",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "offset_top_desktop",
+      "label": "Top offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32,
+      "visible_if": "{{ block.settings.vertical_position_desktop == 'top' }}"
+    },
+    {
       "type": "range",
       "id": "offset_bottom_desktop",
       "label": "Bottom offset",
@@ -110,7 +149,8 @@
       "max": 200,
       "step": 4,
       "unit": "px",
-      "default": 32
+      "default": 32,
+      "visible_if": "{{ block.settings.vertical_position_desktop == 'bottom' }}"
     },
     {
       "type": "header",
@@ -137,6 +177,33 @@
       "default": 16
     },
     {
+      "type": "select",
+      "id": "vertical_position_mobile",
+      "label": "Vertical anchor",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "offset_top_mobile",
+      "label": "Top offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ block.settings.vertical_position_mobile == 'top' }}"
+    },
+    {
       "type": "range",
       "id": "offset_bottom_mobile",
       "label": "Bottom offset",
@@ -144,7 +211,8 @@
       "max": 120,
       "step": 4,
       "unit": "px",
-      "default": 16
+      "default": 16,
+      "visible_if": "{{ block.settings.vertical_position_mobile == 'bottom' }}"
     }
   ],
   "presets": [
