@@ -27,7 +27,11 @@
       {%- endif -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
-      {% render 'quick-add', product: product, section_id: section.id %}
+      {% render 'quick-add',
+        product: product,
+        section_id: section.id,
+        hide_added_state: block.settings.hide_added_state_on_product_card | default: true, allow_false: true
+      %}
     {% endif %}
   {% endunless %}
 {% endcapture %}
@@ -187,6 +191,12 @@
       "default": "500",
       "info": "Enter number, e.g. 500",
       "visible_if": "{{ block.settings.enable_custom_border_radius_px }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_added_state_on_product_card",
+      "label": "Hide add-to-cart added state on product card",
+      "default": false
     },
     {
       "type": "header",
