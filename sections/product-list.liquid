@@ -18,6 +18,11 @@
   style="
     {% render 'spacing-style', settings: section.settings %}
     {% render 'gap-style', value: section.settings.gap %}
+    {% if section.settings.enable_custom_product_image_radius %}
+      --product-list-image-radius: {{ section.settings.product_image_border_radius_px | remove: 'px' }}px;
+    {% else %}
+      --product-list-image-radius: var(--border-radius);
+    {% endif %}
   "
 >
   <div class="section-resource-list__header">
@@ -79,6 +84,13 @@
     {%- content_for 'blocks' -%}
   </div>
 </div>
+
+{% stylesheet %}
+  .ui-test-product-list .card-gallery {
+    --border-radius: var(--product-list-image-radius, var(--border-radius));
+    border-radius: var(--product-list-image-radius, var(--border-radius));
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -310,6 +322,24 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Product image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_product_image_radius",
+      "label": "Enable custom border radius",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "product_image_border_radius_px",
+      "label": "Border radius (px)",
+      "default": "500",
+      "info": "Enter number in px, e.g. 500",
+      "visible_if": "{{ section.settings.enable_custom_product_image_radius }}"
     },
     {
       "type": "color_scheme",
