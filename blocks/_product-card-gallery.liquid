@@ -30,7 +30,7 @@
       {% render 'quick-add',
         product: product,
         section_id: section.id,
-        hide_added_state: block.settings.hide_added_state_on_product_card | default: true, allow_false: true
+        hide_added_state: block.settings.hide_added_state_on_product_card
       %}
     {% endif %}
   {% endunless %}
