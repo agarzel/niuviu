@@ -12,6 +12,27 @@
     "hero_94eh6d": {
       "type": "hero",
       "blocks": {
+        "hero_sail_text_W63gP4": {
+          "type": "hero-sail-text",
+          "name": "Hero sail text",
+          "settings": {
+            "text": "simple care,\nreal effect",
+            "text_color": "#f7e3ea",
+            "width_desktop": 260,
+            "font_size_desktop": 62,
+            "offset_right_desktop": 32,
+            "vertical_position_desktop": "top",
+            "offset_top_desktop": 24,
+            "offset_bottom_desktop": 24,
+            "width_mobile": 190,
+            "font_size_mobile": 44,
+            "offset_right_mobile": 16,
+            "vertical_position_mobile": "top",
+            "offset_top_mobile": 16,
+            "offset_bottom_mobile": 16
+          },
+          "blocks": {}
+        },
         "logo_4bwGGF": {
           "type": "logo",
           "name": "t:names.logo",
@@ -29,25 +50,6 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "hero_logo_ydY6aJ": {
-          "type": "hero-logo",
-          "name": "Hero logo",
-          "settings": {
-            "image": "shopify://shop_images/simple_care_real_effect.png",
-            "caption": "simple care, real effect",
-            "width_desktop": 470,
-            "offset_right_desktop": 32,
-            "vertical_position_desktop": "top",
-            "offset_top_desktop": 32,
-            "offset_bottom_desktop": 32,
-            "width_mobile": 180,
-            "offset_right_mobile": 16,
-            "vertical_position_mobile": "bottom",
-            "offset_top_mobile": 16,
-            "offset_bottom_mobile": 16
           },
           "blocks": {}
         },
@@ -79,8 +81,8 @@
         }
       },
       "block_order": [
+        "hero_sail_text_W63gP4",
         "logo_4bwGGF",
-        "hero_logo_ydY6aJ",
         "text_A3iDKF"
       ],
       "custom_css": [
