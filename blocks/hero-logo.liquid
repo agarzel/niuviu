@@ -1,0 +1,156 @@
+{% liquid
+  assign block_settings = block.settings
+  assign image = block_settings.image
+%}
+
+<div
+  class="hero-logo-block spacing-style"
+  style="
+    --hero-logo-width: {{ block_settings.width_desktop }}px;
+    --hero-logo-width-mobile: {{ block_settings.width_mobile }}px;
+    --hero-logo-offset-right: {{ block_settings.offset_right_desktop }}px;
+    --hero-logo-offset-bottom: {{ block_settings.offset_bottom_desktop }}px;
+    --hero-logo-offset-right-mobile: {{ block_settings.offset_right_mobile }}px;
+    --hero-logo-offset-bottom-mobile: {{ block_settings.offset_bottom_mobile }}px;
+    {% render 'spacing-style', settings: block_settings %}
+  "
+  {{ block.shopify_attributes }}
+>
+  {%- if image != blank -%}
+    {{
+      image
+      | image_url: width: 1200
+      | image_tag:
+        width: image.width,
+        widths: '160, 240, 320, 480, 640, 960, 1200',
+        height: image.height,
+        class: 'hero-logo-block__image',
+        alt: image.alt
+    }}
+  {%- else -%}
+    <p class="hero-logo-block__text">{{ block_settings.caption | escape }}</p>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .hero-logo-block {
+    line-height: 1;
+  }
+
+  .hero-logo-block__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-logo-block__text {
+    margin: 0;
+    color: currentcolor;
+    font-family: var(--font-heading--family);
+    font-size: clamp(1.8rem, 3.2vw, 3.3rem);
+    font-style: italic;
+    font-weight: var(--font-heading--weight);
+    line-height: 1.05;
+    letter-spacing: 0;
+    text-align: right;
+    text-wrap: balance;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 15%);
+
+    @media screen and (max-width: 749px) {
+      font-size: clamp(1.2rem, 7vw, 2rem);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero logo",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Fallback text",
+      "default": "simple care, real effect"
+    },
+    {
+      "type": "header",
+      "content": "Desktop position and size"
+    },
+    {
+      "type": "range",
+      "id": "width_desktop",
+      "label": "Width",
+      "min": 80,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "offset_right_desktop",
+      "label": "Right offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_desktop",
+      "label": "Bottom offset",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Mobile position and size"
+    },
+    {
+      "type": "range",
+      "id": "width_mobile",
+      "label": "Width",
+      "min": 60,
+      "max": 360,
+      "step": 10,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "offset_right_mobile",
+      "label": "Right offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "offset_bottom_mobile",
+      "label": "Bottom offset",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero logo"
+    }
+  ]
+}
+{% endschema %}
