@@ -13,7 +13,7 @@
 %}
 
 <div
-  class="hero-logo-block hero-logo-block--sail spacing-style"
+  class="hero-sail-text-block spacing-style"
   style="
     --hero-logo-width: {{ block_settings.width_desktop }}px;
     --hero-logo-width-mobile: {{ block_settings.width_mobile }}px;
@@ -43,7 +43,7 @@
   {{ block.shopify_attributes }}
 >
   <p
-    class="hero-logo-block__text-sail"
+    class="hero-sail-text-block__text"
     style="font-family: 'SailPL', var(--font-heading--family);"
   >
     {{ sail_text_rendered }}
@@ -63,7 +63,7 @@
 {% endstyle %}
 
 {% stylesheet %}
-  .hero-logo-block--sail .hero-logo-block__text-sail {
+  .hero-sail-text-block .hero-sail-text-block__text {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
