@@ -1,5 +1,15 @@
 {% liquid
   assign block_settings = block.settings
+  assign sail_text = block_settings.text | strip | escape
+  assign sail_text_with_line_breaks = sail_text | newline_to_br
+
+  if sail_text_with_line_breaks contains '<br'
+    assign sail_text_rendered = sail_text_with_line_breaks
+  elsif sail_text contains ', '
+    assign sail_text_rendered = sail_text | replace_first: ', ', ',<br>'
+  else
+    assign sail_text_rendered = sail_text
+  endif
 %}
 
 <div
@@ -36,7 +46,7 @@
     class="hero-logo-block__text-sail"
     style="font-family: 'SailPL', var(--font-heading--family);"
   >
-    {{ block_settings.text | escape | newline_to_br }}
+    {{ sail_text_rendered }}
   </p>
 </div>
 
@@ -66,7 +76,7 @@
     letter-spacing: 0;
     text-align: right;
     text-transform: lowercase;
-    text-wrap: balance;
+    text-wrap: nowrap;
     text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
 
     @media screen and (max-width: 749px) {
@@ -105,7 +115,7 @@
       "max": 700,
       "step": 10,
       "unit": "px",
-      "default": 260
+      "default": 360
     },
     {
       "type": "range",
@@ -181,7 +191,7 @@
       "max": 360,
       "step": 10,
       "unit": "px",
-      "default": 190
+      "default": 240
     },
     {
       "type": "range",
