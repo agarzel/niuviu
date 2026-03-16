@@ -12,29 +12,22 @@
     "hero_94eh6d": {
       "type": "hero",
       "blocks": {
-        "text_hFFz9L": {
-          "type": "text",
-          "name": "t:names.heading",
+        "hero_logo_ydY6aJ": {
+          "type": "hero-logo",
+          "name": "Hero logo",
           "settings": {
-            "text": "<p>simple care,<br/>real effect</p>",
-            "width": "100%",
-            "max_width": "none",
-            "alignment": "right",
-            "type_preset": "h3",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 100
+            "image": "shopify://shop_images/simple_care_real_effect.png",
+            "caption": "simple care, real effect",
+            "width_desktop": 260,
+            "offset_right_desktop": 32,
+            "vertical_position_desktop": "top",
+            "offset_top_desktop": 32,
+            "offset_bottom_desktop": 32,
+            "width_mobile": 180,
+            "offset_right_mobile": 16,
+            "vertical_position_mobile": "bottom",
+            "offset_top_mobile": 16,
+            "offset_bottom_mobile": 16
           },
           "blocks": {}
         },
@@ -53,7 +46,7 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
+            "color": "var(--color-foreground)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -66,7 +59,7 @@
         }
       },
       "block_order": [
-        "text_hFFz9L",
+        "hero_logo_ydY6aJ",
         "text_A3iDKF"
       ],
       "name": "t:names.hero_bottom_aligned",
@@ -85,8 +78,8 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "space-between",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 0,
         "section_width": "page-width",
         "section_height": "medium",
