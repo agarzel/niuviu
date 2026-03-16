@@ -199,8 +199,14 @@
     height: 22px;
   }
 
-  .quick-add__button .add-to-cart__added {
-    display: none;
+  .quick-add .quick-add__button .add-to-cart__added,
+  .quick-add .quick-add__button .add-to-cart-text--added,
+  .quick-add .quick-add__button[data-added='true'] .add-to-cart__added,
+  .quick-add .quick-add__button[data-added='true'] .add-to-cart-text--added {
+    display: none !important;
+    animation: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   .quick-add__button .add-to-cart-icon {
