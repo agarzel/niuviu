@@ -86,7 +86,7 @@
       "custom_css": [
         ".text-block p {font-weight: 400; font-size: 40px; letter-spacing: 0%;}",
         ".logo-block {display: none;}",
-        "@media (max-width: 767px) {.hero-logo-block, .text-block {display: none; } .hero__content-wrapper {display: flex; align-items: center; justify-content: center; } .logo-block {display: flex; } .logo-block .logo-block__image {width: 279px; margin: 0 auto; } .hero__media-grid {padding: 0 69px; }}"
+        "@media (max-width: 767px) {.hero-logo-block, .text-block {display: none; } .hero__content-wrapper {display: flex; align-items: center; justify-content: center; } .logo-block {display: flex; } .logo-block .logo-block__image {width: 372px; margin: 0 auto; } .hero__media-grid {padding: 0 69px; }}"
       ],
       "name": "t:names.hero_bottom_aligned",
       "settings": {
