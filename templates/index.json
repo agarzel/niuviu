@@ -12,6 +12,26 @@
     "hero_94eh6d": {
       "type": "hero",
       "blocks": {
+        "logo_4bwGGF": {
+          "type": "logo",
+          "name": "t:names.logo",
+          "settings": {
+            "inverse": false,
+            "font": "heading",
+            "unit": "pixel",
+            "percent_width": 100,
+            "pixel_height": 48,
+            "custom_mobile_size": false,
+            "unit_mobile": "percent",
+            "percent_width_mobile": 100,
+            "pixel_height_mobile": 120,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "hero_logo_ydY6aJ": {
           "type": "hero-logo",
           "name": "Hero logo",
@@ -59,6 +79,7 @@
         }
       },
       "block_order": [
+        "logo_4bwGGF",
         "hero_logo_ydY6aJ",
         "text_A3iDKF"
       ],
