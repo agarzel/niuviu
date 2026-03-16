@@ -11,6 +11,7 @@
 {% liquid
   assign class = 'add-to-cart-button ' | append: block.settings.style_class
   assign id = 'BuyButtons-ProductSubmitButton-' | append: block.id
+  assign standalone_add_to_cart_text = 'Do koszyka'
 %}
 
 <span
@@ -22,7 +23,8 @@
     class: class,
     can_add_to_cart: can_add_to_cart,
     product: closest.product,
-    add_to_cart_text: add_to_cart_text,
+    add_to_cart_text: standalone_add_to_cart_text,
+    show_icon: false,
     data_testid: 'standalone-add-to-cart'
   %}
 </span>
