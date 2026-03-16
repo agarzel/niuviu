@@ -11,6 +11,8 @@
     --hero-logo-offset-right-mobile: {{ block_settings.offset_right_mobile }}px;
     --hero-sail-size-desktop: {{ block_settings.font_size_desktop }}px;
     --hero-sail-size-mobile: {{ block_settings.font_size_mobile }}px;
+    --hero-sail-line-height-desktop: {{ block_settings.line_height_desktop }}px;
+    --hero-sail-line-height-mobile: {{ block_settings.line_height_mobile }}px;
     --hero-sail-color: {{ block_settings.text_color }};
     {% if block_settings.vertical_position_desktop == 'top' %}
       --hero-logo-offset-top: {{ block_settings.offset_top_desktop }}px;
@@ -30,10 +32,17 @@
   "
   {{ block.shopify_attributes }}
 >
-  <p class="hero-logo-block__text-sail">{{ block_settings.text | escape | newline_to_br }}</p>
+  <p
+    class="hero-logo-block__text-sail"
+    style="font-family: 'SailPL', var(--font-heading--family);"
+  >
+    {{ block_settings.text | escape | newline_to_br }}
+  </p>
 </div>
 
-<style>
+{{ 'SailPL.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+
+{% style %}
   @font-face {
     font-family: 'SailPL';
     src: url('{{ 'SailPL.woff2' | asset_url }}') format('woff2');
@@ -41,21 +50,28 @@
     font-weight: 400;
     font-display: swap;
   }
-</style>
+{% endstyle %}
 
 {% stylesheet %}
   .hero-logo-block--sail .hero-logo-block__text-sail {
+    display: inline-block;
+    vertical-align: middle;
     margin: 0;
     color: var(--hero-sail-color, currentcolor);
-    font-family: 'SailPL', var(--font-heading--family);
+    font-family: 'SailPL', var(--font-heading--family) !important;
     font-size: var(--hero-sail-size-desktop);
     font-weight: 400;
-    line-height: 0.95;
+    font-style: normal;
+    line-height: var(--hero-sail-line-height-desktop);
     letter-spacing: 0;
     text-align: right;
+    text-transform: lowercase;
+    text-wrap: balance;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
 
     @media screen and (max-width: 749px) {
       font-size: var(--hero-sail-size-mobile);
+      line-height: var(--hero-sail-line-height-mobile);
     }
   }
 {% endstylesheet %}
@@ -99,7 +115,17 @@
       "max": 140,
       "step": 2,
       "unit": "px",
-      "default": 62
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "line_height_desktop",
+      "label": "Line height",
+      "min": 18,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "default": 80
     },
     {
       "type": "range",
@@ -162,10 +188,20 @@
       "id": "font_size_mobile",
       "label": "Font size",
       "min": 14,
-      "max": 90,
+      "max": 120,
       "step": 2,
       "unit": "px",
       "default": 44
+    },
+    {
+      "type": "range",
+      "id": "line_height_mobile",
+      "label": "Line height",
+      "min": 14,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 38
     },
     {
       "type": "range",
