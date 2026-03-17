@@ -1431,7 +1431,7 @@ button.shopify-payment-button__button--unbranded {
 
 .button:hover,
 button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
-  --button-color: var(--color-primary-button-hover-text);
+  --button-color: #000;
   --button-background-color: #FFD5EB;
   --button-border-color: #FFD5EB;
 }
