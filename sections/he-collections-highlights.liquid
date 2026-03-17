@@ -1,0 +1,479 @@
+{% comment %}
+  he-collections.highlights.liquid
+  Section: Collection Highlights
+  Desktop: 2-column grid | Mobile: 1-column grid
+  Block types: text_block | full_image | collection_block
+{% endcomment %}
+
+<section
+  class="he-collection-highlights"
+  id="he-collection-highlights-{{ section.id }}"
+  style="
+    padding-block-start: {{ section.settings.padding_top }}px;
+    padding-block-end: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.section_background }};
+  "
+>
+  <div class="he-collection-highlights__grid">
+    {% for block in section.blocks %}
+      {% if block.settings.hide_on_mobile %}
+        {% assign hide_class = ' he-collection-highlights__block--hide-mobile' %}
+      {% else %}
+        {% assign hide_class = '' %}
+      {% endif %}
+
+      {% case block.type %}
+
+        {% when 'text_block' %}
+          <div
+            class="he-collection-highlights__block he-collection-highlights__block--text{{ hide_class }}"
+            style="
+              background-color: {{ block.settings.background_color }};
+              --block-min-height: {{ section.settings.block_min_height }}px;
+            "
+            {{ block.shopify_attributes }}
+          >
+            <div
+              class="he-collection-highlights__text-inner"
+              style="color: {{ block.settings.text_color }};"
+            >
+              {{ block.settings.text }}
+            </div>
+          </div>
+
+        {% when 'full_image' %}
+          <div
+            class="he-collection-highlights__block he-collection-highlights__block--image{{ hide_class }}"
+            style="--block-min-height: {{ section.settings.block_min_height }}px;"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'lazy',
+                  class: 'he-collection-highlights__img',
+                  widths: '400, 600, 800, 1000, 1200, 1400',
+                  alt: block.settings.image.alt
+              }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'he-collection-highlights__placeholder' }}
+            {% endif %}
+          </div>
+
+        {% when 'collection_block' %}
+          {% liquid
+            assign col = block.settings.collection
+            assign has_custom_image = false
+            assign col_image = blank
+
+            if block.settings.custom_image != blank
+              assign col_image = block.settings.custom_image
+              assign has_custom_image = true
+            elsif col != blank and col.featured_image != blank
+              assign col_image = col.featured_image
+            endif
+
+            assign col_url = col.url | default: '#'
+            if block.settings.custom_title != blank
+              assign col_title = block.settings.custom_title
+            else
+              assign col_title = col.title | default: ''
+            endif
+          %}
+          <a
+            href="{{ col_url }}"
+            class="he-collection-highlights__block he-collection-highlights__block--collection{% if has_custom_image %} he-collection-highlights__block--custom-img{% endif %}{{ hide_class }}"
+            style="
+              --block-min-height: {{ section.settings.block_min_height }}px;
+              {% if has_custom_image %}background-color: {{ block.settings.background_color }};{% endif %}
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if has_custom_image %}
+              <div class="he-collection-highlights__collection-media he-collection-highlights__collection-media--contained">
+                {{
+                  col_image
+                  | image_url: width: 1000
+                  | image_tag:
+                    loading: 'lazy',
+                    class: 'he-collection-highlights__img--custom he-collection-highlights__img--zoom',
+                    widths: '300, 500, 700, 1000',
+                    alt: col_image.alt | default: col_title
+                }}
+              </div>
+            {% else %}
+              <div class="he-collection-highlights__collection-media">
+                {% if col_image != blank %}
+                  {{
+                    col_image
+                    | image_url: width: 1400
+                    | image_tag:
+                      loading: 'lazy',
+                      class: 'he-collection-highlights__img he-collection-highlights__img--zoom',
+                      widths: '400, 600, 800, 1000, 1200, 1400',
+                      alt: col_image.alt | default: col_title
+                  }}
+                {% else %}
+                  {{ 'collection-1' | placeholder_svg_tag: 'he-collection-highlights__placeholder' }}
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if col_title != blank %}
+              <span class="he-collection-highlights__collection-name">
+                {{- col_title -}}
+              </span>
+            {% endif %}
+          </a>
+
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .he-collection-highlights {
+    width: 100%;
+  }
+
+  .he-collection-highlights__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 0;
+  }
+
+  /* ── Base block ── */
+  .he-collection-highlights__block {
+    position: relative;
+    overflow: hidden;
+    min-height: var(--block-min-height, 360px);
+  }
+
+  /* ── Text block ── */
+  .he-collection-highlights__block--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px;
+  }
+
+  .he-collection-highlights__text-inner {
+    width: 100%;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .he-collection-highlights__text-inner p { margin: 0; }
+  .he-collection-highlights__text-inner p + p { margin-block-start: 0.75em; }
+
+  /* ── Full-image block ── */
+  .he-collection-highlights__block--image {
+    display: block;
+  }
+
+  .he-collection-highlights__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ── Collection block ── */
+  .he-collection-highlights__block--collection {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* full-bleed collection image */
+  .he-collection-highlights__collection-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  /* contained custom image wrapper */
+  .he-collection-highlights__collection-media--contained {
+    position: relative;
+    inset: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+
+  /* full-bleed zoom image */
+  .he-collection-highlights__img--zoom {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* custom (smaller) image */
+  .he-collection-highlights__img--custom {
+    display: block;
+    max-width: 85%;
+    max-height: 85%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    transition: transform 0.5s ease;
+  }
+
+  .he-collection-highlights__block--collection:hover .he-collection-highlights__img--zoom {
+    transform: scale(1.07);
+  }
+
+  /* block with contained image: name sits below image, not overlaid */
+  .he-collection-highlights__block--custom-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .he-collection-highlights__block--custom-img .he-collection-highlights__collection-name {
+    position: static;
+    margin-block-start: 16px;
+    text-align: center;
+    color: inherit;
+    text-shadow: none;
+  }
+
+  .he-collection-highlights__collection-name {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding-bottom: 46px;
+    color: #ffffff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+    pointer-events: none;
+  }
+
+  /* ── Placeholder svg ── */
+  .he-collection-highlights__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ── Mobile — 1 column ── */
+  @media screen and (max-width: 749px) {
+    .he-collection-highlights__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .he-collection-highlights__collection-name {
+      font-size: 18px;
+      padding-bottom: 19px;
+    }
+
+    .he-collection-highlights__text-inner {
+      font-size: 16px;
+    }
+
+    .he-collection-highlights__block--hide-mobile {
+      display: none !important;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "HE Collection Highlights",
+  "tag": "section",
+  "class": "he-collection-highlights-section",
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "type": "text_block",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add your text here</p>"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "full_image",
+      "name": "Full Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "collection_block",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom name",
+          "info": "Overrides the collection name"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom image",
+          "info": "Overrides the collection image — displayed smaller with background"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "info": "Visible when custom image is set",
+          "default": "#f5f5f5"
+        },
+        {
+          "type": "header",
+          "content": "Visibility"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on mobile",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Grid"
+    },
+    {
+      "type": "range",
+      "id": "block_min_height",
+      "label": "Minimum block height",
+      "min": 160,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 460
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "HE Collection Highlights",
+      "category": "Collections",
+      "blocks": [
+        {
+          "type": "text_block",
+          "settings": {
+            "text": "<p>Explore our collections</p>",
+            "text_color": "#000000",
+            "background_color": "#f5f5f5"
+          }
+        },
+        {
+          "type": "collection_block"
+        },
+        {
+          "type": "full_image"
+        },
+        {
+          "type": "collection_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
