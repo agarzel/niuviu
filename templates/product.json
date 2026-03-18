@@ -321,183 +321,12 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "group_8ePU6U": {
-              "type": "group",
-              "name": "Benefits",
-              "settings": {
-                "content_direction": "column",
-                "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 30,
-                "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
-                "height": "fill",
-                "custom_height": 100,
-                "inherit_color_scheme": false,
-                "color_scheme": "scheme-5",
-                "background_media": "image",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 43,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "link": "",
-                "open_in_new_tab": false,
-                "placeholder": "",
-                "padding-block-start": 60,
-                "padding-block-end": 60,
-                "padding-inline-start": 41,
-                "padding-inline-end": 40
-              },
-              "blocks": {
-                "text_aD9DKF": {
-                  "type": "text",
-                  "name": "Heading",
-                  "settings": {
-                    "text": "<p>Benefits</p>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-primary)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "group_hC9kAq": {
-                  "type": "group",
-                  "name": "List",
-                  "settings": {
-                    "content_direction": "row",
-                    "vertical_on_mobile": false,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "flex-start",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "center",
-                    "gap": 100,
-                    "width": "fill",
-                    "custom_width": 100,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "link": "",
-                    "open_in_new_tab": false,
-                    "placeholder": "",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "text_QEYdwd": {
-                      "type": "text",
-                      "name": "Text",
-                      "settings": {
-                        "text": "<p>Nourishing<br/>Hydrating<br/>Soothing</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-primary--family)",
-                        "font_size": "1.25rem",
-                        "line_height": "loose",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    },
-                    "text_Bt3Ph9": {
-                      "type": "text",
-                      "name": "Text",
-                      "settings": {
-                        "text": "<p>Won't clog pores<br/>Lightweight<br/></p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-primary--family)",
-                        "font_size": "1.25rem",
-                        "line_height": "loose",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_QEYdwd",
-                    "text_Bt3Ph9"
-                  ]
-                }
-              },
-              "block_order": [
-                "text_aD9DKF",
-                "group_hC9kAq"
-              ]
             }
           },
           "block_order": [
             "group_4we3XL",
             "group_dTHcXb",
-            "text_LbbLqQ",
-            "group_8ePU6U"
+            "text_LbbLqQ"
           ]
         }
       },
@@ -907,68 +736,6 @@
         "gap_between_elements": 64
       }
     },
-    "section_UhNgJN": {
-      "type": "section",
-      "blocks": {
-        "text_mjKjVW": {
-          "type": "text",
-          "name": "Text",
-          "settings": {
-            "text": "<p>The best skincare routine is the one you can stick to. This formula feels so good, staying consistent won't be a chore. </p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h4",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 32,
-            "padding-inline-end": 32
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_mjKjVW"
-      ],
-      "name": "Image banner",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "full-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-4",
-        "background_media": "image",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 10,
-        "padding-block-end": 0
-      }
-    },
     "product_recommendations_dDfQTx": {
       "type": "product-recommendations",
       "blocks": {
@@ -1175,7 +942,6 @@
     "main",
     "section_dEGUdG",
     "marquee_r8WyKj",
-    "section_UhNgJN",
     "product_recommendations_dDfQTx"
   ]
 }
