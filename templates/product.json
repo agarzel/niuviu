@@ -647,7 +647,7 @@
         "text_J43Rxh": {
           "type": "text",
           "settings": {
-            "text": "<p>Expert endorsed</p>",
+            "text": "<p>Shampoo</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -673,7 +673,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p><strong>FOR SENSITIVE SKIN</strong></p>",
+            "text": "<p><strong>PURE</strong></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -698,7 +698,7 @@
         "text_PKBPq6": {
           "type": "text",
           "settings": {
-            "text": "<p>Vitamin rich</p>",
+            "text": "<p>Trehaloza</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
