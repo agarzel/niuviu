@@ -792,7 +792,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "enable_custom_border_radius_px": false,
+                "enable_custom_border_radius_px": true,
                 "custom_border_radius_px": "500",
                 "hide_added_state_on_product_card": false,
                 "padding-block-start": 0,
