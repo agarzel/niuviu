@@ -203,6 +203,17 @@
     "product_list_Y9pBix": {
       "type": "product-list",
       "blocks": {
+        "product_list_image_slot_WfCdEX": {
+          "type": "product-list-image-slot",
+          "name": "Product list image slot",
+          "settings": {
+            "image": "shopify://shop_images/ea824bf3353280dd0776522f509f00e08f24778f.jpg",
+            "position": 2,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
         "static-header": {
           "type": "_product-list-content",
           "name": "t:names.header",
@@ -415,6 +426,9 @@
           ]
         }
       },
+      "block_order": [
+        "product_list_image_slot_WfCdEX"
+      ],
       "custom_css": [
         "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #5699d9;}",
         ".button {--button-background-color: #5699d9; --button-border-color: #5699d9; color: #fff;}"
