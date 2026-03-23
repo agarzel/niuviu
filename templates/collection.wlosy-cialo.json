@@ -203,17 +203,6 @@
     "product_list_Y9pBix": {
       "type": "product-list",
       "blocks": {
-        "product_list_image_slot_WfCdEX": {
-          "type": "product-list-image-slot",
-          "name": "Product list image slot",
-          "settings": {
-            "image": "shopify://shop_images/ea824bf3353280dd0776522f509f00e08f24778f.jpg",
-            "position": 1,
-            "link": "",
-            "open_in_new_tab": false
-          },
-          "blocks": {}
-        },
         "static-header": {
           "type": "_product-list-content",
           "name": "t:names.header",
@@ -426,9 +415,6 @@
           ]
         }
       },
-      "block_order": [
-        "product_list_image_slot_WfCdEX"
-      ],
       "custom_css": [
         "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #5699d9;}",
         ".button {--button-background-color: #5699d9; --button-border-color: #5699d9; color: #fff;}"
@@ -453,7 +439,12 @@
         "product_image_border_radius_px": "500",
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "image_slot_1_image": "shopify://shop_images/ea824bf3353280dd0776522f509f00e08f24778f.jpg",
+        "image_slot_1_position": 2,
+        "image_slot_1_link": "",
+        "image_slot_2_position": 4,
+        "image_slot_2_link": ""
       }
     },
     "product_list_RbQ6id": {
@@ -695,7 +686,11 @@
         "product_image_border_radius_px": "500",
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "image_slot_1_position": 2,
+        "image_slot_1_link": "",
+        "image_slot_2_position": 4,
+        "image_slot_2_link": ""
       }
     },
     "product_list_3QEDYX": {
@@ -937,7 +932,11 @@
         "product_image_border_radius_px": "500",
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "image_slot_1_position": 2,
+        "image_slot_1_link": "",
+        "image_slot_2_position": 4,
+        "image_slot_2_link": ""
       }
     }
   },
