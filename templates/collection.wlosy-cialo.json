@@ -579,7 +579,7 @@
         }
       },
       "custom_css": [
-        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #F2BC27;}"
+        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #f2bc27;}"
       ],
       "name": "t:names.products_carousel",
       "settings": {
@@ -780,6 +780,9 @@
           ]
         }
       },
+      "custom_css": [
+        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #9E66E5;}"
+      ],
       "name": "t:names.products_carousel",
       "settings": {
         "collection": "lumi",
