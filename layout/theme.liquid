@@ -23,6 +23,7 @@
         id="view-transition-render-blocker"
       >
     {% endif %}
+    {{ 'SailPL.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
 
     {%- render 'meta-tags' -%}
     {%- render 'stylesheets' -%}
