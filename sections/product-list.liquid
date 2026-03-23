@@ -38,7 +38,11 @@
             assign current_position = forloop.index | plus: 0
             for section_block in section.blocks
               assign slot_position = section_block.settings.position | plus: 0
-              if section_block.type == 'product-list-image-slot' and slot_position == current_position
+              assign is_image_slot_block = false
+              if section_block.type == 'product-list-image-slot' or section_block.type contains 'product-list-image-slot' or section_block.type contains 'product_list_image_slot'
+                assign is_image_slot_block = true
+              endif
+              if is_image_slot_block and section_block.settings.image != blank and slot_position == current_position
                 assign replacement_block = section_block
                 break
               endif
@@ -91,7 +95,11 @@
           assign current_position = i | plus: 0
           for section_block in section.blocks
             assign slot_position = section_block.settings.position | plus: 0
-            if section_block.type == 'product-list-image-slot' and slot_position == current_position
+            assign is_image_slot_block = false
+            if section_block.type == 'product-list-image-slot' or section_block.type contains 'product-list-image-slot' or section_block.type contains 'product_list_image_slot'
+              assign is_image_slot_block = true
+            endif
+            if is_image_slot_block and section_block.settings.image != blank and slot_position == current_position
               assign replacement_block = section_block
               break
             endif
