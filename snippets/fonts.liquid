@@ -1,4 +1,14 @@
 {% # theme-check-disable %}
+{% style %}
+  @font-face {
+    font-family: 'SailPL';
+    src: url('{{ 'SailPL.woff2' | asset_url }}') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+{% endstyle %}
+
 {%- unless settings.type_body_font.system? -%}
   <link
     rel="preload"
