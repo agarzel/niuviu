@@ -30,106 +30,123 @@
   </div>
 
   {% capture list_items %}
+    {% liquid
+      assign slot_1_active = false
+      assign slot_2_active = false
+      if section.settings.image_slot_1_image != blank
+        assign slot_1_active = true
+      endif
+      if section.settings.image_slot_2_image != blank
+        assign slot_2_active = true
+      endif
+      assign active_slot_count = 0
+      if slot_1_active
+        assign active_slot_count = active_slot_count | plus: 1
+      endif
+      if slot_2_active
+        assign active_slot_count = active_slot_count | plus: 1
+      endif
+    %}
     {% if section.settings.collection != blank and shop.products_count != 0 %}
       {% paginate section.settings.collection.products by max_items %}
-        {% for product in section.settings.collection.products limit: max_items %}
+        {% liquid
+          assign collection_products = section.settings.collection.products
+          assign product_count = collection_products.size
+          assign total_render = product_count | plus: active_slot_count
+          if total_render > max_items
+            assign total_render = max_items
+          endif
+          assign product_idx = 0
+        %}
+        {% for pos in (1..total_render) %}
           {% liquid
-            assign replacement_block = blank
-            assign current_position = forloop.index | plus: 0
-            for section_block in section.blocks
-              assign slot_position = section_block.settings.position | plus: 0
-              assign is_image_slot_block = false
-              if section_block.type == 'product-list-image-slot' or section_block.type contains 'product-list-image-slot' or section_block.type contains 'product_list_image_slot'
-                assign is_image_slot_block = true
-              endif
-              if is_image_slot_block and section_block.settings.image != blank and slot_position == current_position
-                assign replacement_block = section_block
-                break
-              endif
-            endfor
+            assign is_slot = false
+            assign slot_image = blank
+            assign slot_link = blank
+            if slot_1_active and section.settings.image_slot_1_position == pos
+              assign is_slot = true
+              assign slot_image = section.settings.image_slot_1_image
+              assign slot_link = section.settings.image_slot_1_link
+            elsif slot_2_active and section.settings.image_slot_2_position == pos
+              assign is_slot = true
+              assign slot_image = section.settings.image_slot_2_image
+              assign slot_link = section.settings.image_slot_2_link
+            endif
           %}
-          <div
-            class="resource-list__item"
-          >
-            {% if replacement_block != blank and replacement_block.settings.image != blank %}
-              <div class="product-list__image-slot" {{ replacement_block.shopify_attributes }}>
-                {% if replacement_block.settings.link != blank %}
-                  <a
-                    href="{{ replacement_block.settings.link }}"
-                    class="product-list__image-slot-link"
-                    {% if replacement_block.settings.open_in_new_tab %}
-                      target="_blank" rel="noopener"
-                    {% endif %}
-                  >
+          <div class="resource-list__item">
+            {% if is_slot %}
+              <div class="product-list__image-slot">
+                {% if slot_link != blank %}
+                  <a href="{{ slot_link }}" class="product-list__image-slot-link">
                 {% endif %}
                 {{
-                  replacement_block.settings.image
+                  slot_image
                   | image_url: width: 2400
                   | image_tag:
-                    width: replacement_block.settings.image.width,
+                    width: slot_image.width,
                     widths: '320, 480, 640, 832, 1200, 1600, 1920, 2400',
-                    height: replacement_block.settings.image.height,
+                    height: slot_image.height,
                     class: 'product-list__image-slot-media',
-                    alt: replacement_block.settings.image.alt
+                    alt: slot_image.alt
                 }}
-                {% if replacement_block.settings.link != blank %}
+                {% if slot_link != blank %}
                   </a>
                 {% endif %}
               </div>
             {% else %}
-              {% # theme-check-disable UniqueStaticBlockId %}
-                {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
-              {% # theme-check-enable UniqueStaticBlockId %}
+              {% assign product = collection_products[product_idx] %}
+              {% if product != blank %}
+                {% # theme-check-disable UniqueStaticBlockId %}
+                  {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                {% # theme-check-enable UniqueStaticBlockId %}
+                {% assign product_idx = product_idx | plus: 1 %}
+              {% endif %}
             {% endif %}
           </div>
-
           {% unless forloop.last %}
             <!--@list/split-->
           {% endunless %}
         {% endfor %}
       {% endpaginate %}
     {% else %}
-      {% for i in (1..max_items) %}
+      {% liquid
+        assign total_render_fallback = max_items | plus: active_slot_count
+        if total_render_fallback > max_items
+          assign total_render_fallback = max_items
+        endif
+      %}
+      {% for pos in (1..max_items) %}
         {% liquid
-          assign replacement_block = blank
-          assign current_position = i | plus: 0
-          for section_block in section.blocks
-            assign slot_position = section_block.settings.position | plus: 0
-            assign is_image_slot_block = false
-            if section_block.type == 'product-list-image-slot' or section_block.type contains 'product-list-image-slot' or section_block.type contains 'product_list_image_slot'
-              assign is_image_slot_block = true
-            endif
-            if is_image_slot_block and section_block.settings.image != blank and slot_position == current_position
-              assign replacement_block = section_block
-              break
-            endif
-          endfor
+          assign is_slot = false
+          assign slot_image = blank
+          assign slot_link = blank
+          if slot_1_active and section.settings.image_slot_1_position == pos
+            assign is_slot = true
+            assign slot_image = section.settings.image_slot_1_image
+            assign slot_link = section.settings.image_slot_1_link
+          elsif slot_2_active and section.settings.image_slot_2_position == pos
+            assign is_slot = true
+            assign slot_image = section.settings.image_slot_2_image
+            assign slot_link = section.settings.image_slot_2_link
+          endif
         %}
-        <div
-          class="resource-list__item"
-        >
-          {% if replacement_block != blank and replacement_block.settings.image != blank %}
-            <div class="product-list__image-slot" {{ replacement_block.shopify_attributes }}>
-              {% if replacement_block.settings.link != blank %}
-                <a
-                  href="{{ replacement_block.settings.link }}"
-                  class="product-list__image-slot-link"
-                  {% if replacement_block.settings.open_in_new_tab %}
-                    target="_blank" rel="noopener"
-                  {% endif %}
-                >
+        <div class="resource-list__item">
+          {% if is_slot %}
+            <div class="product-list__image-slot">
+              {% if slot_link != blank %}
+                <a href="{{ slot_link }}" class="product-list__image-slot-link">
               {% endif %}
               {{
-                replacement_block.settings.image
+                slot_image
                 | image_url: width: 2400
                 | image_tag:
-                  width: replacement_block.settings.image.width,
+                  width: slot_image.width,
                   widths: '320, 480, 640, 832, 1200, 1600, 1920, 2400',
-                  height: replacement_block.settings.image.height,
+                  height: slot_image.height,
                   class: 'product-list__image-slot-media',
-                  alt: replacement_block.settings.image.alt
+                  alt: slot_image.alt
               }}
-              {% if replacement_block.settings.link != blank %}
+              {% if slot_link != blank %}
                 </a>
               {% endif %}
             </div>
@@ -139,7 +156,6 @@
             {% # theme-check-enable UniqueStaticBlockId %}
           {% endif %}
         </div>
-
         {% unless forloop.last %}
           <!--@list/split-->
         {% endunless %}
@@ -203,6 +219,19 @@
     display: block;
     object-fit: cover;
     object-position: center center;
+  }
+
+  .ui-test-product-list .product-list__image-slot-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f3f3;
+    border-radius: var(--product-list-image-radius, 500px);
+    color: #999;
+    font-size: 14px;
   }
 
   .ui-test-product-list .product-card__content .group-block-content {
@@ -529,6 +558,48 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Image slots"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_slot_1_image",
+      "label": "Slot 1 — Image"
+    },
+    {
+      "type": "range",
+      "id": "image_slot_1_position",
+      "label": "Slot 1 — Replace position",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "url",
+      "id": "image_slot_1_link",
+      "label": "Slot 1 — Link (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_slot_2_image",
+      "label": "Slot 2 — Image"
+    },
+    {
+      "type": "range",
+      "id": "image_slot_2_position",
+      "label": "Slot 2 — Replace position",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "url",
+      "id": "image_slot_2_link",
+      "label": "Slot 2 — Link (optional)"
     }
   ],
   "presets": [
