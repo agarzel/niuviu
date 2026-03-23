@@ -377,7 +377,7 @@
         }
       },
       "custom_css": [
-        "h3 {font-family: \"SailPL\";}"
+        "h3 {font-family: 'SailPL', var(--font-heading--family) !important;}"
       ],
       "name": "t:names.products_carousel",
       "settings": {
