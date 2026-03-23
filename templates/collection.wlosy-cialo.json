@@ -208,7 +208,7 @@
           "name": "Product list image slot",
           "settings": {
             "image": "shopify://shop_images/ea824bf3353280dd0776522f509f00e08f24778f.jpg",
-            "position": 1,
+            "position": 2,
             "link": "",
             "open_in_new_tab": false
           },
