@@ -1,10 +1,21 @@
 
 
-{% capture children %}
-  {% content_for 'blocks' %}
-{% endcapture %}
+{% assign show_section = true %}
+{% unless request.visual_preview_mode %}
+  {% if request.page_type == 'product' and section.settings.pdp_faq_metafield %}
+    {% if product.metafields.custom.faq_pdp == blank %}
+      {% assign show_section = false %}
+    {% endif %}
+  {% endif %}
+{% endunless %}
 
-{% render 'section', section: section, children: children %}
+{% if show_section %}
+  {% capture children %}
+    {% content_for 'blocks' %}
+  {% endcapture %}
+
+  {% render 'section', section: section, children: children %}
+{% endif %}
 
 {% schema %}
 {
@@ -418,6 +429,16 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "FAQ PDP"
+    },
+    {
+      "type": "checkbox",
+      "id": "pdp_faq_metafield",
+      "label": "Ukryj sekcję na PDP gdy metafield faq_pdp jest pusty",
+      "default": false
     }
   ],
   "presets": [

@@ -168,9 +168,40 @@
   </div>
 </product-recommendations>
 
+{% stylesheet %}
+  .ui-test-product-recommendations .product-card__content .text-block > *,
+  .ui-test-product-recommendations .product-card__content product-price .price {
+    width: 100%;
+    text-align: center !important;
+    font-family: 'DM Sans', var(--font-body--family);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .ui-test-product-recommendations .product-card__content .text-block > * {
+    font-size: 20px;
+    color: #000;
+  }
+
+  .ui-test-product-recommendations .product-card__content product-price .price {
+    font-size: 16px;
+    color: #5b5757;
+  }
+
+  @media (max-width: 767px) {
+    .ui-test-product-recommendations .product-card__content .text-block > *,
+    .ui-test-product-recommendations .product-card__content product-price .price {
+      font-size: 18px;
+    }
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:names.product_recommendations",
+  "class": "ui-test-product-recommendations",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
@@ -530,9 +561,40 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               }
+            },
+            "buy-buttons": {
+              "type": "buy-buttons",
+              "name": "t:names.product_buy_buttons",
+              "settings": {
+                "stacking": false,
+                "show_pickup_availability": false,
+                "gift_card_form": false,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary"
+                  }
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true
+                }
+              },
+              "block_order": ["quantity", "add-to-cart", "accelerated-checkout"]
             }
           },
-          "block_order": ["product-card-gallery", "product_title", "price"]
+          "block_order": ["product-card-gallery", "product_title", "price", "buy-buttons"]
         }
       },
       "block_order": ["header"]
