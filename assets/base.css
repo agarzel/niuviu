@@ -1062,7 +1062,7 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   overflow: hidden;
 }
 
-.product-card product-list__image-slot .product-grid__card.product-grid__card {
+.product-list__image-slot .product-grid__card.product-grid__card {
   padding-block: 0
 }
 
