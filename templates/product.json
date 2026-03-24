@@ -744,7 +744,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>Pairs well with</h3>",
+            "text": "<h3><strong>INNE PRODUKTY</strong></h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -887,25 +887,11 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
-                },
-                "swatches_Cqcpbi": {
-                  "type": "swatches",
-                  "settings": {
-                    "product_swatches_alignment": "flex-start",
-                    "product_swatches_alignment_mobile": "flex-start",
-                    "hide_padding": false,
-                    "product_swatches_padding_top": 4,
-                    "product_swatches_padding_bottom": 0,
-                    "product_swatches_padding_left": 0,
-                    "product_swatches_padding_right": 0
-                  },
-                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_xjKtAU",
-                "price_aKPzY8",
-                "swatches_Cqcpbi"
+                "price_aKPzY8"
               ]
             }
           },
