@@ -26,6 +26,9 @@
   if settings.icons_style != 'none'
     assign show_arrows = true
   endif
+  if slide_count <= settings.columns
+    assign show_arrows = false
+  endif
 %}
 
 {% capture slides %}
