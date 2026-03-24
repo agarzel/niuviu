@@ -893,11 +893,46 @@
                 "text_xjKtAU",
                 "price_aKPzY8"
               ]
+            },
+            "buy_buttons_recPdp": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": false,
+                "show_pickup_availability": false,
+                "gift_card_form": false,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "static": true
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary"
+                  }
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true
+                }
+              },
+              "block_order": [
+                "quantity",
+                "add-to-cart",
+                "accelerated-checkout"
+              ]
             }
           },
           "block_order": [
             "product_card_gallery_LxGapM",
-            "group_ynR9F8"
+            "group_ynR9F8",
+            "buy_buttons_recPdp"
           ]
         }
       },

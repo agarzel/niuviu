@@ -3273,14 +3273,13 @@ label:has(input[type='checkbox']:disabled) {
 
 /* Quantity selector */
 .quantity-selector {
-  --quantity-selector-width: 124px;
-
+  --quantity-selector-width: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-input-text);
+  color: black;
   background-color: var(--color-input-background);
-  border: var(--style-border-width-inputs) solid var(--color-input-border);
+  border: var(--style-border-width-inputs) solid #0000001f;
   border-radius: var(--style-border-radius-inputs);
   flex: 1 1 var(--quantity-selector-width);
   align-self: stretch;
@@ -3288,6 +3287,12 @@ label:has(input[type='checkbox']:disabled) {
 
   &:hover {
     background-color: var(--color-input-hover-background);
+  }
+}
+
+@media(max-width: 500px) {
+  .quantity-selector {
+    --quantity-selector-width: 150px;
   }
 }
 
@@ -3307,7 +3312,7 @@ label:has(input[type='checkbox']:disabled) {
   width: var(--minimum-touch-target);
   height: var(--minimum-touch-target);
   flex-shrink: 0;
-  color: var(--color-input-text);
+  color: black;
 }
 
 .quantity-selector .quantity-minus {
@@ -3357,8 +3362,9 @@ label:has(input[type='checkbox']:disabled) {
   appearance: none;
   max-width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
   border-radius: var(--style-border-radius-buttons);
-  color: var(--color-input-text);
+  color: black;
   background-color: transparent;
+  font-size: 20px;
 }
 
 /* Chrome, Safari, Edge, Opera */

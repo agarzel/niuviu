@@ -28,6 +28,7 @@
   <div
     class="accelerated-checkout-block"
     ref="acceleratedCheckoutButtonContainer"
+    style="grid-column: span 2;"
     {{ block.shopify_attributes }}
     {% if request.visual_preview_mode %}
       data-shopify-visual-preview
@@ -47,14 +48,15 @@
 
   more-payment-options-link {
     font-size: smaller;
+    color: black;
   }
 
   more-payment-options-link a {
-    --button-color: var(--color-primary);
+    --button-color: black;
   }
 
   more-payment-options-link a:hover {
-    --button-color: var(--color-primary-hover);
+    --button-color: black;
   }
 
   .shopify-payment-button__more-options[aria-hidden='true'] {

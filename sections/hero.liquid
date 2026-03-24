@@ -1,5 +1,16 @@
 
 
+{% assign show_section = true %}
+{% unless request.visual_preview_mode %}
+  {% if request.page_type == 'product' and section.settings.pdp_hero_metafield %}
+    {% if product.metafields.custom.hero_pdp == blank %}
+      {% assign show_section = false %}
+    {% endif %}
+  {% endif %}
+{% endunless %}
+
+{% if show_section %}
+
 {% liquid
   assign media_count = 0
   assign media_count_mobile = 0
@@ -547,6 +558,8 @@
     </div>
   </div>
 </div>
+
+{% endif %}
 
 {% stylesheet %}
   .hero-wrapper {
@@ -1342,6 +1355,16 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Hero PDP"
+    },
+    {
+      "type": "checkbox",
+      "id": "pdp_hero_metafield",
+      "label": "Ukryj sekcję na PDP gdy metafield hero_pdp jest pusty",
+      "default": false
     }
   ],
   "presets": [

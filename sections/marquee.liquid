@@ -1,4 +1,29 @@
 
+{% liquid
+  assign is_pdp = false
+  if request.page_type == 'product'
+    assign is_pdp = true
+  endif
+
+  assign pdp_marquee = nil
+  if is_pdp
+    assign pdp_marquee = product.metafields.custom.plynacy_pasek_pdp.value
+  endif
+
+  assign show_section = true
+  if is_pdp and pdp_marquee == blank
+    assign show_section = false
+  endif
+
+  assign meta_bg = nil
+  assign meta_color = nil
+  if is_pdp and pdp_marquee != blank
+    assign meta_bg = pdp_marquee.kolor_tla
+    assign meta_color = pdp_marquee.kolor_czcionki
+  endif
+%}
+
+{% if show_section %}
 
 <script
   src="{{ 'marquee.js' | asset_url }}"
@@ -8,13 +33,18 @@
 
 {% assign gap_between_elements = section.settings.gap_between_elements %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section-background color-{{ section.settings.color_scheme }}"
+  {% if meta_bg != blank %}style="background-color: {{ meta_bg }};"{% endif %}
+></div>
 <marquee-component
   class="section spacing-style gap-style color-{{ section.settings.color_scheme }}"
   style="
     {%- render 'spacing-style', settings: section.settings %};
     {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
     --marquee-direction: {{ section.settings.movement_direction }};
+    {% if meta_bg != blank %}--marquee-meta-bg: {{ meta_bg }};{% endif %}
+    {% if meta_color != blank %}--marquee-meta-color: {{ meta_color }};{% endif %}
   "
   data-speed-factor="25"
   data-movement-direction="{{ section.settings.movement_direction }}"
@@ -36,6 +66,17 @@
     </div>
   </div>
 </marquee-component>
+
+{% endif %}
+
+{% style %}
+  @font-face {
+    font-family: "SailPL", var(--font-heading--family) !important;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+{% endstyle %}
 
 {% stylesheet %}
   marquee-component {
@@ -75,6 +116,33 @@
 
   .marquee__repeated-items > * {
     align-content: center;
+  }
+
+  /* SailPL font and size for all text blocks in marquee */
+  .marquee__repeated-items .text-block,
+  .marquee__repeated-items .text-block * {
+    font-family: 'SailPL', var(--font-heading--family) !important;
+    font-size: 96px !important;
+    line-height: 80px !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .marquee__repeated-items .text-block,
+    .marquee__repeated-items .text-block * {
+      font-size: 48px !important;
+      line-height: 32px !important;
+    }
+  }
+
+  /* PDP metaobject — background color override */
+  marquee-component[style*='--marquee-meta-bg'] {
+    background-color: var(--marquee-meta-bg) !important;
+  }
+
+  /* PDP metaobject — font color override */
+  marquee-component[style*='--marquee-meta-color'] .text-block,
+  marquee-component[style*='--marquee-meta-color'] .text-block * {
+    color: var(--marquee-meta-color) !important;
   }
 
   @media (prefers-reduced-motion: no-preference) {
