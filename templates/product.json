@@ -124,7 +124,7 @@
                   "type": "text",
                   "name": "Byline",
                   "settings": {
-                    "text": "<p>{{ closest.product.metafields.descriptors.subtitle.value }}</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.seria.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
