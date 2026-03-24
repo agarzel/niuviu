@@ -1062,6 +1062,10 @@ body:has(.header[transparent]) #header-group > *:not(.header-section) {
   overflow: hidden;
 }
 
+.product-card product-list__image-slot .product-grid__card.product-grid__card {
+  padding-block: 0
+}
+
 [product-grid-view='zoom-out'] .product-grid__card {
   row-gap: var(--padding-xs);
 }
