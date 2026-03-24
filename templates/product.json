@@ -615,7 +615,7 @@
         "gradient_direction": "to top",
         "padding-block-start": 70,
         "padding-block-end": 70,
-        "pdp_faq_metafield": false
+        "pdp_faq_metafield": true
       }
     },
     "marquee_r8WyKj": {
@@ -790,6 +790,45 @@
         "padding-block-start": 30,
         "padding-block-end": 30,
         "gap_between_elements": 64
+      }
+    },
+    "hero_6xJzMY": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "image_2": "{{ product.metafields.custom.hero_pdp.value.obraz_desktop.value }}",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "section_height_mobile": "inherit",
+        "section_height_mobile_custom": 50,
+        "section_height_mobile_px": 500,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40,
+        "pdp_hero_metafield": true
       }
     },
     "product_recommendations_dDfQTx": {
@@ -1023,6 +1062,7 @@
     "main",
     "section_dEGUdG",
     "marquee_r8WyKj",
+    "hero_6xJzMY",
     "product_recommendations_dDfQTx"
   ]
 }
