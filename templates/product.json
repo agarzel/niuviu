@@ -349,6 +349,7 @@
           "type": "image",
           "name": "t:names.image",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_24.png",
             "link": "",
             "image_ratio": "portrait",
             "width": "custom",
@@ -422,7 +423,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "",
+                "color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
