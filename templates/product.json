@@ -456,7 +456,7 @@
                 "accordion_row_pLJCxh": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Natural ingredients",
+                    "heading": "{{ closest.product.metafields.custom.faq_pdp.value.pytanie_1.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -465,7 +465,7 @@
                     "text_DzQDeP": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Each product is made with carefully chosen ingredients that focus on your skin's health and glow. Every ingredient is picked for its effectiveness, helping you achieve the best results in your skincare routine.</p>",
+                        "text": "{{ closest.product.metafields.custom.faq_pdp.value.odpowiedz_1 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -495,7 +495,7 @@
                 "accordion_row_KTR3xE": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Tested for safety",
+                    "heading": "{{ closest.product.metafields.custom.faq_pdp.value.pytanie_2.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -504,7 +504,7 @@
                     "text_pmWgCe": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We prioritize safety in every product we create, ensuring peace of mind for you and your loved ones. Each item undergoes thorough testing, so you can trust that you're using safe and reliable solutions every day.</p>",
+                        "text": "{{ closest.product.metafields.custom.faq_pdp.value.odpowiedz_2 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -534,7 +534,7 @@
                 "accordion_row_VjrDKP": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Fragrance free",
+                    "heading": "{{ closest.product.metafields.custom.faq_pdp.value.pytanie_3.value }}",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -543,7 +543,7 @@
                     "text_mwcwMg": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are fragrance-free, designed for those who prefer a gentle touch without added scents. </p>",
+                        "text": "{{ closest.product.metafields.custom.faq_pdp.value.odpowiedz_3 | metafield_tag }}",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -569,12 +569,94 @@
                   "block_order": [
                     "text_mwcwMg"
                   ]
+                },
+                "accordion_row_3AcejM": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "{{ closest.product.metafields.custom.faq_pdp.value.pytanie_4.value }}",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Rpj8gf": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.metafields.custom.faq_pdp.value.odpowiedz_4 | metafield_tag }}",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Rpj8gf"
+                  ]
+                },
+                "accordion_row_gbPkqG": {
+                  "type": "_accordion-row",
+                  "name": "t:names.accordion_row",
+                  "settings": {
+                    "heading": "{{ closest.product.metafields.custom.faq_pdp.value.pytanie_5.value }}",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Y7hXdg": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.metafields.custom.faq_pdp.value.odpowiedz_5 | metafield_tag }}",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Y7hXdg"
+                  ]
                 }
               },
               "block_order": [
                 "accordion_row_pLJCxh",
                 "accordion_row_KTR3xE",
-                "accordion_row_VjrDKP"
+                "accordion_row_VjrDKP",
+                "accordion_row_3AcejM",
+                "accordion_row_gbPkqG"
               ]
             }
           },
