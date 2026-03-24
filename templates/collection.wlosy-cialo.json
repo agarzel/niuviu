@@ -687,8 +687,10 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48,
+        "image_slot_1_image": "shopify://shop_images/c55ae4c3f3d6396c5469bed2823f4c97fbb2baaf.jpg",
         "image_slot_1_position": 2,
         "image_slot_1_link": "",
+        "image_slot_2_image": "shopify://shop_images/5c20b508dbb74d78af9d0f7e5dd2275c516bbef9.jpg",
         "image_slot_2_position": 4,
         "image_slot_2_link": ""
       }
