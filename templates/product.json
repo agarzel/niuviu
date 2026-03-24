@@ -624,7 +624,7 @@
         "text_mz6hQa": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>FRESH</strong></p>",
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_1.value }}</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -649,7 +649,7 @@
         "text_J43Rxh": {
           "type": "text",
           "settings": {
-            "text": "<p>Shampoo</p>",
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_2.value }}</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -675,7 +675,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p><strong>PURE</strong></p>",
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_3.value }}</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -700,7 +700,7 @@
         "text_PKBPq6": {
           "type": "text",
           "settings": {
-            "text": "<p>Trehaloza</p>",
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_4.value }}</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -721,13 +721,67 @@
             "padding-inline-end": 0
           },
           "blocks": {}
+        },
+        "text_cag6g8": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_5.value }}</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_TL33nW": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>{{ closest.product.metafields.custom.plynacy_pasek_pdp.value.tekst_6.value }}</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
         "text_mz6hQa",
         "text_J43Rxh",
         "text_7Jhchq",
-        "text_PKBPq6"
+        "text_PKBPq6",
+        "text_cag6g8",
+        "text_TL33nW"
       ],
       "name": "t:names.marquee",
       "settings": {
