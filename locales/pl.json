@@ -343,5 +343,15 @@
       "default_title": "Tytuł domyślny",
       "sticky_add_to_cart": "Pasek szybkiego dodawania do koszyka"
     }
+  },
+  "sections": {
+    "collection_banner": {
+      "placeholder": "Add a desktop image in the section settings"
+    }
+  },
+  "blocks": {
+    "_collection_banner_title": {
+      "placeholder": "Add a custom title or use the collection name"
+    }
   }
 }

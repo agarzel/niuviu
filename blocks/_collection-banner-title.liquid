@@ -1,0 +1,190 @@
+{% liquid
+  assign title_text = block.settings.heading | strip
+  if title_text == blank and block.settings.use_collection_title and closest.collection != blank
+    assign title_text = closest.collection.title
+  endif
+
+  assign font_stack = "'SailPL', var(--font-heading--family)"
+  if block.settings.title_font == 'heading'
+    assign font_stack = 'var(--font-heading--family)'
+  elsif block.settings.title_font == 'body'
+    assign font_stack = 'var(--font-body--family)'
+  endif
+
+  assign title_letter_spacing_em = block.settings.title_letter_spacing | times: 0.01
+%}
+
+{% if title_text != blank or request.design_mode %}
+  <div
+    class="collection-banner__content page-width collection-banner__content--{{ block.settings.title_position }}"
+    style="
+      --cb-title-size-desktop: {{ block.settings.title_size_desktop }}px;
+      --cb-title-size-mobile: {{ block.settings.title_size_mobile }}px;
+      --cb-title-lh-desktop: {{ block.settings.title_line_height_desktop }}px;
+      --cb-title-lh-mobile: {{ block.settings.title_line_height_mobile }}px;
+      --cb-title-color: {{ block.settings.title_color }};
+      --cb-title-font: {{ font_stack }};
+      --cb-content-padding: {{ block.settings.title_padding }}px;
+      --cb-title-align: {{ block.settings.title_align }};
+      --cb-title-transform: {{ block.settings.title_case }};
+      --cb-title-tracking: {{ title_letter_spacing_em }}em;
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% if title_text != blank %}
+      <h1 class="collection-banner__title">{{ title_text }}</h1>
+    {% elsif request.design_mode %}
+      <p class="collection-banner__title collection-banner__title--placeholder">
+        {{ 'blocks._collection_banner_title.placeholder' | t }}
+      </p>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:blocks._collection_banner_title.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:blocks._collection_banner_title.paragraph"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_collection_title",
+      "label": "t:blocks._collection_banner_title.settings.use_collection_title.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:blocks._collection_banner_title.settings.heading.label",
+      "info": "t:blocks._collection_banner_title.settings.heading.info"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks._collection_banner_title.headers.typography"
+    },
+    {
+      "type": "select",
+      "id": "title_font",
+      "label": "t:blocks._collection_banner_title.settings.title_font.label",
+      "options": [
+        { "value": "sail", "label": "t:blocks._collection_banner_title.settings.title_font.options__1.label" },
+        { "value": "heading", "label": "t:blocks._collection_banner_title.settings.title_font.options__2.label" },
+        { "value": "body", "label": "t:blocks._collection_banner_title.settings.title_font.options__3.label" }
+      ],
+      "default": "sail"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "t:blocks._collection_banner_title.settings.title_size_desktop.label",
+      "min": 40,
+      "max": 240,
+      "step": 2,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "t:blocks._collection_banner_title.settings.title_size_mobile.label",
+      "min": 24,
+      "max": 120,
+      "step": 1,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "title_line_height_desktop",
+      "label": "t:blocks._collection_banner_title.settings.title_line_height_desktop.label",
+      "min": 40,
+      "max": 240,
+      "step": 2,
+      "unit": "px",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "title_line_height_mobile",
+      "label": "t:blocks._collection_banner_title.settings.title_line_height_mobile.label",
+      "min": 28,
+      "max": 128,
+      "step": 1,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "select",
+      "id": "title_align",
+      "label": "t:blocks._collection_banner_title.settings.title_align.label",
+      "options": [
+        { "value": "left", "label": "t:blocks._collection_banner_title.settings.title_align.options__1.label" },
+        { "value": "center", "label": "t:blocks._collection_banner_title.settings.title_align.options__2.label" },
+        { "value": "right", "label": "t:blocks._collection_banner_title.settings.title_align.options__3.label" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "title_case",
+      "label": "t:blocks._collection_banner_title.settings.title_case.label",
+      "options": [
+        { "value": "none", "label": "t:blocks._collection_banner_title.settings.title_case.options__1.label" },
+        { "value": "lowercase", "label": "t:blocks._collection_banner_title.settings.title_case.options__2.label" },
+        { "value": "uppercase", "label": "t:blocks._collection_banner_title.settings.title_case.options__3.label" }
+      ],
+      "default": "lowercase"
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "label": "t:blocks._collection_banner_title.settings.title_letter_spacing.label",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "t:blocks._collection_banner_title.settings.title_color.label",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks._collection_banner_title.headers.layout"
+    },
+    {
+      "type": "select",
+      "id": "title_position",
+      "label": "t:blocks._collection_banner_title.settings.title_position.label",
+      "options": [
+        { "value": "top-left", "label": "t:blocks._collection_banner_title.settings.title_position.options__1.label" },
+        { "value": "top-center", "label": "t:blocks._collection_banner_title.settings.title_position.options__2.label" },
+        { "value": "top-right", "label": "t:blocks._collection_banner_title.settings.title_position.options__3.label" },
+        { "value": "middle-left", "label": "t:blocks._collection_banner_title.settings.title_position.options__4.label" },
+        { "value": "center", "label": "t:blocks._collection_banner_title.settings.title_position.options__5.label" },
+        { "value": "middle-right", "label": "t:blocks._collection_banner_title.settings.title_position.options__6.label" },
+        { "value": "bottom-left", "label": "t:blocks._collection_banner_title.settings.title_position.options__7.label" },
+        { "value": "bottom-center", "label": "t:blocks._collection_banner_title.settings.title_position.options__8.label" },
+        { "value": "bottom-right", "label": "t:blocks._collection_banner_title.settings.title_position.options__9.label" }
+      ],
+      "default": "bottom-left"
+    },
+    {
+      "type": "range",
+      "id": "title_padding",
+      "label": "t:blocks._collection_banner_title.settings.title_padding.label",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ]
+}
+{% endschema %}
