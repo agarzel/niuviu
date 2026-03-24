@@ -1110,5 +1110,159 @@
     "other_sections": "Inne",
     "storytelling": "Narracja",
     "text": "Tekst"
+  },
+  "sections": {
+    "collection_banner": {
+      "name": "Collection banner",
+      "paragraph": "Configure background images and banner height here. Add the Title block for typography, position, and text (including collection name).",
+      "presets": {
+        "name": "Collection banner"
+      },
+      "headers": {
+        "images": "Images",
+        "banner_height": "Banner height",
+        "overlay": "Overlay",
+        "section": "Section"
+      },
+      "settings": {
+        "image_desktop": {
+          "label": "Image (desktop)"
+        },
+        "image_mobile": {
+          "label": "Image (mobile)",
+          "info": "Optional. When empty, the desktop image is used."
+        },
+        "min_height_desktop": {
+          "label": "Minimum height — desktop"
+        },
+        "min_height_mobile": {
+          "label": "Minimum height — mobile"
+        },
+        "show_overlay": {
+          "label": "Show overlay dim"
+        },
+        "overlay_color": {
+          "label": "Overlay color"
+        },
+        "overlay_opacity": {
+          "label": "Overlay opacity"
+        },
+        "section_width": {
+          "label": "Section width",
+          "options__1": {
+            "label": "Page width"
+          },
+          "options__2": {
+            "label": "Full width"
+          }
+        }
+      }
+    }
+  },
+  "blocks": {
+    "_collection_banner_title": {
+      "name": "Title",
+      "paragraph": "Heading text, SailPL / sizes, alignment, position, and padding.",
+      "headers": {
+        "typography": "Typography",
+        "layout": "Layout"
+      },
+      "settings": {
+        "use_collection_title": {
+          "label": "Use collection name as title"
+        },
+        "heading": {
+          "label": "Custom title",
+          "info": "If set, overrides the collection name."
+        },
+        "title_font": {
+          "label": "Font",
+          "options__1": {
+            "label": "SailPL"
+          },
+          "options__2": {
+            "label": "Theme heading"
+          },
+          "options__3": {
+            "label": "Theme body"
+          }
+        },
+        "title_size_desktop": {
+          "label": "Font size — desktop"
+        },
+        "title_size_mobile": {
+          "label": "Font size — mobile"
+        },
+        "title_line_height_desktop": {
+          "label": "Line height — desktop"
+        },
+        "title_line_height_mobile": {
+          "label": "Line height — mobile"
+        },
+        "title_align": {
+          "label": "Text alignment",
+          "options__1": {
+            "label": "Left"
+          },
+          "options__2": {
+            "label": "Center"
+          },
+          "options__3": {
+            "label": "Right"
+          }
+        },
+        "title_case": {
+          "label": "Letter case",
+          "options__1": {
+            "label": "Default"
+          },
+          "options__2": {
+            "label": "Lowercase"
+          },
+          "options__3": {
+            "label": "Uppercase"
+          }
+        },
+        "title_letter_spacing": {
+          "label": "Letter spacing (relative)"
+        },
+        "title_color": {
+          "label": "Title color"
+        },
+        "title_position": {
+          "label": "Title position",
+          "options__1": {
+            "label": "Top left"
+          },
+          "options__2": {
+            "label": "Top center"
+          },
+          "options__3": {
+            "label": "Top right"
+          },
+          "options__4": {
+            "label": "Middle left"
+          },
+          "options__5": {
+            "label": "Center"
+          },
+          "options__6": {
+            "label": "Middle right"
+          },
+          "options__7": {
+            "label": "Bottom left"
+          },
+          "options__8": {
+            "label": "Bottom center"
+          },
+          "options__9": {
+            "label": "Bottom right"
+          }
+        },
+        "title_padding": {
+          "label": "Title area padding"
+        }
+      }
+    }
   }
 }
