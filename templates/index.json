@@ -440,7 +440,7 @@
         "collection_block_7WfQ8R": {
           "type": "collection_block",
           "settings": {
-            "collection": "bestsellery",
+            "collection": "wlosy",
             "custom_title": "WŁOSY",
             "custom_image": "shopify://shop_images/Vector.png",
             "background_color": "#ffd5eb",
@@ -450,7 +450,7 @@
         "collection_block_zpKNdC": {
           "type": "collection_block",
           "settings": {
-            "collection": "frontpage",
+            "collection": "cialo",
             "custom_title": "CIAŁO",
             "custom_image": "shopify://shop_images/Vector_3.png",
             "background_color": "#c7aad1",
