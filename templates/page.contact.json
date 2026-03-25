@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "main-page",
@@ -15,7 +16,7 @@
           "type": "text",
           "name": "t:names.title",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
+            "text": "<h1>Masz pytania? Napisz do nas – chętnie pomożemy!</h1>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -98,7 +99,7 @@
               "type": "contact-form-submit-button",
               "static": true,
               "settings": {
-                "label": "Submit",
+                "label": "Wyślij",
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -140,7 +141,8 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 32,
-        "padding-block-end": 64
+        "padding-block-end": 64,
+        "pdp_faq_metafield": false
       }
     }
   },
