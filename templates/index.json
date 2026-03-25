@@ -126,7 +126,8 @@
         "blurred_reflection": false,
         "reflection_opacity": 75,
         "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-end": 40,
+        "pdp_hero_metafield": false
       }
     },
     "product_list_z7QLNk": {
@@ -194,6 +195,7 @@
             "collection_link_button_BJRcxp": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
+              "disabled": true,
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
@@ -405,7 +407,15 @@
         "product_image_border_radius_px": "500",
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-end": 48,
+        "image_slot_1_position": 2,
+        "image_slot_1_link": "",
+        "image_slot_2_position": 4,
+        "image_slot_2_link": "",
+        "image_slot_3_position": 6,
+        "image_slot_3_link": "",
+        "image_slot_4_position": 8,
+        "image_slot_4_link": ""
       }
     },
     "he_collections_highlights_RErKba": {
