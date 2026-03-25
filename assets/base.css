@@ -1223,6 +1223,14 @@ results-list[initialized] {
   height: 100%;
 }
 
+:is(.product-grid__item, .resource-list__item, .resource-list__slide) .product-card .buy-buttons-block,
+:is(.product-grid__item, .resource-list__item, .resource-list__slide)
+  .product-card
+  .product-card__content
+  > span:has(.add-to-cart-button) {
+  margin-top: auto;
+}
+
 /* Video background */
 .video-background,
 .video-background * {
