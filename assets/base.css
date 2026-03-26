@@ -1618,13 +1618,10 @@ media-gallery {
 
 :not(.dialog-zoomed-gallery) > .product-media-container {
   --slide-width: 100%;
-
   display: flex;
   aspect-ratio: 403 / 653;
   max-height: var(--constrained-height);
   width: var(--slide-width, 100%);
-
-  /* Relative position needed for video and 3d models */
   position: relative;
   overflow: hidden;
 
@@ -4068,6 +4065,21 @@ slideshow-slide {
   }
 }
 
+/* Product card gallery: slides inherit --border-radius from .card-gallery (block border / custom px). */
+.card-gallery slideshow-slide {
+  border-radius: var(--border-radius);
+}
+
+/*
+ * Product list image slots (no slideshow): section sets --product-list-image-slot-radius (Image slots
+ * schema, or var(--product-list-image-radius) when unset). Not --border-radius — display:contents link
+ * breaks inheritance to .product-media.
+ */
+.card-gallery.product-list__image-slot-image .product-media,
+.card-gallery.product-list__image-slot-image .product-media__image {
+  border-radius: var(--product-list-image-slot-radius);
+}
+
 slideshow-slide .slide__image-container--rounded {
   border-radius: var(--corner-radius, 0);
 }
@@ -4961,3 +4973,4 @@ product-recommendations:has([data-has-recommendations='false']) {
     opacity: var(--atc-opacity, 1);
     translate: 0px var(--atc-destination, 0px);
   }
+}
