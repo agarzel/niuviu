@@ -1619,7 +1619,7 @@ media-gallery {
 :not(.dialog-zoomed-gallery) > .product-media-container {
   --slide-width: 100%;
   display: flex;
-  aspect-ratio: 403 / 653;
+  /* aspect-ratio: 403 / 653; */
   max-height: var(--constrained-height);
   width: var(--slide-width, 100%);
   position: relative;
