@@ -817,6 +817,48 @@
         "padding_bottom": 0
       }
     },
+    "marquee_CkPAdt": {
+      "type": "marquee",
+      "blocks": {
+        "text_QKnwkE": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>@niuviu.official</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.875rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_QKnwkE"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    },
     "1774273656bfddf7de": {
       "type": "_blocks",
       "blocks": {
@@ -876,6 +918,7 @@
     "hero_94eh6d",
     "product_list_z7QLNk",
     "he_collections_highlights_RErKba",
+    "marquee_CkPAdt",
     "1774273656bfddf7de"
   ]
 }
