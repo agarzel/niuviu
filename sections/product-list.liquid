@@ -235,6 +235,16 @@
 </div>
 
 {% stylesheet %}
+  /* Smaller product cards in this section (image width, gap, type) */
+  .ui-test-product-list .product-card .product-grid__card {
+    --product-card-gap: 10px;
+  }
+
+  .ui-test-product-list .product-card .card-gallery {
+    max-width: 82%;
+    margin-inline: auto;
+  }
+
   .ui-test-product-list .text-block h3 {
     font-size: 32px;
     text-transform: uppercase;
@@ -305,12 +315,22 @@
     letter-spacing: 0;
   }
   
-  .ui-test-product-list .product-card__content .text-block > *, product-recommendations .product-card__content .text-block > * {
+  .ui-test-product-list .product-card__content .text-block > * {
+    font-size: 16px;
+    color: #000;
+  }
+
+  product-recommendations .product-card__content .text-block > * {
     font-size: 20px;
     color: #000;
   }
   
-  .ui-test-product-list .product-card__content product-price .price, product-recommendations .product-card__content product-price .price  {
+  .ui-test-product-list .product-card__content product-price .price {
+    font-size: 13px;
+    color: #5b5757;
+  }
+
+  product-recommendations .product-card__content product-price .price {
     font-size: 16px;
     color: #5b5757;
   }
@@ -321,9 +341,25 @@
       font-size: 24px;
     }
     .ui-test-product-list .product-card__content .text-block > *,
-    .ui-test-product-list .product-card__content product-price .price, product-recommendations .product-card__content product-price .price, product-recommendations .product-card__content .text-block > * {
-    font-size: 18px;
+    .ui-test-product-list .product-card__content product-price .price {
+      font-size: 14px;
+    }
+    product-recommendations .product-card__content .text-block > *,
+    product-recommendations .product-card__content product-price .price {
+      font-size: 18px;
+    }
   }
+
+  /*
+   * Carousel: default flex stretch + .resource-list__item { height: 100% } forces every
+   * slide to match the tallest card. Align to start and natural height so cards stay compact.
+   */
+  .ui-test-product-list .resource-list__carousel slideshow-slides {
+    align-items: flex-start;
+  }
+
+  .ui-test-product-list .resource-list__carousel .resource-list__item {
+    height: auto;
   }
 {% endstylesheet %}
 
