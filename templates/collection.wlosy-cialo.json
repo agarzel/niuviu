@@ -523,6 +523,7 @@
       "blocks": {
         "static-collection-banner-title": {
           "type": "_collection-banner-title",
+          "disabled": true,
           "static": true,
           "settings": {
             "use_collection_title": true,

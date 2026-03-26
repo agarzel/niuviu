@@ -632,7 +632,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>@niuviu.official</p>",
+            "text": "<h4>@niuviu.official</h4>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
