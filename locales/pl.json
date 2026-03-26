@@ -16,13 +16,16 @@
       "placeholder": "Adres e-mail",
       "success": "Dziękujemy za subskrypcję!"
     },
+    "_collection_banner_title": {
+      "placeholder": "Dodaj własny tytuł lub użyj nazwy kolekcji"
+    },
     "filter": "Filtr",
     "payment_methods": "Metody płatności",
     "contact_form": {
-      "name": "Nazwisko",
-      "email": "E-mail",
-      "phone": "Telefon",
-      "comment": "Komentarz",
+      "name": "Imię i nazwisko",
+      "email": "Adres e-mail",
+      "phone": "Numer telefonu",
+      "comment": "Twoja wiadomość",
       "post_success": "Dziękujemy za skontaktowanie się z nami. Odpowiemy tak szybko, jak to możliwe.",
       "error_heading": "Dostosuj następujące dane:"
     },
@@ -356,11 +359,6 @@
   "sections": {
     "collection_banner": {
       "placeholder": "Add a desktop image in the section settings"
-    }
-  },
-  "blocks": {
-    "_collection_banner_title": {
-      "placeholder": "Add a custom title or use the collection name"
     }
   }
 }
