@@ -639,7 +639,7 @@
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
-            "font_size": "1.125rem",
+            "font_size": "1.5rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -662,7 +662,7 @@
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "normal",
-        "speed_factor": 20,
+        "speed_factor": 10,
         "color_scheme": "",
         "padding-block-start": 24,
         "padding-block-end": 24,
