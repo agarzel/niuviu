@@ -19,7 +19,13 @@
     {% render 'spacing-style', settings: section.settings %}
     {% render 'gap-style', value: section.settings.gap %}
     {% if section.settings.enable_custom_product_image_radius %}
-      --product-list-image-radius: {{ section.settings.product_image_border_radius_px | remove: 'px' }}px;
+      {% liquid
+        assign pl_radius = section.settings.product_image_border_radius_px | remove: 'px' | strip
+        if pl_radius == blank
+          assign pl_radius = '500'
+        endif
+      %}
+      --product-list-image-radius: {{ pl_radius }}px;
     {% else %}
       --product-list-image-radius: var(--border-radius);
     {% endif %}
@@ -245,16 +251,16 @@
     letter-spacing: 10%;
   }
 
-  .ui-test-product-list .card-gallery {
-    --border-radius: var(--product-list-image-radius, var(--border-radius));
-    border-radius: var(--product-list-image-radius, var(--border-radius));
-  }
-
+  /*
+   * Image slots are not rendered via card-gallery.liquid (no border-override inline).
+   * Product cards get --border-radius from card-gallery when section.type == product-list.
+   */
   .ui-test-product-list .product-list__image-slot {
     display: block;
   }
 
   .ui-test-product-list .product-list__image-slot-image {
+    border-radius: var(--product-list-image-radius);
     overflow: hidden;
     width: 100%;
     display: block;
