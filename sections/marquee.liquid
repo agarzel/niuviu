@@ -46,7 +46,7 @@
     {% if meta_bg != blank %}--marquee-meta-bg: {{ meta_bg }};{% endif %}
     {% if meta_color != blank %}--marquee-meta-color: {{ meta_color }};{% endif %}
   "
-  data-speed-factor="25"
+  data-speed-factor="{{ section.settings.speed_factor | default: 25 }}"
   data-movement-direction="{{ section.settings.movement_direction }}"
 >
   <div
@@ -194,6 +194,16 @@
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "range",
+      "id": "speed_factor",
+      "label": "Speed",
+      "info": "Higher value = slower scroll (longer loop). Duration is sqrt(tile copies) × this factor, in seconds.",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "default": 25
     },
     {
       "type": "color_scheme",
