@@ -693,6 +693,9 @@
       "block_order": [
         "instafeed_app_block_cgDpyP"
       ],
+      "custom_css": [
+        "#insta-feed h2 {display: none;}"
+      ],
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
