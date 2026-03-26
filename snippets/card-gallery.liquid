@@ -71,12 +71,6 @@
     {% render 'spacing-style', settings: block_settings %}
     {% if block_settings.enable_custom_border_radius_px %}
       --border-radius: {{ block_settings.custom_border_radius_px | remove: 'px' }}px;
-    {% elsif section.type == 'product-list' %}
-      {% comment %}
-        border-override sets --border-radius from block (often 0). Inline wins over section CSS;
-        use section-level --product-list-image-radius so it matches Product image settings.
-      {% endcomment %}
-      --border-radius: var(--product-list-image-radius);
     {% endif %}
     --gallery-aspect-ratio: {{ ratio }};
   "
