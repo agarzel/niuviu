@@ -865,6 +865,9 @@
         "text_cag6g8",
         "text_TL33nW"
       ],
+      "custom_css": [
+        ".marquee__repeated-items .text-block, .marquee__repeated-items .text-block * {font-family: \"SailPL\", var(--font-heading--family) !important; font-size: 96px !important; line-height: 80px !important;}"
+      ],
       "name": "t:names.marquee",
       "settings": {
         "movement_direction": "normal",
