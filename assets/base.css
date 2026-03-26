@@ -1622,7 +1622,6 @@ media-gallery {
   display: flex;
   aspect-ratio: 403 / 653;
   max-height: var(--constrained-height);
-  max-height: 450px;
   width: var(--slide-width, 100%);
 
   /* Relative position needed for video and 3d models */
