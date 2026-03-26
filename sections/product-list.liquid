@@ -102,7 +102,7 @@
                 <div class="product-card__content layout-panel-flex layout-panel-flex--column product-grid__card">
                   <div
                     class="card-gallery product-list__image-slot-image"
-                    style="--gallery-aspect-ratio: {{ slot_aspect_ratio }}; --border-radius: 500px;"
+                    style="--gallery-aspect-ratio: {{ slot_aspect_ratio }};"
                   >
                     {% if slot_link != blank %}
                       <a href="{{ slot_link }}" class="contents product-list__image-slot-link">
@@ -176,7 +176,7 @@
               <div class="product-card__content layout-panel-flex layout-panel-flex--column product-grid__card">
                 <div
                   class="card-gallery product-list__image-slot-image"
-                  style="--gallery-aspect-ratio: {{ slot_aspect_ratio }}; --border-radius: 500px;"
+                  style="--gallery-aspect-ratio: {{ slot_aspect_ratio }};"
                 >
                   {% if slot_link != blank %}
                     <a href="{{ slot_link }}" class="contents product-list__image-slot-link">
@@ -279,7 +279,7 @@
     align-items: center;
     justify-content: center;
     background: #f3f3f3;
-    border-radius: 500px;
+    border-radius: var(--product-list-image-radius, var(--border-radius));
     color: #999;
     font-size: 14px;
   }

@@ -366,7 +366,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 32,
-                "enable_custom_border_radius_px": true,
+                "enable_custom_border_radius_px": false,
                 "custom_border_radius_px": "400",
                 "hide_added_state_on_product_card": false,
                 "padding-block-start": 0,
@@ -632,7 +632,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<h4>@niuviu.official</h4>",
+            "text": "<p>@niuviu.official</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
