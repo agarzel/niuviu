@@ -543,6 +543,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "name": "t:sections.collection_banner.presets.name",
       "settings": {
         "image_desktop": "{{ collection.metafields.custom.banner_image_desktop.value }}",
