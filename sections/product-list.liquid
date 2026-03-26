@@ -251,16 +251,16 @@
     letter-spacing: 10%;
   }
 
-  /*
-   * Image slots are not rendered via card-gallery.liquid (no border-override inline).
-   * Product cards get --border-radius from card-gallery when section.type == product-list.
-   */
+  .ui-test-product-list .card-gallery {
+    --border-radius: var(--product-list-image-radius, var(--border-radius));
+    border-radius: var(--product-list-image-radius, var(--border-radius));
+  }
+
   .ui-test-product-list .product-list__image-slot {
     display: block;
   }
 
   .ui-test-product-list .product-list__image-slot-image {
-    border-radius: var(--product-list-image-radius);
     overflow: hidden;
     width: 100%;
     display: block;
