@@ -27,7 +27,25 @@
       %}
       --product-list-image-radius: {{ pl_radius }}px;
     {% else %}
-      --product-list-image-radius: var(--border-radius);
+      {% comment %} Color schemes do not set --border-radius; use theme product corner radius. {% endcomment %}
+      --product-list-image-radius: {{ settings.product_corner_radius }}px;
+    {% endif %}
+    {% liquid
+      assign image_slot_radius_css = ''
+      if section.settings.image_slots_enable_custom_border_radius_px
+        assign slot_px = section.settings.image_slots_custom_border_radius_px | remove: 'px' | strip
+        if slot_px == blank
+          assign slot_px = '500'
+        endif
+        assign image_slot_radius_css = slot_px | append: 'px'
+      elsif section.settings.image_slots_border_radius != blank and section.settings.image_slots_border_radius > 0
+        assign image_slot_radius_css = section.settings.image_slots_border_radius | append: 'px'
+      endif
+    %}
+    {% if image_slot_radius_css != '' %}
+      --product-list-image-slot-radius: {{ image_slot_radius_css }};
+    {% else %}
+      --product-list-image-slot-radius: var(--product-list-image-radius);
     {% endif %}
   "
 >
@@ -241,7 +259,7 @@
 </div>
 
 {% stylesheet %}
-  .ui-test-product-list .text-block h3 {
+  [data-testid="product-list"] .text-block h3 {
     font-size: 32px;
     text-transform: uppercase;
     font-weight: 700;
@@ -251,57 +269,67 @@
     letter-spacing: 10%;
   }
 
-  .ui-test-product-list .card-gallery {
-    --border-radius: var(--product-list-image-radius, var(--border-radius));
-    border-radius: var(--product-list-image-radius, var(--border-radius));
+  /*
+   * Shell radius: product cards use Product image; image slots use Image slots border settings
+   * (--product-list-image-slot-radius on section, see base.css for inner clip).
+   */
+  [data-testid="product-list"] .card-gallery {
+    --corner-radius: var(--product-list-image-radius);
+    border-radius: var(--product-list-image-radius);
+    overflow: hidden;
   }
 
-  .ui-test-product-list .product-list__image-slot {
+  [data-testid="product-list"] .card-gallery.product-list__image-slot-image {
+    --corner-radius: var(--product-list-image-slot-radius);
+    border-radius: var(--product-list-image-slot-radius);
+  }
+
+  [data-testid="product-list"] .product-list__image-slot {
     display: block;
   }
 
-  .ui-test-product-list .product-list__image-slot-image {
+  [data-testid="product-list"] .product-list__image-slot-image {
     overflow: hidden;
     width: 100%;
     display: block;
   }
 
-  .ui-test-product-list .product-list__image-slot-link {
+  [data-testid="product-list"] .product-list__image-slot-link {
     display: block;
     width: 100%;
   }
 
-  .ui-test-product-list .product-list__image-slot-media {
+  [data-testid="product-list"] .product-list__image-slot-media {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
   }
 
-  .ui-test-product-list .product-list__image-slot-placeholder {
+  [data-testid="product-list"] .product-list__image-slot-placeholder {
     width: 100%;
     aspect-ratio: 4 / 5;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f3f3f3;
-    border-radius: var(--product-list-image-radius, var(--border-radius));
+    border-radius: var(--product-list-image-slot-radius);
     color: #999;
     font-size: 14px;
   }
 
-  .ui-test-product-list .product-card__content .group-block-content {
+  [data-testid="product-list"] .product-card__content .group-block-content {
     align-items: center;
   }
 
-  .ui-test-product-list .product-card__content .text-block,
-  .ui-test-product-list .product-card__content product-price, product-recommendations .product-card__content .text-block > * {
+  [data-testid="product-list"] .product-card__content .text-block,
+  [data-testid="product-list"] .product-card__content product-price, product-recommendations .product-card__content .text-block > * {
     width: 100%;
     align-items: center;
   }
 
-  .ui-test-product-list .product-card__content .text-block > *,
-  .ui-test-product-list .product-card__content product-price .price, product-recommendations .product-card__content .text-block > * {
+  [data-testid="product-list"] .product-card__content .text-block > *,
+  [data-testid="product-list"] .product-card__content product-price .price, product-recommendations .product-card__content .text-block > * {
     width: 100%;
     text-align: center !important;
     font-family: 'DM Sans', var(--font-body--family);
@@ -311,23 +339,23 @@
     letter-spacing: 0;
   }
   
-  .ui-test-product-list .product-card__content .text-block > *, product-recommendations .product-card__content .text-block > * {
+  [data-testid="product-list"] .product-card__content .text-block > *, product-recommendations .product-card__content .text-block > * {
     font-size: 20px;
     color: #000;
   }
   
-  .ui-test-product-list .product-card__content product-price .price, product-recommendations .product-card__content product-price .price  {
+  [data-testid="product-list"] .product-card__content product-price .price, product-recommendations .product-card__content product-price .price  {
     font-size: 16px;
     color: #5b5757;
   }
 
 
   @media (max-width: 767px) {
-    .ui-test-product-list .text-block h3 { 
+    [data-testid="product-list"] .text-block h3 { 
       font-size: 24px;
     }
-    .ui-test-product-list .product-card__content .text-block > *,
-    .ui-test-product-list .product-card__content product-price .price, product-recommendations .product-card__content product-price .price, product-recommendations .product-card__content .text-block > * {
+    [data-testid="product-list"] .product-card__content .text-block > *,
+    [data-testid="product-list"] .product-card__content product-price .price, product-recommendations .product-card__content product-price .price, product-recommendations .product-card__content .text-block > * {
     font-size: 18px;
   }
   }
@@ -615,6 +643,35 @@
     {
       "type": "header",
       "content": "Image slots"
+    },
+    {
+      "type": "header",
+      "content": "t:content.borders"
+    },
+    {
+      "type": "range",
+      "id": "image_slots_border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "info": "0 = same corner radius as product media (Product image above). Use 1–32 for a fixed radius on slots only."
+    },
+    {
+      "type": "checkbox",
+      "id": "image_slots_enable_custom_border_radius_px",
+      "label": "Enable custom corner radius (px)",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "image_slots_custom_border_radius_px",
+      "label": "Custom corner radius (px)",
+      "default": "500",
+      "info": "Enter number, e.g. 500",
+      "visible_if": "{{ section.settings.image_slots_enable_custom_border_radius_px }}"
     },
     {
       "type": "image_picker",
