@@ -58,7 +58,7 @@
               "type": "text",
               "name": "Text",
               "settings": {
-                "text": "<h3>Dołącz do nas</h3>",
+                "text": "<h3>dołącz do nas</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -84,7 +84,7 @@
               "type": "text",
               "name": "Text",
               "settings": {
-                "text": "<p>Dołącz do naszego newslettera, bądź na bieżąco i zyskuj wyjątkowe rabaty!</p>",
+                "text": "<p>dołącz do naszego newslettera, bądź na bieżąco i zyskuj wyjątkowe rabaty!</p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -184,7 +184,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "wlosy",
-                "heading": "Włosy",
+                "heading": "włosy",
                 "menu_spacing": 12,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
@@ -205,7 +205,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "cialo",
-                "heading": "Ciało",
+                "heading": "ciało",
                 "menu_spacing": 12,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
@@ -226,7 +226,7 @@
               "name": "t:names.menu",
               "settings": {
                 "menu": "o-nas",
-                "heading": "O nas",
+                "heading": "o nas",
                 "menu_spacing": 12,
                 "show_as_accordion": true,
                 "accordion_icon": "plus",
@@ -319,7 +319,8 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 0,
+        "pdp_faq_metafield": false
       }
     },
     "utilities": {
