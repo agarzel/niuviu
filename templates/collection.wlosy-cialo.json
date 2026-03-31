@@ -599,7 +599,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Pure</h3>",
+                "text": "<h3>pink therapy</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -849,7 +849,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "pure",
+        "collection": "pink-therapy",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -921,7 +921,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Pure</h3>",
+                "text": "<h3>bounce</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1171,7 +1171,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "bounce",
+        "collection": "juicy-fruit",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1188,7 +1188,7 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48,
-        "image_slots_border_radius": 0,
+        "image_slots_border_radius": 32,
         "image_slots_enable_custom_border_radius_px": false,
         "image_slots_custom_border_radius_px": "500",
         "image_slot_1_image": "shopify://shop_images/c55ae4c3f3d6396c5469bed2823f4c97fbb2baaf.jpg",
@@ -1488,13 +1488,9 @@
           ]
         }
       },
-      "custom_css": [
-        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #9e66e5;}",
-        ".button {--button-background-color: #9e66e5; --button-border-color: #9e66e5; color: #fff;}"
-      ],
       "name": "Featured collection",
       "settings": {
-        "collection": "lumi",
+        "collection": "green-reset",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1511,7 +1507,7 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48,
-        "image_slots_border_radius": 0,
+        "image_slots_border_radius": 32,
         "image_slots_enable_custom_border_radius_px": false,
         "image_slots_custom_border_radius_px": "500",
         "image_slot_1_image": "shopify://shop_images/a4fbd30fb3d4e27e6f8ffd4c62fe310091049e31_1.jpg",
