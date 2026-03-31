@@ -578,7 +578,7 @@
         "text_block_dQtkbT": {
           "type": "text_block",
           "settings": {
-            "text": "<p>[czyt. niuwiu] to świadome nawiązanie do angielskiego ‘new view’ - nowego spojrzenia<br/><br/>Zero nudy, zero ściemy - to świeże podejście do pielęgnacji: proste składy, jasne komunikaty i zero kombinowania.</p>",
+            "text": "<p>[czyt. niuwiu] to świadome nawiązanie do angielskiego ‘new view’ - nowego spojrzenia<br/><br/>zero nudy, zero ściemy - to świeże podejście do pielęgnacji: proste składy, jasne komunikaty i zero kombinowania.</p>",
             "text_color": "#000000",
             "background_color": "#c7aad1",
             "hide_on_mobile": true
