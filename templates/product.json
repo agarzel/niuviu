@@ -133,7 +133,7 @@
                     "font_size": "1.5rem",
                     "line_height": "normal",
                     "letter_spacing": "loose",
-                    "case": "uppercase",
+                    "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
