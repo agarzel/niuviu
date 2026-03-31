@@ -599,7 +599,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>pink therapy</h3>",
+                "text": "<h3>Pure</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -849,7 +849,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "pink-therapy",
+        "collection": "pure",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1171,7 +1171,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "green-reset",
+        "collection": "bounce",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
