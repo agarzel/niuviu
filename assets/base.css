@@ -2774,10 +2774,9 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 }
 
-/* Custom Typography style */
-.custom-typography.custom-typography--font-sailpl,
-.custom-typography.custom-typography--font-sailpl > * {
-  font-family: var(--font-heading--family) !important;
+.custom-typography,
+.custom-typography * {
+  font-family: var(--font-family) !important;
 }
 
 .custom-typography,
