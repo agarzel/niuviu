@@ -844,8 +844,8 @@
         }
       },
       "custom_css": [
-        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #5699d9;}",
-        ".button {--button-background-color: #5699d9; --button-border-color: #5699d9; color: #fff;}"
+        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #fdc8da;}",
+        ".button {--button-background-color: #fdc8da; --button-border-color: #fdc8da; color: #fff;}"
       ],
       "name": "Featured collection",
       "settings": {
