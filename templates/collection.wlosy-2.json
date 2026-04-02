@@ -2138,7 +2138,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "pumpkin-time",
+        "collection": "pumpkin-time-wlosy",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
