@@ -3,12 +3,11 @@
   It is used in the product block,featured product block, and the product card block.
 
   @param {product} product_resource - The product to render
-  @param {boolean} [show_unit_price] - Whether to show the unit price
+  @param {boolean} [show_unit_price] - Deprecated; unit price visibility is controlled by theme setting (Product cards) except on the product page, where it is always shown when present.
   @param {boolean} [show_sale_price_first] - Whether to show the sale price first
 {%- enddoc -%}
 
 {%- liquid
-  assign show_unit_price = show_unit_price | default: false
   assign show_sale_price_first = show_sale_price_first | default: false
   assign selected_variant = product_resource.selected_or_first_available_variant
   assign price = selected_variant.price
@@ -70,6 +69,15 @@
     assign price_min = price_min | money
     assign price_max = price_max | money
   endif
+
+  assign display_unit_price = false
+  if selected_variant.unit_price
+    if request.page_type == 'product'
+      assign display_unit_price = true
+    elsif settings.show_unit_price
+      assign display_unit_price = true
+    endif
+  endif
 -%}
 
 <div ref="priceContainer">
@@ -110,7 +118,7 @@
       </span>
     {% endif %}
   {% endif %}
-  {%- if selected_variant.unit_price and show_unit_price %}
+  {%- if display_unit_price %}
     {%- liquid
       if use_currency
         assign unit_price = selected_variant.unit_price | money_with_currency
