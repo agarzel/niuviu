@@ -277,8 +277,6 @@
     "image_gap": "Odstęp między obrazami",
     "width_desktop": "Szerokość na komputerach",
     "width_mobile": "Szerokość na urządzeniach mobilnych",
-    "pdp_width_desktop": "Szerokość (desktop)",
-    "pdp_width_mobile": "Szerokość (mobile)",
     "border_style": "Styl obramowania",
     "height": "Wysokość",
     "thickness": "Grubość",
@@ -857,6 +855,7 @@
     "spotlight": "Wyróżnienie",
     "standard": "Standardowy",
     "subheading": "Podtytuł",
+    "sail_pl": "SailPL",
     "blur": "Rozmycie",
     "lift": "Uniesienie",
     "reveal": "Odsłonięcie",
@@ -1101,8 +1100,7 @@
     "hide_logo_on_home_page_help": "Logo pozostanie widoczne, gdy aktywny jest lepki nagłówek",
     "media_type_info": "Funkcje są pobierane z linków menu",
     "logo_height": "Dotyczy tylko logo w nagłówku",
-    "actions_display_style": "Na urządzeniach mobilnych zawsze używane są ikony",
-    "pdp_price_width": "Ten sam model szerokości co bloki Grupa (size-style). Dostosuj do grupy, np. 80% desktop i 100% mobile. Dotyczy tylko strony produktu."
+    "actions_display_style": "Na urządzeniach mobilnych zawsze używane są ikony"
   },
   "categories": {
     "product_list": "Polecana kolekcja",
