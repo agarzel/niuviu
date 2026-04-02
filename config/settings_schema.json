@@ -2103,6 +2103,12 @@
         "id": "product_card_carousel",
         "label": "t:settings.product_card_carousel",
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_unit_price",
+        "label": "t:settings.show_unit_price",
+        "default": true
       }
     ]
   },
