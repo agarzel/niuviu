@@ -568,7 +568,7 @@
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": false,
-            "horizontal_alignment": "center",
+            "horizontal_alignment": "flex-start",
             "vertical_alignment": "flex-end",
             "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
@@ -888,7 +888,7 @@
           "type": "_product-list-content",
           "static": true,
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": false,
             "horizontal_alignment": "space-between",
             "vertical_alignment": "center",
@@ -1211,7 +1211,7 @@
           "type": "_product-list-content",
           "static": true,
           "settings": {
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": false,
             "horizontal_alignment": "space-between",
             "vertical_alignment": "flex-end",
