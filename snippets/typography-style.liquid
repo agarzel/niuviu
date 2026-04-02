@@ -2,24 +2,24 @@
   Sets inline CSS variables for typography styles, including color, font size, weight, family, line height, and letter spacing.
   Intended for use on the style attribute of an element.
 
-  @param {object} settings - The block or section settings object containing typography values
+  @param {object} typography_settings - Block or section settings (do not use the name `settings`; it can shadow theme `settings` in snippets)
   @param {string} [type] - The type of text element to inherit styles from, options: display, heading, body
   @param {string} [preset] - The type preset from the global settings.type_preset
 
   @example
-  <div style="{% render 'typography-style', settings: section.settings %}">
+  <div style="{% render 'typography-style', typography_settings: section.settings %}">
     ...
   </div>
 {%- enddoc -%}
 
-{% assign preset = preset | default: settings.type_preset %}
-{% if preset == blank and settings.type_preset != blank %}
-  {% assign preset = settings.type_preset %}
+{% assign preset = preset | default: typography_settings.type_preset %}
+{% if preset == blank and typography_settings.type_preset != blank %}
+  {% assign preset = typography_settings.type_preset %}
 {% endif %}
 
 {%- capture variables -%}
-  {%- if preset != 'rte' and settings.color != "" -%}
-    --color: {{ settings.color }};
+  {%- if preset != 'rte' and typography_settings.color != "" -%}
+    --color: {{ typography_settings.color }};
   {%- endif -%}
   {%- if preset == 'custom' -%}
     {% liquid
@@ -28,8 +28,8 @@
           When choosing to customize the font, picking a specific font size
           determines the type of text block.
         endcomment
-        if settings.font_size != ''
-          assign font_size_value = settings.font_size | split: 'rem' | first | times: 1.0
+        if typography_settings.font_size != ''
+          assign font_size_value = typography_settings.font_size | split: 'rem' | first | times: 1.0
 
           if font_size_value > 4.5
             assign type = 'display'
@@ -41,9 +41,9 @@
         endif
       endunless
     %}
-    {%- if settings.font_size != blank -%}
+    {%- if typography_settings.font_size != blank -%}
       {%- liquid
-        assign font_size_rem = settings.font_size | split: 'rem' | first | times: 1.0
+        assign font_size_rem = typography_settings.font_size | split: 'rem' | first | times: 1.0
         assign fluid_size_cutoff_rem = 3.0
 
         if font_size_rem >= fluid_size_cutoff_rem
@@ -57,35 +57,37 @@
         endif
       -%}
       {%- if font_size_rem >= fluid_size_cutoff_rem -%}
-        --font-size: clamp({{ dynamic_min_rem }}rem, {{ vw_value }}vw, {{ settings.font_size }});
+        --font-size: clamp({{ dynamic_min_rem }}rem, {{ vw_value }}vw, {{ typography_settings.font_size }});
       {%- else -%}
-        --font-size: {{ settings.font_size }};
+        --font-size: {{ typography_settings.font_size }};
       {%- endif -%}
     {%- endif -%}
-    {%- if settings.weight != blank -%}
-      --font-weight: {{ settings.weight }};
+    {%- if typography_settings.weight != blank -%}
+      --font-weight: {{ typography_settings.weight }};
     {% else %}
-      {% if settings.font == 'sailpl' %}
+      {% if typography_settings.font == 'sailpl' %}
         --font-weight: var(--font-heading--weight);
       {% else %}
-        --font-weight: {{ settings.font | replace: 'family', 'weight' }};
+        --font-weight: {{ typography_settings.font | replace: 'family', 'weight' }};
       {% endif %}
     {%- endif -%}
-    {% if settings.font == 'sailpl' %}
+    {% if typography_settings.font == 'sailpl' %}
       --font-family: var(--font-heading--family);
+    {% elsif typography_settings.font != blank %}
+      --font-family: {{ typography_settings.font }};
     {% else %}
-      --font-family: {{ settings.font }};
+      --font-family: var(--font-body--family);
     {% endif %}
-    --text-transform: {{ settings.case }};
-    --text-wrap: {{ settings.wrap | default: 'pretty' }};
-    {% if settings.type_preset == 'custom' and settings.font_size == blank %}
-      --line-height--display: var(--line-height--display-{{ settings.line_height }});
-      --line-height--heading: var(--line-height--heading-{{ settings.line_height }});
-      --line-height--body: var(--line-height--body-{{ settings.line_height }});
+    --text-transform: {{ typography_settings.case }};
+    --text-wrap: {{ typography_settings.wrap | default: 'pretty' }};
+    {% if typography_settings.type_preset == 'custom' and typography_settings.font_size == blank %}
+      --line-height--display: var(--line-height--display-{{ typography_settings.line_height }});
+      --line-height--heading: var(--line-height--heading-{{ typography_settings.line_height }});
+      --line-height--body: var(--line-height--body-{{ typography_settings.line_height }});
     {% else %}
-      --line-height: var(--line-height--{{ type }}-{{ settings.line_height }});
+      --line-height: var(--line-height--{{ type }}-{{ typography_settings.line_height }});
     {% endif %}
-    --letter-spacing: var(--letter-spacing--{{ type }}-{{ settings.letter_spacing }});
+    --letter-spacing: var(--letter-spacing--{{ type }}-{{ typography_settings.letter_spacing }});
   {%- endif -%}
 {%- endcapture -%}
 {{- variables | strip | strip_newlines -}}
