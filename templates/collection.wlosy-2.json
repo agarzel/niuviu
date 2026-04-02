@@ -849,7 +849,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "pink-therapy",
+        "collection": "pure",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1171,7 +1171,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "juicy-fruit",
+        "collection": "bounce",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1494,7 +1494,7 @@
       ],
       "name": "Featured collection",
       "settings": {
-        "collection": "green-reset",
+        "collection": "lumi",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1515,7 +1515,7 @@
         "image_slots_enable_custom_border_radius_px": false,
         "image_slots_custom_border_radius_px": "500",
         "image_slot_1_image": "shopify://shop_images/a4fbd30fb3d4e27e6f8ffd4c62fe310091049e31_1.jpg",
-        "image_slot_1_position": 1,
+        "image_slot_1_position": 2,
         "image_slot_1_link": "",
         "image_slot_2_image": "shopify://shop_images/f8ddb201c0bf649ac94e6e58750278310916bf06.jpg",
         "image_slot_2_position": 3,
