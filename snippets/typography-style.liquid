@@ -13,6 +13,9 @@
 {%- enddoc -%}
 
 {% assign preset = preset | default: settings.type_preset %}
+{% if preset == blank and settings.type_preset != blank %}
+  {% assign preset = settings.type_preset %}
+{% endif %}
 
 {%- capture variables -%}
   {%- if preset != 'rte' and settings.color != "" -%}
