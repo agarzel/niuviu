@@ -599,7 +599,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>pink therapy</h3>",
+                "text": "<h3>pure</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1244,7 +1244,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>green reset</h3>",
+                "text": "<h3>pure</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1489,8 +1489,8 @@
         }
       },
       "custom_css": [
-        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #f2bc27;}",
-        ".button {--button-background-color: #f2bc27; --button-border-color: #f2bc27; color: #fff;}"
+        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #9275bb;}",
+        ".button {--button-background-color: #9275bb; --button-border-color: #9275bb; color: #fff;}"
       ],
       "name": "Featured collection",
       "settings": {
