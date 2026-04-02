@@ -1,4 +1,4 @@
-* {
+=* {
   box-sizing: border-box;
 }
 
@@ -2613,8 +2613,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   align-items: baseline;
   justify-content: space-between;
   gap: var(--padding-sm, 0.75rem);
-  width: var(--width, 100%);
-  max-inline-size: min(100%, var(--max-width, 100%));
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
   overflow-x: clip;
@@ -2775,6 +2775,11 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 }
 
 /* Custom Typography style */
+.custom-typography.custom-typography--font-sailpl,
+.custom-typography.custom-typography--font-sailpl > * {
+  font-family: var(--font-heading--family) !important;
+}
+
 .custom-typography,
 .custom-typography > * {
   font-family: var(--font-family);
