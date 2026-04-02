@@ -90,6 +90,15 @@
     display: none;
   }
 
+  .product-details product-price.text-block {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    align-self: stretch;
+    box-sizing: border-box;
+    --max-width: var(--max-width--body-normal);
+  }
+
   form.payment-terms {
     padding-top: 0.5em;
     font-size: min(0.85em, var(--font-paragraph--size));
