@@ -133,7 +133,16 @@
     text-wrap: var(--text-wrap);
   }
 
-   product-price.text-block > * {
+  /*
+    Price block: product-price uses .text-block; --width can be fit-content so the host
+    and children size to content and overflow the column. Constrain host + children.
+  */
+  product-price.text-block {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  product-price.text-block > * {
     width: 100%;
     max-width: 100%;
     min-width: 0;
