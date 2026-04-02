@@ -1012,6 +1012,7 @@
     "product_and_card_title_case": "Product and card title case",
     // Checkbox to enable image carousel within product cards
     "product_card_carousel": "Show carousel",
+    "show_unit_price": "Show unit price",
     "product_cards": "Product cards",
     "product_count": "Product count",
     "product_pages": "Product pages",
