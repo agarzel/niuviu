@@ -233,7 +233,8 @@
     "video_autoplay": "Videos will be muted by default",
     "video_external": "Use a YouTube or Vimeo URL",
     "pills_usage": "Used for applied filters, discount codes, and search suggestions",
-    "media_type_info": "Features are populated from your menu links"
+    "media_type_info": "Features are populated from your menu links",
+    "pdp_price_width": "Uses the same width model as Group blocks (size-style). Adjust to match a group set to e.g. 80% desktop and 100% mobile. Applies on product pages only."
   },
   "names": {
     "column": "Column",
@@ -1015,6 +1016,8 @@
     "show_unit_price": "Show unit price",
     "product_cards": "Product cards",
     "product_count": "Product count",
+    "pdp_width_desktop": "Width (desktop)",
+    "pdp_width_mobile": "Width (mobile)",
     "product_pages": "Product pages",
     "product_templates": "Product templates",
     // Setting label for text capitalization of product titles

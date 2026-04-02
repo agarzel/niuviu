@@ -36,19 +36,29 @@
   endcapture
 %}
 
+{%- liquid
+  assign pdp_width_desktop = block_settings.pdp_width_desktop | default: 80
+  assign pdp_width_mobile = block_settings.pdp_width_mobile | default: 100
+-%}
 <product-price
-  class="text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style"
+  class="text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style{% if request.page_type == 'product' %} size-style{% endif %}"
   data-block-id="{{ block.id }}"
   data-product-id="{{ product_resource.id }}"
   style="
     {% render 'typography-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
-    --width: {{ block_settings.width }};
+    {% if request.page_type == 'product' %}
+      --size-style-width: {{ pdp_width_desktop }}%;
+      --size-style-width-mobile: {{ pdp_width_mobile }}%;
+      --size-style-height: fit;
+      --width: 100%;
+    {% else %}
+      --width: {{ block_settings.width }};
+    {% endif %}
   "
   {{ block.shopify_attributes }}
 >
   {% render 'price',
-    show_unit_price: true,
     product_resource: product_resource,
     show_sale_price_first: block_settings.show_sale_price_first
   %}
@@ -90,7 +100,23 @@
     display: none;
   }
 
-  .product-details product-price.text-block {
+  /* PDP: same width model as group-block.size-style (see snippets/size-style.liquid + base.css .size-style) */
+  .product-details product-price.text-block.size-style {
+    width: var(--size-style-width-mobile, var(--size-style-width));
+    max-width: 100%;
+    min-width: 0;
+    align-self: flex-start;
+    box-sizing: border-box;
+    --max-width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-details product-price.text-block.size-style {
+      width: var(--size-style-width);
+    }
+  }
+
+  .product-details product-price.text-block:not(.size-style) {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -154,6 +180,34 @@
       "id": "show_tax_info",
       "label": "t:settings.show_tax_info",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:content.product_page"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:info.pdp_price_width"
+    },
+    {
+      "type": "range",
+      "id": "pdp_width_desktop",
+      "label": "t:settings.pdp_width_desktop",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "pdp_width_mobile",
+      "label": "t:settings.pdp_width_mobile",
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100
     },
     {
       "type": "header",

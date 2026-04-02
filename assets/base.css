@@ -2613,8 +2613,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   align-items: baseline;
   justify-content: space-between;
   gap: var(--padding-sm, 0.75rem);
-  width: 100%;
-  max-width: 100%;
+  width: var(--width, 100%);
+  max-inline-size: min(100%, var(--max-width, 100%));
   min-width: 0;
   box-sizing: border-box;
   overflow-x: clip;
