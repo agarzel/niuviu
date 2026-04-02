@@ -367,22 +367,87 @@
     width: 100%;
   }
 
+  /*
+    PDP: same measure as rte-formatter / body text; 1fr + width:100% on .button-secondary
+    stretched the CTA across the whole column.
+  */
+  .product-details .buy-buttons-block {
+    max-width: min(100%, var(--max-width--body-normal));
+    box-sizing: border-box;
+  }
+
+  /*
+    PDP: narrow quantity, wide CTA, row fills 100% of the buy-buttons block (same max-width as body text).
+    Ratio ~28% / 72% via fr units.
+  */
   .product-details .product-form-buttons {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
     gap: 12px !important;
+    width: 100%;
+    align-items: stretch;
   }
 
-  @media(max-width: 990px) {
+  .product-details .product-form-buttons > .quantity-selector-wrapper {
+    width: 100%;
+    /* Grid column must stay wide enough: input max-width uses (--quantity-selector-width - 2×touch target) */
+    min-width: 0;
+  }
+
+  .product-details .product-form-buttons .quantity-selector {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    --quantity-selector-width: min(200px, 100%);
+  }
+
+  /* Let the number fill space between +/- ; avoid max-width calc going negative on narrow columns */
+  .product-details .product-form-buttons .quantity-selector input[type='number'] {
+    max-width: none;
+    flex: 1 1 0%;
+    min-width: 2ch;
+  }
+
+  .product-details .product-form-buttons > add-to-cart-component {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .product-details .product-form-buttons > .quantity-label,
+  .product-details .product-form-buttons > .quantity-rules,
+  .product-details .product-form-buttons > .volume-pricing,
+  .product-details .product-form-buttons > .product-form-text__error {
+    grid-column: 1 / -1;
+  }
+
+  @media screen and (max-width: 749px) {
     .product-details .product-form-buttons {
-      grid-template-columns: 200px 1fr;
+      grid-template-columns: minmax(9.25rem, 1.15fr) minmax(0, 2.35fr);
+    }
+
+    .product-details .product-form-buttons > .quantity-selector-wrapper {
+      min-width: min(100%, 9.25rem);
     }
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     .product-details .product-form-buttons {
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: minmax(8.75rem, 1.1fr) minmax(0, 2.2fr);
     }
+  }
+
+  .product-details .product-form-buttons .add-to-cart-button {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .product-details .product-form-buttons--stacked {
+    grid-template-columns: 1fr;
+  }
+
+  .product-details .product-form-buttons--stacked .add-to-cart-button {
+    width: 100%;
   }
 
   .product-form-buttons:not(:has(.quantity-rules)) {
