@@ -62,9 +62,17 @@
     {%- if settings.weight != blank -%}
       --font-weight: {{ settings.weight }};
     {% else %}
-      --font-weight: {{ settings.font | replace: 'family', 'weight' }};
+      {% if settings.font == 'sailpl' %}
+        --font-weight: var(--font-heading--weight);
+      {% else %}
+        --font-weight: {{ settings.font | replace: 'family', 'weight' }};
+      {% endif %}
     {%- endif -%}
-    --font-family: {{ settings.font }};
+    {% if settings.font == 'sailpl' %}
+      --font-family: var(--font-heading--family);
+    {% else %}
+      --font-family: {{ settings.font }};
+    {% endif %}
     --text-transform: {{ settings.case }};
     --text-wrap: {{ settings.wrap | default: 'pretty' }};
     {% if settings.type_preset == 'custom' and settings.font_size == blank %}
