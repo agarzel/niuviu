@@ -1488,6 +1488,10 @@
           ]
         }
       },
+      "custom_css": [
+        "h3 {font-family: \"SailPL\", var(--font-heading--family) !important; text-transform: lowercase; color: #f2bc27;}",
+        ".button {--button-background-color: #f2bc27; --button-border-color: #f2bc27; color: #fff;}"
+      ],
       "name": "Featured collection",
       "settings": {
         "collection": "green-reset",
@@ -1511,10 +1515,10 @@
         "image_slots_enable_custom_border_radius_px": false,
         "image_slots_custom_border_radius_px": "500",
         "image_slot_1_image": "shopify://shop_images/a4fbd30fb3d4e27e6f8ffd4c62fe310091049e31_1.jpg",
-        "image_slot_1_position": 2,
+        "image_slot_1_position": 1,
         "image_slot_1_link": "",
         "image_slot_2_image": "shopify://shop_images/f8ddb201c0bf649ac94e6e58750278310916bf06.jpg",
-        "image_slot_2_position": 4,
+        "image_slot_2_position": 3,
         "image_slot_2_link": "",
         "image_slot_3_image": "shopify://shop_images/534a2c8ce8ec72dbd4091f7a026a4591bbbd0797.jpg",
         "image_slot_3_position": 6,
