@@ -2609,11 +2609,11 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 
 .price-container.price-container--pdp-price-unit-row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: var(--padding-sm, 0.75rem);
-  width: 100%;
+  width: fit-content;
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
