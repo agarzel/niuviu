@@ -45,7 +45,7 @@
   data-block-id="{{ block.id }}"
   data-product-id="{{ product_resource.id }}"
   style="
-    {% render 'typography-style', settings: block_settings %}
+    {% render 'typography-style', typography_settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
     {% if request.page_type == 'product' %}
       --size-style-width: {{ pdp_width_desktop }}%;

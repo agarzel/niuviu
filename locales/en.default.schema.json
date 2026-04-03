@@ -234,7 +234,8 @@
     "video_external": "Use a YouTube or Vimeo URL",
     "pills_usage": "Used for applied filters, discount codes, and search suggestions",
     "media_type_info": "Features are populated from your menu links",
-    "pdp_price_width": "Applies only on the product page. Other templates use the width setting under Typography below."
+    "pdp_price_width": "Applies only on the product page. Other templates use the width setting under Typography below.",
+    "color_metafield_connection": "You can connect a color metafield via “Connect dynamic source”."
   },
   "names": {
     "column": "Column",
@@ -489,6 +490,7 @@
     "clipboard": "Clipboard",
     "collection_images": "Collection images",
     "color": "Color",
+    "color_custom": "Custom color",
     "compact": "Compact",
     "complementary": "Complementary",
     // CSS object-fit property: scale media to fit container
@@ -818,6 +820,7 @@
     "collection_templates": "Collection templates",
     "collection_title_case": "Collection title case",
     "color": "Color",
+    "color_custom_value": "Custom color",
     "color_scheme": "Color scheme",
     "colors": "Colors",
     "columns": "Columns",

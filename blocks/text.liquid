@@ -312,7 +312,16 @@
         }
       ],
       "default": "var(--color-foreground)",
-      "visible_if": "{{ block.settings.type_preset != 'rte' }}"
+      "visible_if": "{{ block.settings.type_preset != 'rte' and block.settings.type_preset != 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:settings.color",
+      "info": "t:info.color_metafield_connection",
+      "alpha": true,
+      "default": "#000000",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
     },
     {
       "type": "header",

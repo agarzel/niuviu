@@ -6,7 +6,7 @@
     custom-typography
     {% if block_settings.font_size != "" %}custom-font-size{% endif %}
   "
-  style="{% render 'typography-style', preset: 'custom', settings: block_settings %}"
+  style="{% render 'typography-style', preset: 'custom', typography_settings: block_settings %}"
   {{ block.shopify_attributes }}
 >
   <span class="footer-utilities__text">
