@@ -2607,6 +2607,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
 }
 
+/* PDP: keep main price + unit price grouped (no space-between across full width). */
 .price-container.price-container--pdp-price-unit-row {
   display: flex;
   flex-wrap: wrap;
@@ -2626,11 +2627,17 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
 }
 
 .price-container.price-container--pdp-price-unit-row .unit-price {
-  flex: 1 1 0%;
+  flex: 0 1 auto;
   min-width: 0;
-  text-align: end;
+  text-align: start;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Beat product-price.text-block > * { width: 100% } so the row can shrink-wrap. */
+product-price.text-block .price-container.price-container--pdp-price-unit-row {
+  width: fit-content;
+  max-width: 100%;
 }
 
 .tax-note.tax-note.tax-note {
