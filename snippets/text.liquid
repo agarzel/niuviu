@@ -36,9 +36,7 @@
       if block_settings.font_size != ''
         echo ' custom-font-size '
       endif
-      if block_settings.color != ''
-        echo ' custom-color '
-      endif
+      echo ' custom-color '
     endif
     if block_settings.background
       echo ' text-block--background '
@@ -56,7 +54,16 @@
 
   style="
     {% render 'spacing-padding', settings: block_settings %}
-    {% render 'typography-style', settings: block_settings %}
+    {% render 'typography-style', typography_settings: block_settings %}
+    {%- if block_settings.type_preset == 'custom' -%}
+      {%- if block_settings.font == 'sailpl' -%}
+        font-family: 'SailPL', var(--font-heading--family);
+      {%- elsif block_settings.font != blank -%}
+        font-family: {{ block_settings.font }};
+      {%- else -%}
+        font-family: var(--font-body--family);
+      {%- endif -%}
+    {%- endif -%}
     --width: {{ text_width }};
     --max-width: var(--max-width--{{ type }}-{{ block_settings.max_width }});
     {% if text_width == "100%" %}

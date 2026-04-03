@@ -2774,14 +2774,19 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   }
 }
 
+/*
+  Custom typography: --font-family is set on the block inline style.
+  Set it on descendants too — otherwise flex children (.text-block is display:flex) and
+  RTE <p> can fall back to body / --font-paragraph--family instead of the picker.
+  No !important (overrides normal paragraph inheritance only by applying the same var).
+*/
 .custom-typography,
 .custom-typography * {
-  font-family: var(--font-family) !important;
+  font-family: var(--font-family);
 }
 
 .custom-typography,
 .custom-typography > * {
-  font-family: var(--font-family);
   font-weight: var(--font-weight);
   text-transform: var(--text-transform);
   text-wrap: var(--text-wrap);

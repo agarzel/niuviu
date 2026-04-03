@@ -207,6 +207,7 @@
     "borders": "Obramowania",
     "bottom_padding": "Wypełnienie dolne",
     "color": "Kolor",
+    "color_custom_value": "Kolor własny",
     "content_direction": "Kierunek treści",
     "content_position": "Pozycja treści",
     "cover_image_size": "Rozmiar obrazu okładki",
@@ -749,6 +750,7 @@
     "classic": "Klasyczny",
     "collection_images": "Obrazy kolekcji",
     "color": "Kolor",
+    "color_custom": "Kolor własny",
     "complementary": "Uzupełniający",
     "dissolve": "Rozpuszczanie",
     "dotted": "Kropkowany",
@@ -1100,7 +1102,8 @@
     "hide_logo_on_home_page_help": "Logo pozostanie widoczne, gdy aktywny jest lepki nagłówek",
     "media_type_info": "Funkcje są pobierane z linków menu",
     "logo_height": "Dotyczy tylko logo w nagłówku",
-    "actions_display_style": "Na urządzeniach mobilnych zawsze używane są ikony"
+    "actions_display_style": "Na urządzeniach mobilnych zawsze używane są ikony",
+    "color_metafield_connection": "Możesz połączyć metapole koloru przez „Połącz dynamiczne źródło”."
   },
   "categories": {
     "product_list": "Polecana kolekcja",
