@@ -2634,9 +2634,8 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   text-overflow: ellipsis;
 }
 
-/* Beat product-price.text-block > * { width: 100% } so the row can shrink-wrap. */
 product-price.text-block .price-container.price-container--pdp-price-unit-row {
-  width: fit-content;
+  width: 100%;
   max-width: 100%;
 }
 
