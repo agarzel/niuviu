@@ -902,7 +902,7 @@
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
-        "image_2": "{{ product.metafields.custom.hero_pdp.value.obraz_desktop.value }}",
+        "image_2": "shopify://shop_images/Image_4.jpg",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
