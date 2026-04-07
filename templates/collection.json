@@ -401,7 +401,7 @@
                 "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -464,7 +464,7 @@
                     "text": "<h4>{{ closest.product.title }}</h4>",
                     "width": "100%",
                     "max_width": "normal",
-                    "alignment": "left",
+                    "alignment": "center",
                     "type_preset": "h5",
                     "font": "var(--font-primary--family)",
                     "font_size": "",
@@ -494,7 +494,7 @@
                     "pdp_width_mobile": 100,
                     "type_preset": "paragraph",
                     "width": "100%",
-                    "alignment": "left",
+                    "alignment": "center",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -528,11 +528,50 @@
                 "price",
                 "swatches"
               ]
+            },
+            "buy_buttons_3bfDiq": {
+              "type": "buy-buttons",
+              "name": "t:names.product_buy_buttons",
+              "settings": {
+                "stacking": false,
+                "show_pickup_availability": true,
+                "gift_card_form": true,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
             }
           },
           "block_order": [
             "card-gallery",
-            "group"
+            "group",
+            "buy_buttons_3bfDiq"
           ]
         }
       },
