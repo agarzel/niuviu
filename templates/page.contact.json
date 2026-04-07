@@ -103,6 +103,10 @@
         "contact_form_AziDgR",
         "content"
       ],
+      "custom_css": [
+        ".contact-form {display: flex; flex-direction: column;}",
+        ".contact-form .button {align-self: center; margin-left: auto; margin-right: auto; min-width: 200px; /* Opcjonalnie: ustawienie minimalnej szerokości */}"
+      ],
       "settings": {
         "content_direction": "column",
         "gap": 32,
