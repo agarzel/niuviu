@@ -125,6 +125,17 @@
 
     {{ submit_button }}
   {%- endform -%}
+
+  <script>
+    (function () {
+      var id = {{ form_id | json }};
+      var form = document.getElementById(id);
+      if (!form) return;
+      form.addEventListener('submit', function () {
+        console.log('[contact-form] submit', { formId: id });
+      });
+    })();
+  </script>
 </div>
 
 {% stylesheet %}
