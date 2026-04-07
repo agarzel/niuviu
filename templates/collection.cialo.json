@@ -282,7 +282,7 @@
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/plener-2.jpg",
+            "image_1": "shopify://shop_images/plener-2_af06c6bc-cd0d-4c33-8128-d2cbc5cb9ed1.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -306,6 +306,7 @@
             "text_xCDCki": {
               "type": "text",
               "name": "t:names.heading",
+              "disabled": true,
               "settings": {
                 "text": "<h2>Bestsellery</h2>",
                 "width": "fit-content",
@@ -332,6 +333,7 @@
             },
             "text_pWbYeX": {
               "type": "text",
+              "disabled": true,
               "settings": {
                 "text": "<p>Odkryj bestsellery, które podbiły serca naszych klientów dzięki doskonałemu połączeniu funkcjonalności i stylu.</p>",
                 "width": "fit-content",
