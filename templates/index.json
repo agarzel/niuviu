@@ -142,6 +142,7 @@
           "name": "t:names.slide",
           "settings": {
             "media_type_1": "image",
+            "image_1": "shopify://shop_images/IMG_2531_5e075a7c-ca3f-450e-9392-6cd558f11d3e.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -165,6 +166,7 @@
             "text_mnywM7": {
               "type": "text",
               "name": "t:names.heading",
+              "disabled": true,
               "settings": {
                 "text": "<h2>Nowości</h2>",
                 "width": "fit-content",
@@ -191,6 +193,7 @@
             },
             "text_L3aC7q": {
               "type": "text",
+              "disabled": true,
               "settings": {
                 "text": "<p>Przedstawiamy nasze najnowsze produkty, stworzone specjalnie na ten sezon. Kup swoje ulubione, zanim znikną!</p>",
                 "width": "fit-content",
