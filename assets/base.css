@@ -3268,7 +3268,9 @@ label:has(input[type='checkbox']:disabled) {
   --cart-padding: 0.2em;
 
   position: relative;
+  box-sizing: border-box;
   width: 20px;
+  height: 20px;
   aspect-ratio: 1;
   border-radius: 50%;
   border-width: 0;
@@ -3278,6 +3280,7 @@ label:has(input[type='checkbox']:disabled) {
   justify-content: center;
   color: var(--color-primary-button-text);
   padding-inline: var(--cart-padding);
+  flex-shrink: 0;
 }
 
 .cart-bubble[data-maintain-ratio] {
