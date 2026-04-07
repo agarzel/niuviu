@@ -511,7 +511,7 @@
     width: 100%;
   }
 
-   .cart-discount .details-content:has(#cart-discount-disclosure) {
+.cart-discount .details-content:has(#cart-discount-disclosure) {
     border: none;
     box-shadow: none;
   }
@@ -521,6 +521,24 @@
   #cart-discount-disclosure .cart-discount__content,
   #cart-discount-disclosure .cart-discount__form {
     border: none;
+    box-shadow: none;
+  }
+
+  /* Flat chrome + no theme focus ring (base.css *:focus-visible) on this field group */
+  #cart-discount-disclosure .cart-discount__input,
+  #cart-discount-disclosure .cart-discount__input:hover,
+  #cart-discount-disclosure .cart-discount__input:focus,
+  #cart-discount-disclosure .cart-discount__input:focus-visible {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  #cart-discount-disclosure .cart-discount__button.button,
+  #cart-discount-disclosure .cart-discount__button.button:hover:not([disabled]),
+  #cart-discount-disclosure .cart-discount__button.button:focus,
+  #cart-discount-disclosure .cart-discount__button.button:focus-visible {
+    outline: none;
     box-shadow: none;
   }
 
