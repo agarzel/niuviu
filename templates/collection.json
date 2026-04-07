@@ -551,15 +551,15 @@
                 },
                 "add-to-cart": {
                   "type": "add-to-cart",
-                  "disabled": true,
                   "static": true,
                   "settings": {
-                    "style_class": "button-secondary"
+                    "style_class": "button"
                   },
                   "blocks": {}
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
