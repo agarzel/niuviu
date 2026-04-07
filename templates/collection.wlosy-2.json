@@ -210,7 +210,7 @@
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/wlosy-banner-desktop.png",
+            "image_1": "shopify://shop_images/111.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -234,6 +234,7 @@
             "text_eAhEWV": {
               "type": "text",
               "name": "t:names.heading",
+              "disabled": true,
               "settings": {
                 "text": "<h2>SIMPLE CARE, THAT'S MY WAY</h2>",
                 "width": "fit-content",
@@ -260,6 +261,7 @@
             },
             "text_8MYyRq": {
               "type": "text",
+              "disabled": true,
               "settings": {
                 "text": "<p>Twoje new view na pielęgnację włosów</p>",
                 "width": "fit-content",
