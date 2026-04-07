@@ -492,6 +492,7 @@
     flex-grow: 1;
     min-width: 0;
     font-size: var(--font-size--sm);
+    border:none;
   }
 
   .cart-discount__input::placeholder {
@@ -508,6 +509,19 @@
 
   .cart-discount {
     width: 100%;
+  }
+
+   .cart-discount .details-content:has(#cart-discount-disclosure) {
+    border: none;
+    box-shadow: none;
+  }
+
+  #cart-discount-disclosure,
+  #cart-discount-disclosure cart-discount-component,
+  #cart-discount-disclosure .cart-discount__content,
+  #cart-discount-disclosure .cart-discount__form {
+    border: none;
+    box-shadow: none;
   }
 
   .cart-discount__codes {
