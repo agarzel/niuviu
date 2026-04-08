@@ -312,6 +312,7 @@
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
+            "image_1": "shopify://shop_images/hero-destop.jpg",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -336,7 +337,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Bestsellery</h2>",
+                "text": "<h2>simple care, that's our way</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -362,7 +363,7 @@
             "text_pWbYeX": {
               "type": "text",
               "settings": {
-                "text": "<p>Odkryj bestsellery, które podbiły serca naszych klientów dzięki doskonałemu połączeniu funkcjonalności i stylu.</p>",
+                "text": "<p>Sprawdź, o co tyle szumu. Poznaj nasze bestsellery! </p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
