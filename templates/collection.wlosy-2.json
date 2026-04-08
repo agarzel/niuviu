@@ -390,7 +390,7 @@
               "type": "button",
               "settings": {
                 "label": "Kup teraz",
-                "link": "shopify://collections/cialo",
+                "link": "",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",

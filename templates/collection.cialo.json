@@ -260,6 +260,7 @@
             },
             "button_pkmFq9": {
               "type": "button",
+              "disabled": true,
               "settings": {
                 "label": "Kup teraz",
                 "link": "shopify://collections/cialo",
@@ -463,6 +464,7 @@
             },
             "button_PQrmb8": {
               "type": "button",
+              "disabled": true,
               "settings": {
                 "label": "Kup teraz",
                 "link": "shopify://collections/all",
