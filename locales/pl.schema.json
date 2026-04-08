@@ -539,7 +539,7 @@
       "key_info": "Nie może być pusty i musi być unikatowy dla każdego bloku. Wyświetla się w koszyku, kasie i szczegółach zamówienia.",
       "placeholder_text": "Tekst zastępczy",
       "default_heading": "Dostosuj swój produkt",
-      "default_placeholder": "Wprowadź specjalne instrukcje",
+      "default_placeholder": "Wprowadź uwagi do zamówienia",
       "default_property_key": "Instrukcje specjalne",
       "max_length": "Maks. liczba znaków",
       "required": "Wprowadzenie danych jest wymagane, aby dodać pozycję do koszyka",
