@@ -234,6 +234,7 @@
             "text_eAhEWV": {
               "type": "text",
               "name": "t:names.heading",
+              "disabled": true,
               "settings": {
                 "text": "<h2>niuviu CIAŁO</h2>",
                 "width": "fit-content",
