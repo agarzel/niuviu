@@ -234,7 +234,6 @@
             "text_eAhEWV": {
               "type": "text",
               "name": "t:names.heading",
-              "disabled": true,
               "settings": {
                 "text": "<h2>niuviu CIAŁO</h2>",
                 "width": "fit-content",
@@ -1195,7 +1194,6 @@
         "image_slot_2_image": "shopify://shop_images/niuviu_dowyboru-730.jpg",
         "image_slot_2_position": 4,
         "image_slot_2_link": "",
-        "image_slot_3_image": "shopify://shop_images/534a2c8ce8ec72dbd4091f7a026a4591bbbd0797.jpg",
         "image_slot_3_position": 6,
         "image_slot_3_link": "",
         "image_slot_4_position": 8,
