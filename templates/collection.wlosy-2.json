@@ -388,6 +388,7 @@
             },
             "button_6eL4gY": {
               "type": "button",
+              "disabled": true,
               "settings": {
                 "label": "Kup teraz",
                 "link": "",
