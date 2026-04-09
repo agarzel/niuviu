@@ -17,6 +17,7 @@
         "announcement_MHUQgy": {
           "type": "_announcement",
           "name": "t:names.announcement",
+          "disabled": true,
           "settings": {
             "text": "TYLKO DZIŚ! <strong>Kup jeden produkt, a drugi dostaniesz od nas za grosz.</strong> Rabat nalicza się w koszyku.",
             "link": "shopify://pages/contact",
@@ -32,7 +33,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "<strong>PREMIERA niuviu Ciało </strong>| 1+1 za grosz, 2+2 za grosz, 3+3 za grosz |",
+            "text": "<strong>PREMIERA niuviu Ciało</strong>",
             "link": "shopify://collections/all",
             "font": "var(--font-primary--family)",
             "font_size": "var(--font-size--body-sm)",
