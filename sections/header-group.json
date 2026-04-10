@@ -17,9 +17,8 @@
         "announcement_MHUQgy": {
           "type": "_announcement",
           "name": "t:names.announcement",
-          "disabled": true,
           "settings": {
-            "text": "TYLKO DZIŚ! <strong>Kup jeden produkt, a drugi dostaniesz od nas za grosz.</strong> Rabat nalicza się w koszyku.",
+            "text": "<strong>Darmowa dostawa</strong> od 119 zł!",
             "link": "shopify://pages/contact",
             "font": "var(--font-body--family)",
             "font_size": "var(--font-size--body-sm)",
