@@ -3,9 +3,15 @@
 
   @param {string} [accelerated_checkout_buttons_layout] - { 'vertical' } Forced layout of the additional checkout buttons, instead of relying on platform's layout.
   @param {string} [section_id] - The section ID for cart discount component.
+  @param {boolean} [show_shipping_bar] - Toggle free shipping bar visibility for this render.
 {%- enddoc -%}
 
 <div class="cart-totals">
+  {% assign show_shipping_bar = show_shipping_bar | default: true, allow_false: true %}
+  {% if show_shipping_bar %}
+    {% render 'cart-shipping-bar' %}
+  {% endif %}
+
   {% # We need to keep this node in place to allow morphing to work properly # %}
   <div class="cart-totals__original-container cart-primary-typography">
     {%- if cart.cart_level_discount_applications.size > 0 -%}
@@ -282,6 +288,37 @@
 </div>
 
 {% stylesheet %}
+  .cart-shipping-bar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2xs);
+  }
+
+  .cart-shipping-bar__message {
+    margin: 0;
+    color: var(--cart-shipping-bar-text-color);
+    font-size: var(--font-size--sm); 
+  }
+
+  .cart-shipping-bar__remaining {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .cart-shipping-bar__track {
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 999px;
+    background-color: var(--cart-shipping-bar-track-color);
+    overflow: hidden;
+  }
+
+  .cart-shipping-bar__fill {
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--cart-shipping-bar-fill-color);
+    transition: width var(--animation-speed) var(--animation-easing);
+  }
+
   .cart-actions {
     display: flex;
     flex-direction: column;

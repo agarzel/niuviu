@@ -1,0 +1,58 @@
+{%- liquid
+  assign shipping_bar_enabled = settings.cart_shipping_bar_enabled
+  assign shipping_goal_cents = settings.cart_shipping_bar_threshold | times: 100
+  assign shipping_progress = 0
+  assign shipping_remaining_cents = 0
+  assign shipping_reached = false
+
+  if shipping_bar_enabled and shipping_goal_cents > 0
+    if cart.total_price >= shipping_goal_cents
+      assign shipping_progress = 100
+      assign shipping_reached = true
+    else
+      assign shipping_progress = cart.total_price | times: 100.0 | divided_by: shipping_goal_cents | round
+      assign shipping_remaining_cents = shipping_goal_cents | minus: cart.total_price
+    endif
+  endif
+-%}
+
+{% if shipping_bar_enabled and shipping_goal_cents > 0 %}
+  <div
+    class="cart-shipping-bar"
+    style="
+      --cart-shipping-bar-text-color: {{ settings.cart_shipping_bar_text_color }};
+      --cart-shipping-bar-track-color: {{ settings.cart_shipping_bar_track_color }};
+      --cart-shipping-bar-fill-color: {{ settings.cart_shipping_bar_fill_color }};
+    "
+  >
+    <p class="cart-shipping-bar__message">
+      {% if shipping_reached %}
+        {{ settings.cart_shipping_bar_success_message }}
+      {% else %}
+        {% assign shipping_remaining_money = shipping_remaining_cents | money %}
+        {% assign shipping_bar_message = settings.cart_shipping_bar_message %}
+        {% capture shipping_remaining_markup -%}
+          <span class="cart-shipping-bar__remaining">{{ shipping_remaining_money }}</span>
+        {%- endcapture %}
+        {% if shipping_bar_message contains '[remaining_amount]' %}
+          {{ shipping_bar_message | replace: '[remaining_amount]', shipping_remaining_markup }}
+        {% else %}
+          {{ shipping_bar_message }}
+          {{ shipping_remaining_markup }}
+        {% endif %}
+      {% endif %}
+    </p>
+    <div
+      class="cart-shipping-bar__track"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ shipping_progress }}"
+    >
+      <div
+        class="cart-shipping-bar__fill"
+        style="width: {{ shipping_progress }}%;"
+      ></div>
+    </div>
+  </div>
+{% endif %}

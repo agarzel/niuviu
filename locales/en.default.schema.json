@@ -51,6 +51,7 @@
     "carousel_navigation": "Carousel navigation",
     "carousel_pagination": "Carousel pagination",
     "cart_features": "Cart features",
+    "cart_shipping_bar": "Cart shipping bar",
     "colors": "Colors",
     "collection_page": "Collection page",
     "complementary_products": "Complementary products must be set up using the Search & Discovery app. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery)",
@@ -810,6 +811,14 @@
     "cart_total": "Cart total",
     // Setting label for cart display format (page vs drawer)
     "cart_type": "Type",
+    "cart_shipping_bar_enabled": "Enable free shipping progress bar",
+    "cart_shipping_bar_threshold": "Free shipping threshold",
+    "cart_shipping_bar_message": "Message before reaching threshold",
+    "cart_shipping_bar_success_message": "Message after free shipping is reached",
+    "cart_shipping_bar_text_color": "Text color",
+    "cart_shipping_bar_success_text_color": "Text color (threshold reached)",
+    "cart_shipping_bar_track_color": "Bar track color",
+    "cart_shipping_bar_fill_color": "Bar progress color",
     "auto_open_cart_drawer": "\"Add to cart\" auto-opens drawer",
     // Text case setting for typography (uppercase/lowercase)
     "case": "Case",
