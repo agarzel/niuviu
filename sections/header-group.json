@@ -17,6 +17,7 @@
         "announcement_MHUQgy": {
           "type": "_announcement",
           "name": "t:names.announcement",
+          "disabled": true,
           "settings": {
             "text": "<strong>Darmowa dostawa</strong> od 119 zł!",
             "link": "shopify://pages/contact",
@@ -32,7 +33,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "<strong>PREMIERA niuviu Ciało</strong>",
+            "text": "<strong>PREMIERA niuviu Ciało | Darmowa dostawa</strong> od 119 zł",
             "link": "shopify://collections/all",
             "font": "var(--font-primary--family)",
             "font_size": "var(--font-size--body-sm)",
