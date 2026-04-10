@@ -192,6 +192,11 @@
                   </span>
                 </button>
               </div>
+              {% if settings.cart_shipping_bar_enabled and settings.cart_shipping_bar_threshold > 0 %}
+                <div class="cart-drawer__shipping-bar">
+                  {% render 'cart-shipping-bar' %}
+                </div>
+              {% endif %}
 
               <scroll-hint
                 class="cart-drawer__content"
@@ -207,7 +212,7 @@
                 <div
                   class="cart-drawer__summary"
                 >
-                  {% render 'cart-summary', section_id: section.id %}
+                  {% render 'cart-summary', section_id: section.id, show_shipping_bar: false %}
                 </div>
               </scroll-hint>
             {%- endif -%}
@@ -496,6 +501,17 @@
 
   .cart-drawer--empty .cart-drawer__heading {
     text-align: center;
+  }
+
+  .cart-drawer__shipping-bar {
+    padding-inline: var(--cart-drawer-padding);
+    padding-block-end: var(--padding-sm);
+    background-color: var(--color-background);
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 750px) {
+      padding-inline: var(--cart-drawer-padding-desktop);
+    }
   }
 
   header-actions {

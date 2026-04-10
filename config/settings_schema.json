@@ -1770,6 +1770,55 @@
       },
       {
         "type": "header",
+        "content": "t:content.cart_shipping_bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_shipping_bar_enabled",
+        "label": "t:settings.cart_shipping_bar_enabled",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "cart_shipping_bar_threshold",
+        "label": "t:settings.cart_shipping_bar_threshold",
+        "min": 0,
+        "max": 2000,
+        "step": 20,
+        "default": 200
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_bar_message",
+        "label": "t:settings.cart_shipping_bar_message",
+        "default": "Do darmowej wysyłki brakuje [remaining_amount]"
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_bar_success_message",
+        "label": "t:settings.cart_shipping_bar_success_message",
+        "default": "Gratulacje! Masz darmową wysyłkę."
+      },
+      {
+        "type": "color",
+        "id": "cart_shipping_bar_text_color",
+        "label": "t:settings.cart_shipping_bar_text_color",
+        "default": "#1F2937"
+      },
+      {
+        "type": "color",
+        "id": "cart_shipping_bar_track_color",
+        "label": "t:settings.cart_shipping_bar_track_color",
+        "default": "#E5E7EB"
+      },
+      {
+        "type": "color",
+        "id": "cart_shipping_bar_fill_color",
+        "label": "t:settings.cart_shipping_bar_fill_color",
+        "default": "rgb(255 51 126 / 1.0)"
+      },
+      {
+        "type": "header",
         "content": "t:content.product_media"
       },
       {
