@@ -20,7 +20,7 @@
           "disabled": true,
           "settings": {
             "text": "<strong>Darmowa dostawa</strong> od 119 zł!",
-            "link": "shopify://pages/contact",
+            "link": "shopify://pages/kontakt",
             "font": "var(--font-body--family)",
             "font_size": "var(--font-size--body-sm)",
             "weight": "",
