@@ -49,12 +49,7 @@
         "heading",
         "page-content"
       ],
-      "custom_css": [
-        "/* Rozszerzenie kontenera sekcji */.page-width {max-width: 1400px !important; width: 100% !important; padding-left: 2rem !important; padding-right: 2rem !important;}",
-        "/* Usunięcie domyślnego zwężenia treści (RTE) */.rte {max-width: none !important;}",
-        "/* Wyśrodkowanie widgetu Wygodnych Zwrotów */#ak_returns_banner_05beac34-d101-4d4f-bc5a-45ab3e0e669a {margin: 0 auto !important; width: 100% !important;}",
-        "/* Opcjonalnie: ukrycie tytułu strony, jeśli chcesz go zastąpić własnym banerem */.main-page-title {margin-bottom: 2rem;}"
-      ],
+      "custom_css": [],
       "settings": {
         "content_direction": "column",
         "gap": 32,
