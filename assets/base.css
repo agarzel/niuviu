@@ -3014,6 +3014,10 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   padding-block: var(--padding-xl);
 }
 
+.shopify-policy__container:has(.akc-banner) {
+  max-width: 80% !important
+}
+
 .checkbox {
   --checkbox-top: 50%;
   --checkbox-left: 1.5px;
