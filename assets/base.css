@@ -3018,6 +3018,10 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   max-width: 80% !important
 }
 
+.shopify-policy__container:has(.akc-banner) .akc-carrier-logos {
+  flex-wrap: nowrap !important;
+}
+
 .shopify-policy__container:has(.akc-banner) .akc-carrier-logos img {
   flex-shrink: 1 !important;
 }
