@@ -6,9 +6,6 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
-	<!-- Added by AVADA SEO Suite -->
-	{% include 'avada-seo' %}
-	<!-- /Added by AVADA SEO Suite -->
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -47,7 +44,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endif %}
 
     {{ content_for_header }}
-    <meta name="google-site-verification" content="n4t6waXLvL4kS3UwoGR_ByfWAJKkxJBMse2wJQYzbmE" />
     <meta name="google-site-verification" content="A0JBaOj11s2p84hXeoJDMXmmRGxsyiYL_DkR2KtipHI" />
   </head>
 
@@ -149,5 +145,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+    <script>
+  (function (i) {
+    var j = document.createElement("script");
+    j.src = "https://cdn.allekurier.pl/mail-box/banner.js?hid=" + i;
+    j.async = true;
+    j.referrerPolicy = "no-referrer-when-downgrade";
+    document.body.appendChild(j);
+  })("05beac34-d101-4d4f-bc5a-45ab3e0e669a");
+</script>
   </body>
 </html>
