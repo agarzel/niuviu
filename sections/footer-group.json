@@ -85,7 +85,7 @@
               "type": "text",
               "name": "Text",
               "settings": {
-                "text": "<p>dołącz do naszego newslettera, bądź na bieżąco i zyskuj wyjątkowe rabaty!</p>",
+                "text": "<p>dołącz do naszego newslettera, <strong>odbierz 20% zniżki na pierwsze zakupy</strong>, bądź na bieżąco z nowościami i zyskuj wyjątkowe rabaty!</p>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
