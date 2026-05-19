@@ -154,5 +154,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.body.appendChild(j);
   })("05beac34-d101-4d4f-bc5a-45ab3e0e669a");
 </script>
+<script type="text/javascript">
+(function() {
+    var title1 = "Dokończ zakupy! 🛒";
+    var title2 = document.title;
+    var blinkingInterval = null;
+
+    function startBlinking() {
+        try {
+            // Szukamy elementu wskazującego, że koszyk nie jest pusty
+            var hasCartElement = document.querySelector('.header-actions__cart-icon--has-cart');
+
+            // Jeśli taki element istnieje na stronie, odpalamy miganie
+            if (hasCartElement && !blinkingInterval) {
+                blinkingInterval = setInterval(function() {
+                    document.title = (document.title === title1 ? title2 : title1);
+                }, 2000);
+            }
+        } catch (e) {
+            console.log('Błąd migania karty:', e);
+        }
+    }
+
+    function stopBlinking() {
+        if (blinkingInterval) {
+            clearInterval(blinkingInterval);
+            blinkingInterval = null;
+        }
+        document.title = title2;
+    }
+
+    window.addEventListener('blur', startBlinking);
+    window.addEventListener('focus', stopBlinking);
+})();
+</script>
+
   </body>
 </html>
