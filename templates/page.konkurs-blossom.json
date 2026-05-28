@@ -49,6 +49,7 @@
         "heading",
         "page-content"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "content_direction": "column",
