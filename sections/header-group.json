@@ -33,7 +33,7 @@
           "type": "_announcement",
           "name": "t:names.announcement",
           "settings": {
-            "text": "<strong>PREMIERA niuviu Ciało | Darmowa dostawa</strong> od 99 zł",
+            "text": "<strong>DARMOWA DOSTAWA OD 99 zł</strong>",
             "link": "shopify://collections/cialo",
             "font": "var(--font-primary--family)",
             "font_size": "var(--font-size--body-sm)",
