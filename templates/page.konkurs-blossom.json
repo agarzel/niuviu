@@ -12,9 +12,20 @@
     "konkurs_hero": {
       "type": "konkurs-hero",
       "settings": {
+        "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>",
+        "button_url": "",
         "button_label": "wyślij zgłoszenie",
-        "regulation_label": "Regulamin konkursu",
-        "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>"
+        "regulation_url": "",
+        "regulation_label": "Regulamin konkursu"
+      }
+    },
+    "konkurs_scrolling": {
+      "type": "konkurs-scrolling-text",
+      "settings": {
+        "text": "wygraj",
+        "text_color": "#000000",
+        "background_color": "#e3a7f6",
+        "speed": 20
       }
     },
     "konkurs_steps": {
@@ -39,11 +50,16 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "title": "Jak wziąć udział w konkursie?",
         "date_text": "Konkurs trwa: 01.06-30.09.2026",
-        "button_label": "WYŚLIJ ZGŁOSZENIE"
+        "button_label": "WYŚLIJ ZGŁOSZENIE",
+        "button_url": ""
       }
     },
     "konkurs_prizes": {
@@ -53,7 +69,8 @@
           "type": "prize_1",
           "settings": {
             "count": "3x",
-            "value": "10 000 zł"
+            "value": "10 000 zł",
+            "description": "<p><strong>na wakacje</strong> od wakacje.pl</p>"
           }
         },
         "prize_2": {
@@ -73,7 +90,11 @@
           }
         }
       },
-      "block_order": ["prize_1", "prize_2", "prize_3"],
+      "block_order": [
+        "prize_1",
+        "prize_2",
+        "prize_3"
+      ],
       "settings": {}
     },
     "konkurs_winners": {
@@ -83,7 +104,8 @@
           "type": "category",
           "settings": {
             "name": "wakacje o wartości 10 000 zł:",
-            "winners_1": "  1. Imię N.",
+            "two_columns": false,
+            "winners_1": "1. Imię N.",
             "winners_2": "",
             "winners_3": ""
           }
@@ -92,7 +114,8 @@
           "type": "category",
           "settings": {
             "name": "odkurzacz dyson:",
-            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
+            "two_columns": false,
+            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
             "winners_2": "",
             "winners_3": ""
           }
@@ -102,32 +125,24 @@
           "settings": {
             "name": "100 zł na zakupy w biedronce:",
             "two_columns": true,
-            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
+            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
             "winners_2": "",
             "winners_3": ""
           }
         }
       },
-      "block_order": ["cat_1", "cat_2", "cat_3"],
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
       "settings": {
         "title": "Laureaci konkursu",
         "subtitle": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail.",
+        "info_text": "<p><strong>Pamiętaj!</strong><br>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>",
         "month1_label": "LIPIEC",
         "month2_label": "SIERPIEŃ",
         "month3_label": "WRZESIEŃ"
-      }
-    },
-    "konkurs_banner": {
-      "type": "konkurs-banner",
-      "settings": {}
-    },
-    "konkurs_scrolling": {
-      "type": "konkurs-scrolling-text",
-      "settings": {
-        "text": "wygraj",
-        "text_color": "#000000",
-        "background_color": "#E3A7F6",
-        "speed": 20
       }
     },
     "main": {
@@ -221,82 +236,32 @@
         "padding-block-end": 0
       }
     },
-    "1779958239c5319786": {
-      "type": "_blocks",
-      "blocks": {
-        "hulk_form_builder_form_block_6K6XpX": {
-          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
-          "settings": {
-            "form_uuid": "iS5sLxvOyvREvLfW3uXTAA",
-            "form_settings": false,
-            "font_color": "#000000",
-            "size": 14,
-            "input_background_color": "#fff",
-            "input_background_color_focus": "#f4dada",
-            "input_border_radius": 1,
-            "input_border_color": "#ebe9e9",
-            "input_border_color_focus": "#2d2727",
-            "input_font_color": "#3d3131",
-            "input_size": 14,
-            "border_color": "#121212",
-            "border_radius": 2,
-            "border": 1,
-            "fill_color": "#ebe9e9",
-            "padding": 35,
-            "form_width": 600,
-            "btn_text": "Submit",
-            "sub_btn_txt_color": "#f3f3f3",
-            "sub_btn_bg_color": "#3f3333",
-            "sub_btn_font_size": 14,
-            "sub_btn_bdr_color": "#ffffff",
-            "sub_btn_bdr_rad": 3,
-            "sub_btn_bdr_width": 1,
-            "fonts": "Times New Roman"
-          }
-        }
-      },
-      "block_order": [
-        "hulk_form_builder_form_block_6K6XpX"
-      ],
-      "disabled": true,
+    "konkurs_scrolling_text_G7wkxx": {
+      "type": "konkurs-scrolling-text",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "text": "gratulacje",
+        "text_color": "#000000",
+        "background_color": "#e3a7f6",
+        "speed": 40
+      }
+    },
+    "konkurs_banner": {
+      "type": "konkurs-banner",
+      "settings": {
+        "link_left": "",
+        "link_right": ""
       }
     }
   },
   "order": [
     "konkurs_hero",
-    "konkurs_banner",
     "konkurs_scrolling",
     "konkurs_steps",
     "konkurs_prizes",
     "konkurs_winners",
     "main",
     "1779950794b0ea708a",
-    "1779958239c5319786"
+    "konkurs_scrolling_text_G7wkxx",
+    "konkurs_banner"
   ]
 }
