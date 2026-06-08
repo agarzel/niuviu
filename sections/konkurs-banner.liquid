@@ -1,0 +1,82 @@
+<section class="contest-banner">
+
+  <div class="contest-banner__panel contest-banner__panel--left">
+    {%- if section.settings.image_left != blank -%}
+      <img
+        class="contest-banner__img"
+        src="{{ section.settings.image_left | image_url: width: 1800 }}"
+        alt="{{ section.settings.image_left.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_left.width }}"
+        height="{{ section.settings.image_left.height }}"
+      >
+    {%- else -%}
+      <img
+        class="contest-banner__img"
+        src="{{ 'konkurs-banner-left.png' | asset_url }}"
+        alt=""
+        loading="lazy"
+      >
+    {%- endif -%}
+    {%- if section.settings.link_left != blank -%}
+      <a class="contest-banner__link" href="{{ section.settings.link_left }}" aria-label="{{ section.settings.image_left.alt | default: 'Zobacz kolekcję' | escape }}"></a>
+    {%- endif -%}
+  </div>
+
+  <div class="contest-banner__panel contest-banner__panel--right">
+    {%- if section.settings.image_right != blank -%}
+      <img
+        class="contest-banner__img"
+        src="{{ section.settings.image_right | image_url: width: 1800 }}"
+        alt="{{ section.settings.image_right.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_right.width }}"
+        height="{{ section.settings.image_right.height }}"
+      >
+    {%- else -%}
+      <img
+        class="contest-banner__img"
+        src="{{ 'konkurs-banner-right.png' | asset_url }}"
+        alt=""
+        loading="lazy"
+      >
+    {%- endif -%}
+    {%- if section.settings.link_right != blank -%}
+      <a class="contest-banner__link" href="{{ section.settings.link_right }}" aria-label="{{ section.settings.image_right.alt | default: 'Zobacz kolekcję' | escape }}"></a>
+    {%- endif -%}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.contest_banner.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_left",
+      "label": "t:sections.contest_banner.settings.image_left.label"
+    },
+    {
+      "type": "url",
+      "id": "link_left",
+      "label": "t:sections.contest_banner.settings.link_left.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_right",
+      "label": "t:sections.contest_banner.settings.image_right.label"
+    },
+    {
+      "type": "url",
+      "id": "link_right",
+      "label": "t:sections.contest_banner.settings.link_right.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contest_banner.presets.name"
+    }
+  ]
+}
+{% endschema %}

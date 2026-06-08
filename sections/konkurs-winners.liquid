@@ -1,0 +1,183 @@
+<section class="contest-winners">
+
+  <div class="contest-winners__deco-left" aria-hidden="true">
+    <img src="{{ 'konkurs-winners-deco-left.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+  </div>
+  <div class="contest-winners__deco-right" aria-hidden="true">
+    <img src="{{ 'konkurs-winners-deco-right.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+  </div>
+  <div class="contest-winners__star" aria-hidden="true">
+    <img src="{{ 'konkurs-winners-star.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+  </div>
+
+  <div class="contest-winners__inner">
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="contest-winners__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <p class="contest-winners__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.info_text != blank -%}
+      <div class="contest-winners__info">
+        {{ section.settings.info_text }}
+      </div>
+    {%- endif -%}
+
+    <div class="contest-winners__filters" role="group">
+      <button
+        class="contest-winners__filter-btn is-active"
+        data-month="1"
+        type="button"
+      >{{ section.settings.month1_label }}</button>
+      <button
+        class="contest-winners__filter-btn"
+        data-month="2"
+        type="button"
+      >{{ section.settings.month2_label }}</button>
+      <button
+        class="contest-winners__filter-btn"
+        data-month="3"
+        type="button"
+      >{{ section.settings.month3_label }}</button>
+    </div>
+
+    {%- unless section.blocks == empty -%}
+      <div class="contest-winners__categories">
+        {%- for block in section.blocks -%}
+          <div class="contest-winners__category" {{ block.shopify_attributes }}>
+
+            {%- if block.settings.name != blank -%}
+              <h3 class="contest-winners__category-name">{{ block.settings.name }}</h3>
+            {%- endif -%}
+
+            {%- for m in (1..3) -%}
+              {%- assign winners_key = 'winners_' | append: m -%}
+              {%- assign winners_val = block.settings[winners_key] -%}
+              <div
+                class="contest-winners__month{% if m == 1 %} is-visible{% endif %}{% if block.settings.two_columns %} contest-winners__month--two-col{% endif %}"
+                data-month="{{ m }}"
+              >
+                {%- if winners_val != blank -%}
+                  {{ winners_val | newline_to_br }}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endunless -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.contest_winners.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.contest_winners.settings.title.label",
+      "default": "Laureaci konkursu"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "t:sections.contest_winners.settings.subtitle.label",
+      "default": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail."
+    },
+    {
+      "type": "richtext",
+      "id": "info_text",
+      "label": "t:sections.contest_winners.settings.info_text.label",
+      "default": "<p><strong>Pamiętaj!</strong><br>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>"
+    },
+    {
+      "type": "text",
+      "id": "month1_label",
+      "label": "t:sections.contest_winners.settings.month1_label.label",
+      "default": "LIPIEC"
+    },
+    {
+      "type": "text",
+      "id": "month2_label",
+      "label": "t:sections.contest_winners.settings.month2_label.label",
+      "default": "SIERPIEŃ"
+    },
+    {
+      "type": "text",
+      "id": "month3_label",
+      "label": "t:sections.contest_winners.settings.month3_label.label",
+      "default": "WRZESIEŃ"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "t:sections.contest_winners.blocks.category.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "t:sections.contest_winners.blocks.category.settings.name.label",
+          "default": "wakacje o wartości 10 000 zł:"
+        },
+        {
+          "type": "checkbox",
+          "id": "two_columns",
+          "label": "t:sections.contest_winners.blocks.category.settings.two_columns.label",
+          "default": false
+        },
+        {
+          "type": "textarea",
+          "id": "winners_1",
+          "label": "t:sections.contest_winners.blocks.category.settings.winners_1.label"
+        },
+        {
+          "type": "textarea",
+          "id": "winners_2",
+          "label": "t:sections.contest_winners.blocks.category.settings.winners_2.label"
+        },
+        {
+          "type": "textarea",
+          "id": "winners_3",
+          "label": "t:sections.contest_winners.blocks.category.settings.winners_3.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contest_winners.presets.name",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "name": "wakacje o wartości 10 000 zł:",
+            "winners_1": "  1. Imię N."
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "name": "odkurzacz dyson:",
+            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N."
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "name": "100 zł na zakupy w biedronce:",
+            "two_columns": true,
+            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

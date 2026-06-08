@@ -1,0 +1,234 @@
+<section class="contest-prizes">
+  {%- for block in section.blocks -%}
+
+    {%- case block.type -%}
+
+    {%- when 'prize_1' -%}
+      {%- if block.settings.image != blank -%}
+        {%- assign img1 = block.settings.image | image_url: width: 500 -%}
+      {%- else -%}
+        {%- assign img1 = 'konkurs-prizes-bon.png' | asset_url -%}
+      {%- endif -%}
+
+      <div class="contest-prizes__row contest-prizes__row--1" {{ block.shopify_attributes }}>
+
+        <div class="contest-prizes__deco">
+          <img src="{{ 'konkurs-prizes-deco-1.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__media contest-prizes__media--stack">
+          <img class="contest-prizes__stack-img contest-prizes__stack-img--1" src="{{ img1 }}" alt="" loading="lazy">
+          <img class="contest-prizes__stack-img contest-prizes__stack-img--2" src="{{ img1 }}" alt="" loading="lazy">
+          <img class="contest-prizes__stack-img contest-prizes__stack-img--3" src="{{ img1 }}" alt="" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__text">
+          <div class="contest-prizes__headline">
+            {%- if block.settings.count != blank -%}
+              <span class="contest-prizes__count">{{ block.settings.count }}</span>
+            {%- endif -%}
+            {%- if block.settings.value != blank -%}
+              <span class="contest-prizes__main">{{ block.settings.value }}</span>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.description != blank -%}
+            <div class="contest-prizes__desc">{{ block.settings.description }}</div>
+          {%- endif -%}
+        </div>
+
+      </div>
+
+    {%- when 'prize_2' -%}
+      {%- if block.settings.image != blank -%}
+        {%- assign img2 = block.settings.image | image_url: width: 300 -%}
+      {%- else -%}
+        {%- assign img2 = 'konkurs-prizes-dyson.png' | asset_url -%}
+      {%- endif -%}
+
+      <div class="contest-prizes__row contest-prizes__row--2" {{ block.shopify_attributes }}>
+
+        <div class="contest-prizes__text">
+          <div class="contest-prizes__headline">
+            {%- if block.settings.count != blank -%}
+              <span class="contest-prizes__count">{{ block.settings.count }}</span>
+            {%- endif -%}
+            <div class="contest-prizes__value-col">
+              {%- if block.settings.sub_text != blank -%}
+                <p class="contest-prizes__sub">{{ block.settings.sub_text }}</p>
+              {%- endif -%}
+              {%- if block.settings.main_text != blank -%}
+                <span class="contest-prizes__main">{{ block.settings.main_text }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+
+        <div class="contest-prizes__media">
+          <img class="contest-prizes__img" src="{{ img2 }}" alt="" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__deco">
+          <img src="{{ 'konkurs-prizes-deco-2.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__star">
+          <img src="{{ 'konkurs-prizes-star.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+        </div>
+
+      </div>
+
+    {%- when 'prize_3' -%}
+      {%- if block.settings.image != blank -%}
+        {%- assign img3 = block.settings.image | image_url: width: 400 -%}
+      {%- else -%}
+        {%- assign img3 = 'konkurs-prizes-biedronka.png' | asset_url -%}
+      {%- endif -%}
+
+      <div class="contest-prizes__row contest-prizes__row--3" {{ block.shopify_attributes }}>
+
+        <div class="contest-prizes__star">
+          <img src="{{ 'konkurs-prizes-star.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__deco">
+          <img src="{{ 'konkurs-prizes-deco-3.svg' | asset_url }}" alt="" role="presentation" loading="lazy">
+        </div>
+
+        <div class="contest-prizes__text">
+          <div class="contest-prizes__headline">
+            {%- if block.settings.count != blank -%}
+              <span class="contest-prizes__count">{{ block.settings.count }}</span>
+            {%- endif -%}
+            {%- if block.settings.value != blank -%}
+              <span class="contest-prizes__main">{{ block.settings.value }}</span>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.description != blank -%}
+            <p class="contest-prizes__desc">{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+
+        <div class="contest-prizes__media">
+          <img class="contest-prizes__img" src="{{ img3 }}" alt="" loading="lazy">
+        </div>
+
+      </div>
+
+    {%- endcase -%}
+
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.contest_prizes.name",
+  "blocks": [
+    {
+      "type": "prize_1",
+      "name": "t:sections.contest_prizes.blocks.prize_1.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "count",
+          "label": "t:sections.contest_prizes.blocks.prize_1.settings.count.label",
+          "default": "3x"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "t:sections.contest_prizes.blocks.prize_1.settings.value.label",
+          "default": "10 000 zł"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "t:sections.contest_prizes.blocks.prize_1.settings.description.label",
+          "default": "<p><strong>na wakacje</strong> od wakacje.pl</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.contest_prizes.blocks.prize_1.settings.image.label"
+        }
+      ]
+    },
+    {
+      "type": "prize_2",
+      "name": "t:sections.contest_prizes.blocks.prize_2.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "count",
+          "label": "t:sections.contest_prizes.blocks.prize_2.settings.count.label",
+          "default": "15x"
+        },
+        {
+          "type": "text",
+          "id": "sub_text",
+          "label": "t:sections.contest_prizes.blocks.prize_2.settings.sub_text.label",
+          "default": "odkurzacz"
+        },
+        {
+          "type": "text",
+          "id": "main_text",
+          "label": "t:sections.contest_prizes.blocks.prize_2.settings.main_text.label",
+          "default": "Dyson"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.contest_prizes.blocks.prize_2.settings.image.label"
+        }
+      ]
+    },
+    {
+      "type": "prize_3",
+      "name": "t:sections.contest_prizes.blocks.prize_3.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "count",
+          "label": "t:sections.contest_prizes.blocks.prize_3.settings.count.label",
+          "default": "60x"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "t:sections.contest_prizes.blocks.prize_3.settings.value.label",
+          "default": "100 zł"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "t:sections.contest_prizes.blocks.prize_3.settings.description.label",
+          "default": "na zakupy w biedronce"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.contest_prizes.blocks.prize_3.settings.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contest_prizes.presets.name",
+      "blocks": [
+        {
+          "type": "prize_1",
+          "settings": { "count": "3x", "value": "10 000 zł" }
+        },
+        {
+          "type": "prize_2",
+          "settings": { "count": "15x", "sub_text": "odkurzacz", "main_text": "Dyson" }
+        },
+        {
+          "type": "prize_3",
+          "settings": { "count": "60x", "value": "100 zł" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

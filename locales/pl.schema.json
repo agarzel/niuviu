@@ -1135,6 +1135,145 @@
     "text": "Tekst"
   },
   "sections": {
+    "contest_steps": {
+      "name": "Jak wziąć udział – Konkurs",
+      "presets": { "name": "Jak wziąć udział – Konkurs" },
+      "settings": {
+        "title":        { "label": "Tytuł sekcji" },
+        "date_text":    { "label": "Tekst z datami konkursu" },
+        "button_label": { "label": "Tekst przycisku" },
+        "button_url":   { "label": "Link przycisku" }
+      },
+      "blocks": {
+        "step": {
+          "name": "Krok",
+          "settings": {
+            "step_text":     { "label": "Opis kroku" },
+            "blob_image":    { "label": "Kształt blob (opcjonalne nadpisanie)" },
+            "number_image":  { "label": "Cyfra (opcjonalne nadpisanie)" }
+          }
+        }
+      }
+    },
+    "contest_banner": {
+      "name": "Baner produktowy – 2 panele",
+      "presets": { "name": "Baner produktowy – 2 panele" },
+      "settings": {
+        "image_left":  { "label": "Obraz lewego panelu" },
+        "link_left":   { "label": "Link lewego panelu (opcjonalnie)" },
+        "image_right": { "label": "Obraz prawego panelu" },
+        "link_right":  { "label": "Link prawego panelu (opcjonalnie)" }
+      }
+    },
+    "contest_winners": {
+      "name": "Laureaci konkursu",
+      "presets": { "name": "Laureaci konkursu" },
+      "settings": {
+        "title":        { "label": "Tytuł sekcji" },
+        "subtitle":     { "label": "Podtytuł" },
+        "info_text":    { "label": "Tekst pola informacyjnego (richtext)" },
+        "month1_label": { "label": "Etykieta przycisku – miesiąc 1" },
+        "month2_label": { "label": "Etykieta przycisku – miesiąc 2" },
+        "month3_label": { "label": "Etykieta przycisku – miesiąc 3" }
+      },
+      "blocks": {
+        "category": {
+          "name": "Kategoria nagrody",
+          "settings": {
+            "name":        { "label": "Nazwa kategorii" },
+            "two_columns": { "label": "Układ dwukolumnowy" },
+            "winners_1":   { "label": "Laureaci – miesiąc 1 (jeden na linię)" },
+            "winners_2":   { "label": "Laureaci – miesiąc 2 (jeden na linię)" },
+            "winners_3":   { "label": "Laureaci – miesiąc 3 (jeden na linię)" }
+          }
+        }
+      }
+    },
+    "contest_prizes": {
+      "name": "Nagrody konkursu",
+      "presets": { "name": "Nagrody konkursu" },
+      "blocks": {
+        "prize_1": {
+          "name": "Wiersz nagrody 1 (bony)",
+          "settings": {
+            "count":       { "label": "Liczba (np. 3x)" },
+            "value":       { "label": "Wartość (np. 10 000 zł)" },
+            "description": { "label": "Opis (richtext, częściowy bold)" },
+            "image":       { "label": "Zdjęcie produktu" }
+          }
+        },
+        "prize_2": {
+          "name": "Wiersz nagrody 2 (produkt)",
+          "settings": {
+            "count":     { "label": "Liczba (np. 15x)" },
+            "sub_text":  { "label": "Tekst nad marką (np. odkurzacz)" },
+            "main_text": { "label": "Marka (np. Dyson)" },
+            "image":     { "label": "Zdjęcie produktu" }
+          }
+        },
+        "prize_3": {
+          "name": "Wiersz nagrody 3 (bony)",
+          "settings": {
+            "count":       { "label": "Liczba (np. 60x)" },
+            "value":       { "label": "Wartość (np. 100 zł)" },
+            "description": { "label": "Opis" },
+            "image":       { "label": "Zdjęcie produktu" }
+          }
+        }
+      }
+    },
+    "konkurs_scrolling_text": {
+      "name": "Scrolling Text – Konkurs",
+      "presets": {
+        "name": "Scrolling Text – Konkurs"
+      },
+      "settings": {
+        "text": {
+          "label": "Tekst"
+        },
+        "text_color": {
+          "label": "Kolor tekstu"
+        },
+        "background_color": {
+          "label": "Kolor tła"
+        },
+        "speed": {
+          "label": "Prędkość przewijania"
+        }
+      }
+    },
+    "konkurs_hero": {
+      "name": "Image + Text – Konkurs",
+      "presets": {
+        "name": "Image + Text – Konkurs"
+      },
+      "settings": {
+        "image": {
+          "label": "Zdjęcie (prawa strona)"
+        },
+        "logo_image": {
+          "label": "Logo konkursu"
+        },
+        "deco_image": {
+          "label": "Dekoracja (góra prawa)"
+        },
+        "text": {
+          "label": "Tekst"
+        },
+        "button_url": {
+          "label": "Link przycisku"
+        },
+        "button_label": {
+          "label": "Tekst przycisku"
+        },
+        "regulation_url": {
+          "label": "Link regulaminu"
+        },
+        "regulation_label": {
+          "label": "Tekst regulaminu"
+        }
+      }
+    },
     "collection_banner": {
       "name": "Collection banner",
       "paragraph": "Configure background images and banner height here. Add the Title block for typography, position, and text (including collection name).",

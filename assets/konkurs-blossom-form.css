@@ -1,0 +1,1451 @@
+/* ============================================================
+   Konkurs Blossom – form styling (Globo Form Builder override)
+   ============================================================ */
+
+/* ============================================================
+   Konkurs Hero – image + text section
+   All vw values: px / 1920 * 100  (Figma canvas = 1920px)
+   ============================================================ */
+
+.konkurs-hero {
+  overflow: hidden;
+}
+
+.konkurs-hero__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(24px, 3.385vw, 65px);         /* 65/1920 */
+  padding: 0 0 0 clamp(20px, 3.125vw, 60px); /* 60/1920 */
+  background: linear-gradient(18deg, #FBE89C -78.82%, #D0F3A3 75%);
+}
+
+/* ---- Left: content ---- */
+.konkurs-hero__content {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 clamp(280px, 43.49vw, 835px);  /* 835/1920 */
+  min-width: 0;
+}
+
+.konkurs-hero__deco img {
+  width: 100%;
+  height: clamp(80px, 8.802vw, 169px);    /* 169/1920 */
+  object-fit: contain;
+  object-position: right bottom;
+  display: block;
+}
+
+.konkurs-hero__main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 3.542vw, 68px);         /* 68/1920 */
+}
+
+.konkurs-hero__logo-img {
+  display: block;
+  width: clamp(180px, 29.69vw, 570px);    /* 570/1920 */
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.konkurs-hero__text-block {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.083vw, 40px);         /* 40/1920 */
+}
+
+.konkurs-hero__text {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.667vw, 32px);   /* 32/1920 */
+  font-weight: 400;
+  line-height: 1.35;
+  color: #000000;
+}
+
+.konkurs-hero__text strong {
+  font-weight: 700;
+}
+
+.konkurs-hero__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(200px, 22.66vw, 435px);     /* 435/1920 */
+  padding: clamp(12px, 1.042vw, 20px) clamp(16px, 1.563vw, 30px); /* 20/1920, 30/1920 */
+  background-color: #ff88bf;
+  color: #000000;
+  border-radius: 50px;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(13px, 1.25vw, 24px);    /* 24/1920 */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+}
+
+.konkurs-hero__btn:hover {
+  opacity: 0.88;
+}
+
+.konkurs-hero__regulation {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(13px, 1.042vw, 20px);   /* 20/1920 */
+  font-weight: 400;
+  color: #000000;
+  text-decoration: underline;
+}
+
+.konkurs-hero__regulation:hover {
+  opacity: 0.7;
+}
+
+/* ---- Right: image ---- */
+.konkurs-hero__image-wrap {
+  flex: 1;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.konkurs-hero__img,
+.konkurs-hero__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(360px, 48.07vw, 923px); /* 923/1920 */
+  object-fit: cover;
+  object-position: center;
+}
+
+.konkurs-hero__placeholder {
+  background-color: #e3a7f6;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .contest-marquee__item {
+    font-size: 24px;
+  }
+
+  .konkurs-hero__inner {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+  }
+
+  .konkurs-hero__content {
+    flex: none;
+    width: 100%;
+    order: 1;
+    padding: 40px 20px 38px;
+    box-sizing: border-box;
+  }
+
+  .konkurs-hero__deco img {
+    height: auto;
+    max-height: 101px;
+    object-position: right bottom;
+  }
+
+  .konkurs-hero__logo-img {
+    width: 100%;
+    max-width: 215px;
+  }
+
+  .konkurs-hero__text {
+    font-size: 18px;
+  }
+
+  .konkurs-hero__btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+
+  .konkurs-hero__regulation {
+    font-size: 14px;
+  }
+
+  .konkurs-hero__image-wrap {
+    flex: none;
+    width: 412px;
+    max-width: 100%;
+    order: 2;
+    margin: 0 auto;
+    align-self: auto;
+  }
+
+  .konkurs-hero__img,
+  .konkurs-hero__placeholder {
+    width: 412px;
+    max-width: 100%;
+    height: 396px;
+    min-height: unset;
+    object-fit: cover;
+  }
+}
+
+/* ============================================================
+   Konkurs Scrolling Text – marquee section
+   ============================================================ */
+
+.contest-marquee {
+  background-color: var(--marquee-bg, #e3a7f6);
+  overflow: hidden;
+  padding: clamp(12px, 1.094vw, 21px) 0 clamp(10px, 0.938vw, 18px); /* 21/1920, 18/1920 */
+}
+
+.contest-marquee__inner {
+  display: flex;
+  width: max-content;
+  animation: contest-marquee-scroll var(--marquee-duration, 20s) linear infinite;
+}
+
+.contest-marquee__group {
+  display: flex;
+  align-items: center;
+  gap: var(--marquee-gap, clamp(30px, 3.125vw, 60px));
+  padding-right: var(--marquee-gap, clamp(30px, 3.125vw, 60px));
+  flex-shrink: 0;
+}
+
+.contest-marquee__item {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(24px, 5vw, 96px);   /* 96/1920 */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--marquee-color, #000000);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@keyframes contest-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contest-marquee__inner {
+    animation-play-state: paused;
+  }
+}
+
+/* ============================================================
+   Contest Prizes – awards section  (1:1 Figma node 0-152)
+   All vw: px / 1920 * 100  (Figma canvas = 1920px)
+   Section frame: 1793px → padding 63.5px each side
+   ============================================================ */
+
+.contest-prizes {
+  background: transparent;
+  padding-block: clamp(60px, 6.563vw, 126px); /* 126/1920 */
+  padding-inline: clamp(16px, 3.307vw, 63px);  /* 63.5/1920 */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.646vw, 70px);             /* 70/1920 */
+}
+
+/* ---- Row base ---- */
+.contest-prizes__row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+/* ======================================================
+   ROW 1 – deco | stacked-images | text
+   Frame: 1793×355px
+   ====================================================== */
+.contest-prizes__row--1 {
+  min-height: clamp(160px, 18.49vw, 355px); /* 355/1920 */
+  align-items: flex-start;
+}
+
+.contest-prizes__row--1 .contest-prizes__deco {
+  flex: 0 0 clamp(90px, 17.604vw, 338px);     /* 338/1920 */
+  align-self: center;
+  margin-right: clamp(16px, 8.438vw, 162px);  /* gap 162/1920 */
+}
+
+/* Stacked cards container (314×326px in Figma) */
+.contest-prizes__media--stack {
+  flex: 0 0 clamp(60px, 16.354vw, 314px);  /* 314/1920 */
+  height: clamp(80px, 16.979vw, 326px);     /* 326/1920 */
+  position: relative;
+  overflow: visible;
+  margin-right: clamp(4px, 0.781vw, 15px);  /* tiny gap to text */
+  align-self: flex-start;
+}
+
+/*
+  Natural card size back-calculated from Figma bounding boxes + CCW rotation:
+  ~214×120px out of 314×326 container = ~70% × 37.5%.
+  Positioned by bounding-box center from Figma; rotated around element center.
+  z-index: 3 = front, 1 = back.
+*/
+.contest-prizes__stack-img {
+  position: absolute;
+  display: block;
+  width: 70%;
+  height: 37.5%;
+  object-fit: cover;
+}
+
+.contest-prizes__stack-img--1 {
+  left: 15.1%; top: 18.3%;
+  transform: rotate(-32deg);
+  z-index: 3;
+}
+
+.contest-prizes__stack-img--2 {
+  left: 17.8%; top: 32.6%;
+  transform: rotate(-16deg);
+  z-index: 2;
+}
+
+.contest-prizes__stack-img--3 {
+  left: 14.8%; top: 44.3%;
+  transform: rotate(-13deg);
+  z-index: 1;
+}
+
+.contest-prizes__row--1 .contest-prizes__text {
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+}
+
+/* ======================================================
+   ROW 2 – text | dyson | deco | star (far right)
+   Frame: 1793×341px
+   ====================================================== */
+.contest-prizes__row--2 {
+  min-height: clamp(150px, 17.76vw, 341px); /* 341/1920 */
+}
+
+.contest-prizes__row--2 .contest-prizes__text {
+  flex: 0 0 clamp(140px, 33.229vw, 638px); /* x:0→638 / 1920 */
+}
+
+.contest-prizes__row--2 .contest-prizes__media {
+  flex: 0 0 clamp(50px, 10.417vw, 200px); /* 200/1920 */
+  height: clamp(80px, 16.615vw, 319px);    /* 319/1920 */
+  margin-left: clamp(8px, 2.031vw, 39px);  /* gap 39/1920 */
+}
+
+.contest-prizes__row--2 .contest-prizes__deco {
+  flex: 0 0 clamp(50px, 11.667vw, 224px);   /* 224/1920 */
+  margin-left: clamp(20px, 12.708vw, 244px); /* gap 244/1920 to deco */
+  align-self: center;
+}
+
+/* Star: absolute at x:1654, y:139 in 1793×341 frame */
+.contest-prizes__row--2 .contest-prizes__star {
+  position: absolute;
+  right: clamp(10px, 3.646vw, 70px); /* 1793-1654-69=70 / 1920 */
+  top: 40.8%;
+  transform: translateY(-50%);
+}
+
+/* ======================================================
+   ROW 3 – [star-abs] deco | text | biedronka
+   Frame: 1731×357px, centered inside 1793px section
+   row starts at (1793-1731)/2=31px from section left
+   deco at x:457 in row → 31+457=488px from section left
+   ====================================================== */
+.contest-prizes__row--3 {
+  min-height: clamp(140px, 18.59vw, 357px); /* 357/1920 */
+  padding-left: clamp(40px, 25.417vw, 488px); /* push deco to 488/1920 */
+}
+
+/* Star: absolute at x:152 in row, +31px offset → 183px from section left */
+.contest-prizes__row--3 .contest-prizes__star {
+  position: absolute;
+  left: clamp(20px, 9.531vw, 183px); /* (31+152)/1920 */
+  top: 41.2%;
+  transform: translateY(-50%);
+}
+
+.contest-prizes__row--3 .contest-prizes__deco {
+  flex: 0 0 clamp(50px, 9.583vw, 184px); /* 184/1920 */
+  align-self: center;
+}
+
+.contest-prizes__row--3 .contest-prizes__text {
+  flex: 1;
+  min-width: 0;
+  margin-left: clamp(16px, 4.948vw, 95px); /* gap 95/1920 */
+}
+
+.contest-prizes__row--3 .contest-prizes__media {
+  flex: 0 0 clamp(70px, 16.771vw, 322px); /* 322/1920 */
+  height: clamp(40px, 8.281vw, 159px);    /* 159/1920 */
+  margin-left: clamp(8px, 2.813vw, 54px); /* gap 54/1920 */
+  align-self: center;
+}
+
+/* ---- Shared: deco img ---- */
+.contest-prizes__deco img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---- Shared: product img ---- */
+.contest-prizes__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* ---- Shared: star ---- */
+.contest-prizes__star {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.contest-prizes__star img {
+  display: block;
+  width: clamp(24px, 3.594vw, 69px); /* 69/1920 */
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---- Text block ---- */
+.contest-prizes__text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Count + main/value: baseline-aligned */
+.contest-prizes__headline {
+  display: flex;
+  align-items: flex-end;
+  line-height: 1;
+  gap: 0.1em;
+}
+
+/* Row 2: sub above main, both in a column to the right of count */
+.contest-prizes__value-col {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.contest-prizes__count {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(24px, 5vw, 96px);  /* 96/1920 */
+  font-weight: 700;
+  color: #ff88bf;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+/* Row 1 & 3 main value: 152px */
+.contest-prizes__main {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(36px, 7.917vw, 152px); /* 152/1920 */
+  font-weight: 700;
+  color: #000000;
+  line-height: 0.9;
+  white-space: nowrap;
+}
+
+/* Row 2 main (Dyson): 128px, UPPER, letter-spacing */
+.contest-prizes__row--2 .contest-prizes__main {
+  font-size: clamp(28px, 6.667vw, 128px); /* 128/1920 */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Row 2 sub (ODKURZACZ): 72px, UPPER */
+.contest-prizes__sub {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 3.75vw, 72px); /* 72/1920 */
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Row 1 desc: 48px, UPPER, mixed bold (richtext) */
+.contest-prizes__desc,
+.contest-prizes__desc p {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(12px, 2.5vw, 48px); /* 48/1920 */
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 1.2;
+  margin: clamp(4px, 0.625vw, 12px) 0 0;
+}
+
+/* Row 3 desc: 42px, bold */
+.contest-prizes__row--3 .contest-prizes__desc {
+  font-size: clamp(12px, 2.188vw, 42px); /* 42/1920 */
+  font-weight: 700;
+}
+
+/* ---- Mobile (1:1 Figma node 1-90, canvas 389px) ---- */
+@media (max-width: 768px) {
+  .contest-prizes {
+    padding-block: 40px;
+    padding-inline: 20px;
+    gap: 51px;
+  }
+
+  .contest-prizes__star { display: none !important; }
+
+  /* ROW 1 – column: images centered then text; deco absolute top-right */
+  .contest-prizes__row--1 {
+    flex-direction: column;
+    align-items: center;
+    min-height: unset;
+    padding: 0;
+    gap: 12px;
+    position: relative;
+  }
+
+  .contest-prizes__row--1 .contest-prizes__deco {
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    flex: none;
+    width: clamp(60px, 29.8%, 116px);
+    margin-right: 0;
+  }
+
+  .contest-prizes__media--stack {
+    flex: none;
+    width: clamp(120px, 46.6%, 182px);
+    height: auto;
+    aspect-ratio: 181 / 188;
+    margin-right: 0;
+    align-self: center;
+  }
+
+  .contest-prizes__row--1 .contest-prizes__text {
+    flex: none;
+    width: 100%;
+    align-self: flex-start;
+  }
+
+  /* ROW 2 – row: text left + Dyson right; deco absolute bottom-left */
+  .contest-prizes__row--2 {
+    flex-direction: row;
+    align-items: flex-start;
+    min-height: unset;
+    padding: 0;
+    position: relative;
+  }
+
+  .contest-prizes__row--2 .contest-prizes__text {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+  }
+
+  /* Dyson: 125px / 349px content = 35.8% */
+  .contest-prizes__row--2 .contest-prizes__media {
+    flex: 0 0 clamp(90px, 35.8%, 125px);
+    height: auto;
+    align-self: stretch;
+    margin-left: 12px;
+  }
+
+  .contest-prizes__row--2 .contest-prizes__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  /* Deco: canvas x=15.64, row starts at padding 20px → from row left: -4px; bottom flush with row bottom */
+  .contest-prizes__row--2 .contest-prizes__deco {
+    display: block;
+    position: absolute;
+    left: -4px;
+    bottom: 0;
+    flex: none;
+    width: clamp(60px, 29.8%, 116px);
+    margin-left: 0;
+    pointer-events: none;
+  }
+
+  /* ROW 3 – text top-right (72%); Biedronka in-flow below text; deco absolute bottom-right */
+  .contest-prizes__row--3 {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 256px;
+    padding-left: 0;
+    position: relative;
+  }
+
+  /* Text: 267/370 = 72% wide, right-aligned */
+  .contest-prizes__row--3 .contest-prizes__text {
+    flex: none;
+    width: 72%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  /* Biedronka: in-flow below text, left-aligned (167px / 349px = 43%) */
+  .contest-prizes__row--3 .contest-prizes__media {
+    position: static;
+    flex: none;
+    width: clamp(100px, 43%, 157px);
+    height: auto;
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
+  .contest-prizes__row--3 .contest-prizes__img {
+    object-position: left center;
+  }
+
+  /* Deco: canvas x=198, w=123 in 370px frame → right: (370-198-123)*349/370 ≈ 46px */
+  .contest-prizes__row--3 .contest-prizes__deco {
+    display: block;
+    position: absolute;
+    right: 46px;
+    bottom: 0;
+    flex: none;
+    width: clamp(60px, 31.6%, 123px);
+    margin-left: 0;
+    pointer-events: none;
+  }
+
+  /* Font sizes – calibrated from Figma mobile SVG dims */
+  .contest-prizes__count                        { font-size: 28px; }
+  .contest-prizes__main                         { font-size: 44px; }
+  .contest-prizes__row--2 .contest-prizes__main { font-size: 40px; }
+  .contest-prizes__sub                          { font-size: 20px; }
+  .contest-prizes__desc,
+  .contest-prizes__desc p                       { font-size: 14px; }
+}
+
+/* ============================================================
+   Contest Steps – "Jak wziąć udział w konkursie?"
+   All vw: px / 1920 * 100 (Figma 1920px canvas)
+   ============================================================ */
+
+.contest-steps {
+  width: 100%;
+}
+
+.contest-steps__inner {
+  max-width: clamp(600px, 84.8vw, 1629px); /* 1628/1920 */
+  margin: 0 auto;
+  padding-block: 0;
+  padding-inline: clamp(16px, 1.25vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 2.083vw, 40px);
+}
+
+.contest-steps__title {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(24px, 3.333vw, 64px); /* 64/1920 */
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ---- Steps grid ---- */
+.contest-steps__grid {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.083vw, 40px); /* 40px Figma */
+  width: 100%;
+}
+
+.contest-steps__item {
+  flex: 1 1 0;
+  max-width: clamp(140px, 26.875vw, 516px); /* (1628-80)/3 ≈ 516 */
+  min-width: 0;
+}
+
+/* ---- Blob + overlay ---- */
+.contest-steps__blob-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.contest-steps__blob {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.contest-steps__overlay {
+  position: absolute;
+  inset: 0;
+  padding: 14% 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4%;
+}
+
+.contest-steps__num {
+  flex: 0 0 auto;
+  max-height: 100%;
+  width: auto;
+  max-width: 60%;
+  object-fit: contain;
+}
+
+.contest-steps__text {
+  position: absolute;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(12px, 1.458vw, 28px); /* 28-32/1920 */
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ---- Footer ---- */
+.contest-steps__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 1.042vw, 20px); /* 20px Figma */
+  text-align: center;
+}
+
+.contest-steps__date {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+}
+
+.contest-steps__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(220px, 26.927vw, 517px); /* 517/1920 */
+  padding: clamp(14px, 1.042vw, 20px) clamp(20px, 1.563vw, 30px);
+  background-color: #ff88bf;
+  color: #000000;
+  border-radius: 50px;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.25vw, 24px); /* 24/1920 */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+}
+
+.contest-steps__btn:hover {
+  opacity: 0.88;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .contest-steps__grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .contest-steps__item {
+    max-width: 320px;
+    width: 100%;
+  }
+
+  .contest-steps__title {
+    font-size: 28px;
+  }
+
+  .contest-steps__text {
+    font-size: 14px;
+    position: absolute;
+  }
+
+  .contest-steps__date {
+    font-size: 18px;
+  }
+
+  .contest-steps__btn {
+    min-width: 260px;
+    font-size: 14px;
+    padding: 16px 24px;
+  }
+}
+
+/* ============================================================
+   Page background – gradient on #MainContent
+   (only on konkurs-blossom page via this stylesheet)
+   ============================================================ */
+
+#MainContent {
+  background: linear-gradient(18deg, #FBE89C 38.18%, #D0F3A3 75%);
+}
+
+/* ============================================================
+   Globo Form Builder – 1:1 Figma node 0-219 (1920px canvas)
+   Inner form: 890px wide, 2-col fields, labels 32px DM Sans
+   ============================================================ */
+
+body,
+.g-container,
+.globo-form-app,
+.globo-form-app form,
+.globo-formbuilder-wizard,
+.wizard__content,
+.wizard__header,
+.panels,
+.panel,
+.block-container,
+.globo-form-control,
+.globo-form-input,
+.gfb__footer,
+.flex-wrap,
+.globo-list-control {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Form centering: override Globo's 650px cap → 890px (Figma) ---------- */
+.globo-form-id-147831 .globo-form-app {
+  max-width: clamp(500px, 46.354vw, 890px) !important;
+  width: 100% !important;
+}
+
+.globo-formbuilder {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Globo header title (Figma: 64px DM Sans Regular, centered) ---------- */
+.globo-formbuilder .header {
+  text-align: center;
+  margin-bottom: clamp(24px, 3.333vw, 64px);
+}
+
+.globo-formbuilder .header .globo-heading {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif) !important;
+  font-size: clamp(32px, 3.333vw, 64px) !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  margin: 0 !important;
+  line-height: 1.2;
+}
+
+.globo-formbuilder .header .globo-description {
+  display: none !important;
+}
+
+/* Hides only the step wizard header and step dots (not the form title) */
+.globo-formbuilder .wizard__header,
+.globo-formbuilder .steps {
+  display: none !important;
+}
+
+.globo-formbuilder .panels {
+  height: auto !important;
+}
+
+.globo-formbuilder .panel {
+  padding-top: 0 !important;
+}
+
+/* ---------- 2-column grid (Figma: layout-2-column × 4, then layout-1-column) ---------- */
+.globo-formbuilder .block-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 1.719vw, 33px);
+}
+
+/* Full-width: Globo marks single-col fields with layout-1-column */
+.globo-form-control.layout-1-column {
+  grid-column: 1 / -1;
+}
+
+.globo-form-control.layout-2-column {
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .globo-formbuilder .block-container {
+    grid-template-columns: 1fr !important;
+  }
+  .globo-form-control.layout-1-column,
+  .globo-form-control.layout-2-column {
+    grid-column: 1 / -1;
+  }
+  .globo-formbuilder .globo-form-control + .globo-form-input {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ---------- Labels (Figma: DM Sans Regular 32px, black) ---------- */
+.globo-formbuilder .globo-label,
+.globo-formbuilder .gfb__label-v2 {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(18px, 1.667vw, 32px);
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: clamp(6px, 0.573vw, 11px);
+  display: block;
+  line-height: 1.3;
+}
+
+.globo-form-app .panel textarea {
+  padding: 20px;
+}
+
+/* "odpowiedz na pytanie:" prefix (first line regular) + bold question text */
+.globo-form-control[data-type="textarea"] .globo-label .label-content {
+  font-size: clamp(18px, 1.667vw, 32px);
+  font-weight: 700;
+  line-height: 1.35;
+  display: block;
+}
+
+.globo-form-control[data-type="textarea"] .globo-label .label-content::first-line {
+  font-weight: 400;
+}
+
+.globo-form-control[data-type="textarea"] .globo-label > .text-danger {
+  display: none;
+}
+
+/* ---------- Text inputs (Figma: white, 51px, rounded) ---------- */
+.globo-formbuilder .classic_rounded-input {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 50px !important;
+  height: 51px !important;
+  padding: 0 clamp(16px, 1.146vw, 22px) !important;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 1.042vw, 20px);
+  color: #000000;
+  box-shadow: none !important;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.globo-formbuilder .classic_rounded-input:focus {
+  box-shadow: 0 0 0 2px rgba(227, 167, 246, 0.5) !important;
+}
+
+/* Answer textarea (Figma: 226px height, 30px radius) — .classic_rounded-input IS the <textarea> */
+.globo-form-control[data-type="textarea"] .classic_rounded-input {
+  border-radius: 30px !important;
+  height: clamp(160px, 11.77vw, 226px) !important;
+  padding: clamp(14px, 0.938vw, 18px) clamp(16px, 1.146vw, 22px) !important;
+  resize: vertical;
+  vertical-align: top;
+}
+
+/* ---------- File upload (Figma: #E3A7F6, 51px, 30px radius) ---------- */
+.globo-form-control .gfb__dropzone {
+  position: relative;
+  background-color: #E3A7F6 !important;
+  border: none !important;
+  border-radius: 30px !important;
+  height: 51px !important;
+  min-height: unset !important;
+  max-height: 51px !important;
+  overflow: hidden;
+  cursor: pointer;
+  justify-content: flex-start !important;
+}
+
+.globo-form-control .gfb__dropzone--content {
+  height: 51px !important;
+  min-height: unset !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+.globo-form-control .gfb__dropzone--placeholder {
+  display: flex !important;
+  align-items: center !important;
+  height: 51px !important;
+  width: 100%;
+  padding: 0 clamp(16px, 1.198vw, 23px);
+}
+
+.globo-form-control .gfb__dropzone--placeholder--title {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px);
+  color: #000000;
+  font-weight: 400;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.globo-form-control .gfb__dropzone--placeholder--description,
+.globo-form-control .gfb__dropzone--preview--area {
+  display: none !important;
+}
+
+.globo-form-control .gfb__dropzone--placeholder--button {
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ---------- Consent checkbox (Figma: centered, no extra margin) ---------- */
+.globo-form-control[data-type="consent"] {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
+
+.globo-form-control[data-type="consent"] .globo-form-input,
+.globo-form-control[data-type="consent"] .flex-wrap,
+.globo-form-control[data-type="consent"] .globo-list-control,
+.globo-form-control[data-type="consent"] .checkbox-wrapper {
+  /* display: flex !important; */
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.globo-formbuilder .globo-list-control {
+  display: flex;
+  justify-content: center;
+}
+
+.globo-formbuilder .checkbox-input {
+  width: 27px !important;
+  height: 27px !important;
+  min-width: 27px;
+  border-radius: 5px !important;
+  flex-shrink: 0;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.globo-formbuilder .checkbox-input:checked {
+  background-color: #E3A7F6;
+}
+
+.globo-formbuilder .checkbox-label {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* ---------- Footer / Submit button (Figma: #FF88BF, 445px, DM Sans Bold 24px) ---------- */
+.globo-formbuilder .wizard__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 0;
+}
+
+.globo-formbuilder .action.previous {
+  display: none !important;
+}
+
+.globo-formbuilder .wizard__submit {
+  background-color: #FF88BF !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 20px 30px !important;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif) !important;
+  font-size: clamp(16px, 1.25vw, 24px) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  cursor: pointer;
+  width: clamp(250px, 23.177vw, 445px);
+  transition: opacity 0.2s;
+}
+
+@media (max-width: 768px) {
+  .globo-formbuilder .wizard__submit {
+    width: 100%;
+  }
+}
+
+.globo-formbuilder .wizard__submit:hover {
+  opacity: 0.88;
+}
+
+/* ---------- File info (injected by JS) – Figma: DM Sans 20px ---------- */
+.custom-file-info {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px);
+  color: #000000;
+  margin-top: clamp(6px, 0.573vw, 11px);
+  line-height: 1.5;
+}
+
+/* Selected file name injected by JS */
+.custom-file-selected {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px);
+  color: #000000;
+  margin-top: clamp(6px, 0.573vw, 11px);
+  font-weight: 400;
+}
+
+/* ---------- Character counter (injected by JS) – Figma: DM Sans 20px ---------- */
+.custom-char-counter {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px);
+  color: #000000;
+  margin-top: clamp(6px, 0.573vw, 11px);
+}
+
+/* ---------- Error messages ---------- */
+.globo-formbuilder .messages {
+  font-size: 14px;
+  color: #c0392b;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   Contest Banner – 2 panels side by side  (1:1 Figma node 0-146/0-149)
+   Each panel: 960×983px at 1920px canvas
+   Left bg: #E3A7F6  |  Right bg: #FF88BF
+   ============================================================ */
+
+.contest-banner {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Each panel is exactly half the viewport width, same aspect ratio as Figma */
+.contest-banner__panel {
+  flex: 0 0 50%;
+  min-width: 0;
+  position: relative;
+  aspect-ratio: 960 / 983;
+  overflow: hidden;
+}
+
+/* Full-panel render from Figma (includes bg color + shaped composition) */
+.contest-banner__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Full-panel link overlay */
+.contest-banner__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .contest-banner { flex-direction: column; }
+
+  .contest-banner__panel {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   Contest Winners – "Laureaci/Zwycięscy"  (1:1 Figma node 0-254)
+   All vw: px / 1920 * 100  (Figma canvas = 1920px)
+   Section frame: 1798×1876px; inner max-width ≈ 1587px
+   ============================================================ */
+
+.contest-winners {
+  position: relative;
+  overflow: visible;
+  padding-block-end: clamp(60px, 7.813vw, 150px);
+}
+
+/* Deco: left pink flower — frame x:0, y:1068 */
+.contest-winners__deco-left {
+  position: absolute;
+  left: 59px;
+  top: clamp(300px, 55.625vw, 1068px); /* 1068/1920 */
+  line-height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contest-winners__deco-left img {
+  display: block;
+  width: clamp(80px, 13.906vw, 267px); /* 267/1920 */
+  height: auto;
+}
+
+/* Deco: right white/purple flower — frame x:1574, y:529 */
+.contest-winners__deco-right {
+  position: absolute;
+  right: 63px;
+  top: clamp(150px, 27.552vw, 529px); /* 529/1920 */
+  line-height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contest-winners__deco-right img {
+  display: block;
+  width: clamp(60px, 11.667vw, 224px); /* 224/1920 */
+  height: auto;
+}
+
+/* Star — frame x:1583, y:1579 (near right edge) */
+.contest-winners__star {
+  position: absolute;
+  right: clamp(20px, 3.75vw, 72px); /* (1920 - 1583 - 204 - 61) ≈ 72 */
+  top: clamp(500px, 82.24vw, 1579px); /* 1579/1920 */
+  line-height: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contest-winners__star img {
+  display: block;
+  width: clamp(60px, 10.625vw, 204px); /* 204/1920 */
+  height: auto;
+}
+
+/* Inner content */
+.contest-winners__inner {
+  position: relative;
+  z-index: 1;
+  max-width: clamp(600px, 82.656vw, 1587px); /* 1587/1920 */
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5.573vw, 107px); /* section side margin */
+  padding-block-start: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 2.083vw, 40px);
+  box-sizing: border-box;
+}
+
+/* Title: 64px Regular centered */
+.contest-winners__title {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(28px, 3.333vw, 64px); /* 64/1920 */
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Subtitle: 32px Regular centered, w:889px */
+.contest-winners__subtitle {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+  max-width: clamp(300px, 46.302vw, 889px); /* 889/1920 */
+  line-height: 1.35;
+}
+
+/* Info box: 890×185px, bg #FFCAE2, radius 30px, padding 34×85px */
+.contest-winners__info {
+  background: #FFCAE2;
+  border-radius: clamp(16px, 1.563vw, 30px); /* 30/1920 */
+  padding: clamp(20px, 1.771vw, 34px) clamp(20px, 4.427vw, 85px); /* 34/1920, 85/1920 */
+  max-width: clamp(300px, 46.354vw, 890px); /* 890/1920 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contest-winners__info p {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(14px, 1.042vw, 20px); /* 20/1920 */
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+/* "PAMIĘTAJ!" bold prefix: 32px UPPER letter-spacing 10% */
+.contest-winners__info strong {
+  font-size: clamp(18px, 1.667vw, 32px); /* 32/1920 */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Filter buttons row: 3 × 284px, gap 17px, Bold 24px UPPER */
+.contest-winners__filters {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(8px, 0.885vw, 17px); /* 17/1920 */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block: clamp(4px, 1.042vw, 20px);
+}
+
+@media (max-width: 768px) {
+  .contest-winners__filters {
+    flex-direction: column;
+  }
+}
+
+.contest-winners__filter-btn {
+  width: clamp(100px, 14.792vw, 284px); /* 284/1920 */
+  padding: clamp(12px, 1.042vw, 20px) clamp(16px, 1.563vw, 30px); /* 20/1920, 30/1920 */
+  background: transparent;
+  border: 3px solid #E3A7F6;
+  border-radius: 50px;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(13px, 1.25vw, 24px); /* 24/1920 */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.contest-winners__filter-btn.is-active,
+.contest-winners__filter-btn:hover {
+  background: #E3A7F6;
+}
+
+/* Prize categories column: gap 98px, max-width 893px */
+.contest-winners__categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(40px, 5.104vw, 98px); /* 98/1920 */
+  width: 100% !important;
+  max-width: clamp(400px, 46.51vw, 893px); /* 892.72/1920 */
+  gap: 98px;
+}
+
+.contest-winners__category {
+  width: 100%;
+}
+
+/* Category heading: Bold 32px UPPER letter-spacing 10% */
+.contest-winners__category-name {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000000;
+  margin: 0 0 clamp(10px, 0.833vw, 16px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Winners list: Regular 32px; hidden by default */
+.contest-winners__month {
+  display: none;
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.contest-winners__month.is-visible {
+  display: block;
+}
+
+/* Two-column layout: gap 104px */
+.contest-winners__month--two-col.is-visible {
+  column-count: 2;
+  column-gap: clamp(20px, 5.417vw, 104px); /* 104/1920 */
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .contest-winners {
+    overflow: hidden;
+    padding-block: 40px;
+  }
+
+  .contest-winners__deco-left,
+  .contest-winners__deco-right,
+  .contest-winners__star { display: none; }
+
+  .contest-winners__inner { 
+    padding-inline: 20px;
+    padding-block: 20px;
+   }
+
+  .contest-winners__title    { font-size: 28px; }
+  .contest-winners__subtitle { font-size: 16px; }
+
+  .contest-winners__info         { padding: 20px; }
+  .contest-winners__info p       { font-size: 14px; }
+  .contest-winners__info strong  { font-size: 18px; }
+
+  .contest-winners__filter-btn {
+    width: auto;
+    width: 260px;
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  .contest-winners__category-name { font-size: 18px; }
+  .contest-winners__month         { font-size: 16px; }
+
+  .contest-winners__month--two-col.is-visible {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}

@@ -1,0 +1,159 @@
+<section class="contest-steps">
+  <div class="contest-steps__inner">
+
+    {%- if section.settings.title != blank -%}
+      <h2 class="contest-steps__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    {%- unless section.blocks == empty -%}
+      <div class="contest-steps__grid">
+        {%- for block in section.blocks -%}
+          {%- assign blob_idx = forloop.index -%}
+          {%- if blob_idx > 3 -%}{%- assign blob_idx = 1 -%}{%- endif -%}
+          {%- assign default_blob = 'konkurs-steps-blob-' | append: blob_idx | append: '.svg' | asset_url -%}
+          {%- assign default_num  = 'konkurs-steps-num-'  | append: blob_idx | append: '.svg' | asset_url -%}
+
+          <div class="contest-steps__item" {{ block.shopify_attributes }}>
+            <div class="contest-steps__blob-wrap">
+
+              {%- if block.settings.blob_image != blank -%}
+                <img
+                  class="contest-steps__blob"
+                  src="{{ block.settings.blob_image | image_url: width: 600 }}"
+                  alt=""
+                  role="presentation"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img
+                  class="contest-steps__blob"
+                  src="{{ default_blob }}"
+                  alt=""
+                  role="presentation"
+                  loading="lazy"
+                >
+              {%- endif -%}
+
+              <div class="contest-steps__overlay">
+                {%- if block.settings.number_image != blank -%}
+                  <img
+                    class="contest-steps__num"
+                    src="{{ block.settings.number_image | image_url: width: 200 }}"
+                    alt=""
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <img
+                    class="contest-steps__num"
+                    src="{{ default_num }}"
+                    alt=""
+                    loading="lazy"
+                  >
+                {%- endif -%}
+
+                {%- if block.settings.step_text != blank -%}
+                  <p class="contest-steps__text">{{ block.settings.step_text }}</p>
+                {%- endif -%}
+              </div>
+
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endunless -%}
+
+    {%- if section.settings.date_text != blank or section.settings.button_label != blank -%}
+      <div class="contest-steps__footer">
+        {%- if section.settings.date_text != blank -%}
+          <p class="contest-steps__date">{{ section.settings.date_text }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a
+            href="{{ section.settings.button_url }}"
+            class="contest-steps__btn"
+          >{{ section.settings.button_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.contest_steps.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.contest_steps.settings.title.label",
+      "default": "Jak wziąć udział w konkursie?"
+    },
+    {
+      "type": "text",
+      "id": "date_text",
+      "label": "t:sections.contest_steps.settings.date_text.label",
+      "default": "Konkurs trwa: 01.06-30.09.2026"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.contest_steps.settings.button_label.label",
+      "default": "WYŚLIJ ZGŁOSZENIE"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:sections.contest_steps.settings.button_url.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "t:sections.contest_steps.blocks.step.name",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "step_text",
+          "label": "t:sections.contest_steps.blocks.step.settings.step_text.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "blob_image",
+          "label": "t:sections.contest_steps.blocks.step.settings.blob_image.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "number_image",
+          "label": "t:sections.contest_steps.blocks.step.settings.number_image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.contest_steps.presets.name",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "kup dowolny produkt marki niuviu z kolekcji Blossom Time w sklepach stacjonarnych Biedronka"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "zachowaj paragon i załącz jego zdjęcie"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_text": "uzupełnij formularz i odpowiedz na pytanie"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

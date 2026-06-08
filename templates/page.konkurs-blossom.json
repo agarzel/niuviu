@@ -9,6 +9,127 @@
  */
 {
   "sections": {
+    "konkurs_hero": {
+      "type": "konkurs-hero",
+      "settings": {
+        "button_label": "wyślij zgłoszenie",
+        "regulation_label": "Regulamin konkursu",
+        "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>"
+      }
+    },
+    "konkurs_steps": {
+      "type": "konkurs-steps",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "step_text": "kup dowolny produkt marki niuviu z kolekcji Blossom Time w sklepach stacjonarnych Biedronka"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "step_text": "zachowaj paragon i załącz jego zdjęcie"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step_text": "uzupełnij formularz i odpowiedz na pytanie"
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "title": "Jak wziąć udział w konkursie?",
+        "date_text": "Konkurs trwa: 01.06-30.09.2026",
+        "button_label": "WYŚLIJ ZGŁOSZENIE"
+      }
+    },
+    "konkurs_prizes": {
+      "type": "konkurs-prizes",
+      "blocks": {
+        "prize_1": {
+          "type": "prize_1",
+          "settings": {
+            "count": "3x",
+            "value": "10 000 zł"
+          }
+        },
+        "prize_2": {
+          "type": "prize_2",
+          "settings": {
+            "count": "15x",
+            "sub_text": "odkurzacz",
+            "main_text": "Dyson"
+          }
+        },
+        "prize_3": {
+          "type": "prize_3",
+          "settings": {
+            "count": "60x",
+            "value": "100 zł",
+            "description": "na zakupy w biedronce"
+          }
+        }
+      },
+      "block_order": ["prize_1", "prize_2", "prize_3"],
+      "settings": {}
+    },
+    "konkurs_winners": {
+      "type": "konkurs-winners",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "name": "wakacje o wartości 10 000 zł:",
+            "winners_1": "  1. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "name": "odkurzacz dyson:",
+            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "name": "100 zł na zakupy w biedronce:",
+            "two_columns": true,
+            "winners_1": "  1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        }
+      },
+      "block_order": ["cat_1", "cat_2", "cat_3"],
+      "settings": {
+        "title": "Laureaci konkursu",
+        "subtitle": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail.",
+        "month1_label": "LIPIEC",
+        "month2_label": "SIERPIEŃ",
+        "month3_label": "WRZESIEŃ"
+      }
+    },
+    "konkurs_banner": {
+      "type": "konkurs-banner",
+      "settings": {}
+    },
+    "konkurs_scrolling": {
+      "type": "konkurs-scrolling-text",
+      "settings": {
+        "text": "wygraj",
+        "text_color": "#000000",
+        "background_color": "#E3A7F6",
+        "speed": 20
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -102,6 +223,12 @@
     }
   },
   "order": [
+    "konkurs_hero",
+    "konkurs_banner",
+    "konkurs_scrolling",
+    "konkurs_steps",
+    "konkurs_prizes",
+    "konkurs_winners",
     "main",
     "1779950794b0ea708a"
   ]
