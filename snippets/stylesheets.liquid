@@ -1,2 +1,53 @@
 {{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+{% if template.name == 'page' and template.suffix == 'konkurs-blossom' %}
+  {{ 'konkurs-blossom-form.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'konkurs-blossom-form.js' | asset_url }}" defer></script>
+  <style>
+    /* Form section SVG decorations – section ID has dynamic prefix, use ends-with selector */
+    [id$="1779950794b0ea708a"] {
+      position: relative;
+      overflow: visible;
+    }
+    /* Left: lavender flower (Figma 0:247 — x:151, y:580 at 1920px canvas) */
+    [id$="1779950794b0ea708a"]::before {
+      content: '';
+      position: absolute;
+      left: clamp(30px, 7.865vw, 151px);
+      top: clamp(120px, 30.208vw, 580px);
+      width: clamp(120px, 14.531vw, 279px);
+      height: clamp(124px, 18.02vw, 346px);
+      background: url("{{ 'konkurs-form-deco-left.svg' | asset_url }}") no-repeat center / contain;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* Top-right: pink flower (Figma 0:250 — right:88, top:158 at 1920px canvas) */
+    [id$="1779950794b0ea708a"]::after {
+      content: '';
+      position: absolute;
+      right: clamp(15px, 4.583vw, 88px);
+      top: clamp(40px, 8.229vw, 158px);
+      width: clamp(60px, 9.115vw, 175px);
+      height: clamp(61px, 9.271vw, 178px);
+      background: url("{{ 'konkurs-form-deco-top-right.svg' | asset_url }}") no-repeat center / contain;
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* Bottom-right: white 4-star (Figma 0:246 — right:73, top:906 at 1920px canvas) — injected via JS */
+    .konkurs-form-deco-star {
+      position: absolute;
+      right: clamp(10px, 3.802vw, 73px);
+      top: clamp(300px, 47.188vw, 906px);
+      width: clamp(30px, 3.594vw, 69px);
+      height: clamp(28px, 3.281vw, 63px);
+      background: url("{{ 'konkurs-form-deco-right.svg' | asset_url }}") no-repeat center / contain;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @media (max-width: 768px) {
+      [id$="1779950794b0ea708a"]::before,
+      [id$="1779950794b0ea708a"]::after,
+      .konkurs-form-deco-star { display: none; }
+    }
+  </style>
+{% endif %}

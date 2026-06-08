@@ -1,0 +1,63 @@
+<section
+  class="contest-marquee"
+  style="
+    --marquee-bg: {{ section.settings.background_color }};
+    --marquee-color: {{ section.settings.text_color }};
+    --marquee-duration: {{ section.settings.speed }}s;
+    --marquee-gap: clamp(30px, 3.125vw, 60px);
+  "
+>
+  <div class="contest-marquee__inner" aria-label="{{ section.settings.text }}">
+    <div class="contest-marquee__group">
+      {% for i in (1..10) %}
+        <span class="contest-marquee__item" aria-hidden="true">{{ section.settings.text }}</span>
+      {% endfor %}
+    </div>
+    <div class="contest-marquee__group" aria-hidden="true">
+      {% for i in (1..10) %}
+        <span class="contest-marquee__item" aria-hidden="true">{{ section.settings.text }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.konkurs_scrolling_text.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:sections.konkurs_scrolling_text.settings.text.label",
+      "default": "wygraj"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.konkurs_scrolling_text.settings.text_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.konkurs_scrolling_text.settings.background_color.label",
+      "default": "#E3A7F6"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "t:sections.konkurs_scrolling_text.settings.speed.label",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.konkurs_scrolling_text.presets.name"
+    }
+  ]
+}
+{% endschema %}

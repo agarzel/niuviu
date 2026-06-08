@@ -1,0 +1,130 @@
+<section class="konkurs-hero" id="section-{{ section.id }}">
+  <div class="konkurs-hero__inner">
+
+    <div class="konkurs-hero__content">
+
+      {% if section.settings.deco_image != blank %}
+        <div class="konkurs-hero__deco">
+          <img
+            src="{{ section.settings.deco_image | image_url: width: 835 }}"
+            alt=""
+            role="presentation"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+
+      <div class="konkurs-hero__main">
+        {% if section.settings.logo_image != blank %}
+          <div class="konkurs-hero__logo">
+            <img
+              src="{{ section.settings.logo_image | image_url: width: 570 }}"
+              alt="{{ section.settings.logo_image.alt | default: 'blossom time' }}"
+              loading="lazy"
+              class="konkurs-hero__logo-img"
+            >
+          </div>
+        {% endif %}
+
+        <div class="konkurs-hero__text-block">
+          {% if section.settings.text != blank %}
+            <div class="konkurs-hero__text">{{ section.settings.text }}</div>
+          {% endif %}
+
+          {% if section.settings.button_label != blank %}
+            <a
+              href="{{ section.settings.button_url | default: '#konkurs-form' }}"
+              class="konkurs-hero__btn"
+            >{{ section.settings.button_label }}</a>
+          {% endif %}
+
+          {% if section.settings.regulation_url != blank %}
+            <a
+              href="{{ section.settings.regulation_url }}"
+              class="konkurs-hero__regulation"
+              target="_blank"
+              rel="noopener"
+            >{{ section.settings.regulation_label | default: 'Regulamin konkursu' }}</a>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="konkurs-hero__image-wrap">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 960 }}"
+          srcset="
+            {{ section.settings.image | image_url: width: 412 }} 412w,
+            {{ section.settings.image | image_url: width: 768 }} 768w,
+            {{ section.settings.image | image_url: width: 960 }} 960w
+          "
+          sizes="(max-width: 768px) 412px, 960px"
+          alt="{{ section.settings.image.alt | default: '' }}"
+          loading="lazy"
+          class="konkurs-hero__img"
+        >
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'konkurs-hero__placeholder' }}
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.konkurs_hero.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.konkurs_hero.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "t:sections.konkurs_hero.settings.logo_image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "deco_image",
+      "label": "t:sections.konkurs_hero.settings.deco_image.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.konkurs_hero.settings.text.label",
+      "default": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:sections.konkurs_hero.settings.button_url.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.konkurs_hero.settings.button_label.label",
+      "default": "wyślij zgłoszenie"
+    },
+    {
+      "type": "url",
+      "id": "regulation_url",
+      "label": "t:sections.konkurs_hero.settings.regulation_url.label"
+    },
+    {
+      "type": "text",
+      "id": "regulation_label",
+      "label": "t:sections.konkurs_hero.settings.regulation_label.label",
+      "default": "Regulamin konkursu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.konkurs_hero.presets.name"
+    }
+  ]
+}
+{% endschema %}
