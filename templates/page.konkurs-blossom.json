@@ -12,6 +12,9 @@
     "konkurs_hero": {
       "type": "konkurs-hero",
       "settings": {
+        "image": "shopify://shop_images/zdjecie_baner_na_gorze.png",
+        "logo_image": "shopify://shop_images/blossom_time.svg",
+        "deco_image": "shopify://shop_images/konkurs-text.svg",
         "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>",
         "button_url": "",
         "button_label": "wyślij zgłoszenie",
@@ -26,40 +29,6 @@
         "text_color": "#000000",
         "background_color": "#e3a7f6",
         "speed": 20
-      }
-    },
-    "konkurs_steps": {
-      "type": "konkurs-steps",
-      "blocks": {
-        "step_1": {
-          "type": "step",
-          "settings": {
-            "step_text": "kup dowolny produkt marki niuviu z kolekcji Blossom Time w sklepach stacjonarnych Biedronka"
-          }
-        },
-        "step_2": {
-          "type": "step",
-          "settings": {
-            "step_text": "zachowaj paragon i załącz jego zdjęcie"
-          }
-        },
-        "step_3": {
-          "type": "step",
-          "settings": {
-            "step_text": "uzupełnij formularz i odpowiedz na pytanie"
-          }
-        }
-      },
-      "block_order": [
-        "step_1",
-        "step_2",
-        "step_3"
-      ],
-      "settings": {
-        "title": "Jak wziąć udział w konkursie?",
-        "date_text": "Konkurs trwa: 01.06-30.09.2026",
-        "button_label": "WYŚLIJ ZGŁOSZENIE",
-        "button_url": ""
       }
     },
     "konkurs_prizes": {
@@ -97,52 +66,38 @@
       ],
       "settings": {}
     },
-    "konkurs_winners": {
-      "type": "konkurs-winners",
+    "konkurs_steps": {
+      "type": "konkurs-steps",
       "blocks": {
-        "cat_1": {
-          "type": "category",
+        "step_1": {
+          "type": "step",
           "settings": {
-            "name": "wakacje o wartości 10 000 zł:",
-            "two_columns": false,
-            "winners_1": "1. Imię N.",
-            "winners_2": "",
-            "winners_3": ""
+            "step_text": "kup dowolny produkt marki niuviu z kolekcji Blossom Time w sklepach stacjonarnych Biedronka"
           }
         },
-        "cat_2": {
-          "type": "category",
+        "step_2": {
+          "type": "step",
           "settings": {
-            "name": "odkurzacz dyson:",
-            "two_columns": false,
-            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
-            "winners_2": "",
-            "winners_3": ""
+            "step_text": "zachowaj paragon i załącz jego zdjęcie"
           }
         },
-        "cat_3": {
-          "type": "category",
+        "step_3": {
+          "type": "step",
           "settings": {
-            "name": "100 zł na zakupy w biedronce:",
-            "two_columns": true,
-            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
-            "winners_2": "",
-            "winners_3": ""
+            "step_text": "uzupełnij formularz i odpowiedz na pytanie"
           }
         }
       },
       "block_order": [
-        "cat_1",
-        "cat_2",
-        "cat_3"
+        "step_1",
+        "step_2",
+        "step_3"
       ],
       "settings": {
-        "title": "Laureaci konkursu",
-        "subtitle": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail.",
-        "info_text": "<p><strong>Pamiętaj!</strong><br>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>",
-        "month1_label": "LIPIEC",
-        "month2_label": "SIERPIEŃ",
-        "month3_label": "WRZESIEŃ"
+        "title": "Jak wziąć udział w konkursie?",
+        "date_text": "Konkurs trwa: 01.06-30.09.2026",
+        "button_label": "WYŚLIJ ZGŁOSZENIE",
+        "button_url": ""
       }
     },
     "main": {
@@ -236,12 +191,60 @@
         "padding-block-end": 0
       }
     },
+    "konkurs_winners": {
+      "type": "konkurs-winners",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "name": "wakacje o wartości 10 000 zł:",
+            "two_columns": false,
+            "winners_1": "1. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "name": "odkurzacz dyson:",
+            "two_columns": false,
+            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "name": "100 zł na zakupy w biedronce:",
+            "two_columns": true,
+            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
+            "winners_2": "",
+            "winners_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3"
+      ],
+      "settings": {
+        "title": "Laureaci konkursu",
+        "subtitle": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail.",
+        "info_text": "<p><strong>Pamiętaj!</strong><br>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>",
+        "month1_label": "LIPIEC",
+        "month2_label": "SIERPIEŃ",
+        "month3_label": "WRZESIEŃ"
+      }
+    },
     "konkurs_scrolling_text_G7wkxx": {
       "type": "konkurs-scrolling-text",
       "settings": {
         "text": "gratulacje",
         "text_color": "#000000",
-        "background_color": "#e3a7f6",
+        "background_color": "#ffcae2",
         "speed": 40
       }
     },
@@ -256,11 +259,11 @@
   "order": [
     "konkurs_hero",
     "konkurs_scrolling",
-    "konkurs_steps",
     "konkurs_prizes",
-    "konkurs_winners",
+    "konkurs_steps",
     "main",
     "1779950794b0ea708a",
+    "konkurs_winners",
     "konkurs_scrolling_text_G7wkxx",
     "konkurs_banner"
   ]
