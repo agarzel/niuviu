@@ -269,7 +269,7 @@
 
 .contest-prizes__row--1 .contest-prizes__deco {
   flex: 0 0 clamp(90px, 17.604vw, 338px);     /* 338/1920 */
-  align-self: center;
+  align-self: end;
   margin-right: clamp(16px, 8.438vw, 162px);  /* gap 162/1920 */
 }
 
