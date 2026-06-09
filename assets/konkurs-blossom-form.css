@@ -1,12 +1,3 @@
-/* ============================================================
-   Konkurs Blossom – form styling (Globo Form Builder override)
-   ============================================================ */
-
-/* ============================================================
-   Konkurs Hero – image + text section
-   All vw values: px / 1920 * 100  (Figma canvas = 1920px)
-   ============================================================ */
-
 .konkurs-hero {
   overflow: hidden;
 }
@@ -15,8 +6,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: clamp(24px, 3.385vw, 65px);         /* 65/1920 */
-  padding: 0 0 0 clamp(20px, 3.125vw, 60px); /* 60/1920 */
+  gap: clamp(24px, 3.385vw, 65px);
+  padding: 0 0 0 clamp(20px, 3.125vw, 60px);
   background: linear-gradient(18deg, #FBE89C -78.82%, #D0F3A3 75%);
 }
 
@@ -24,13 +15,13 @@
 .konkurs-hero__content {
   display: flex;
   flex-direction: column;
-  flex: 0 0 clamp(280px, 43.49vw, 835px);  /* 835/1920 */
+  flex: 0 0 clamp(280px, 43.49vw, 835px); 
   min-width: 0;
 }
 
 .konkurs-hero__deco img {
   width: 100%;
-  height: clamp(80px, 8.802vw, 169px);    /* 169/1920 */
+  height: clamp(80px, 8.802vw, 169px);
   object-fit: contain;
   object-position: right bottom;
   display: block;
@@ -39,12 +30,12 @@
 .konkurs-hero__main {
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 3.542vw, 68px);         /* 68/1920 */
+  gap: clamp(28px, 3.542vw, 68px);
 }
 
 .konkurs-hero__logo-img {
   display: block;
-  width: clamp(180px, 29.69vw, 570px);    /* 570/1920 */
+  width: clamp(180px, 29.69vw, 570px);
   height: auto;
   object-fit: contain;
   object-position: left center;
@@ -53,12 +44,12 @@
 .konkurs-hero__text-block {
   display: flex;
   flex-direction: column;
-  gap: clamp(18px, 2.083vw, 40px);         /* 40/1920 */
+  gap: clamp(18px, 2.083vw, 40px);
 }
 
 .konkurs-hero__text {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
-  font-size: clamp(14px, 1.667vw, 32px);   /* 32/1920 */
+  font-size: clamp(14px, 1.667vw, 32px);
   font-weight: 400;
   line-height: 1.35;
   color: #000000;
@@ -235,12 +226,6 @@
   }
 }
 
-/* ============================================================
-   Contest Prizes – awards section  (1:1 Figma node 0-152)
-   All vw: px / 1920 * 100  (Figma canvas = 1920px)
-   Section frame: 1793px → padding 63.5px each side
-   ============================================================ */
-
 .contest-prizes {
   background: transparent;
   padding-block: clamp(60px, 6.563vw, 126px); /* 126/1920 */
@@ -258,10 +243,6 @@
   overflow: visible;
 }
 
-/* ======================================================
-   ROW 1 – deco | stacked-images | text
-   Frame: 1793×355px
-   ====================================================== */
 .contest-prizes__row--1 {
   min-height: clamp(160px, 18.49vw, 355px); /* 355/1920 */
   align-items: flex-start;
@@ -273,7 +254,6 @@
   margin-right: clamp(16px, 8.438vw, 162px);  /* gap 162/1920 */
 }
 
-/* Stacked cards container (314×326px in Figma) */
 .contest-prizes__media--stack {
   flex: 0 0 clamp(60px, 16.354vw, 314px);  /* 314/1920 */
   height: clamp(80px, 16.979vw, 326px);     /* 326/1920 */
@@ -283,12 +263,6 @@
   align-self: flex-start;
 }
 
-/*
-  Natural card size back-calculated from Figma bounding boxes + CCW rotation:
-  ~214×120px out of 314×326 container = ~70% × 37.5%.
-  Positioned by bounding-box center from Figma; rotated around element center.
-  z-index: 3 = front, 1 = back.
-*/
 .contest-prizes__stack-img {
   position: absolute;
   display: block;
@@ -321,10 +295,6 @@
   align-self: center;
 }
 
-/* ======================================================
-   ROW 2 – text | dyson | deco | star (far right)
-   Frame: 1793×341px
-   ====================================================== */
 .contest-prizes__row--2 {
   min-height: clamp(150px, 17.76vw, 341px); /* 341/1920 */
 }
@@ -353,18 +323,11 @@
   transform: translateY(-50%);
 }
 
-/* ======================================================
-   ROW 3 – [star-abs] deco | text | biedronka
-   Frame: 1731×357px, centered inside 1793px section
-   row starts at (1793-1731)/2=31px from section left
-   deco at x:457 in row → 31+457=488px from section left
-   ====================================================== */
 .contest-prizes__row--3 {
   min-height: clamp(140px, 18.59vw, 357px); /* 357/1920 */
   padding-left: clamp(40px, 25.417vw, 488px); /* push deco to 488/1920 */
 }
 
-/* Star: absolute at x:152 in row, +31px offset → 183px from section left */
 .contest-prizes__row--3 .contest-prizes__star {
   position: absolute;
   left: clamp(20px, 9.531vw, 183px); /* (31+152)/1920 */
@@ -434,7 +397,6 @@
   gap: 0.1em;
 }
 
-/* Row 2: sub above main, both in a column to the right of count */
 .contest-prizes__value-col {
   display: flex;
   flex-direction: column;
@@ -450,7 +412,6 @@
   white-space: nowrap;
 }
 
-/* Row 1 & 3 main value: 152px */
 .contest-prizes__main {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(36px, 7.917vw, 152px); /* 152/1920 */
@@ -460,14 +421,12 @@
   white-space: nowrap;
 }
 
-/* Row 2 main (Dyson): 128px, UPPER, letter-spacing */
 .contest-prizes__row--2 .contest-prizes__main {
   font-size: clamp(28px, 6.667vw, 128px); /* 128/1920 */
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-/* Row 2 sub (ODKURZACZ): 72px, UPPER */
 .contest-prizes__sub {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(16px, 3.75vw, 72px); /* 72/1920 */
@@ -479,7 +438,6 @@
   margin: 0;
 }
 
-/* Row 1 desc: 48px, UPPER, mixed bold (richtext) */
 .contest-prizes__desc,
 .contest-prizes__desc p {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
@@ -492,13 +450,11 @@
   margin: clamp(4px, 0.625vw, 12px) 0 0;
 }
 
-/* Row 3 desc: 42px, bold */
 .contest-prizes__row--3 .contest-prizes__desc {
   font-size: clamp(12px, 2.188vw, 42px); /* 42/1920 */
   font-weight: 700;
 }
 
-/* ---- Mobile (1:1 Figma node 1-90, canvas 389px) ---- */
 @media (max-width: 768px) {
   .contest-prizes {
     padding-block: 40px;
@@ -506,9 +462,10 @@
     gap: 51px;
   }
 
-  .contest-prizes__star { display: none !important; }
+  .contest-prizes__star { 
+    display: none !important; 
+  }
 
-  /* ROW 1 – column: images centered then text; deco absolute top-right */
   .contest-prizes__row--1 {
     flex-direction: column;
     align-items: center;
@@ -543,7 +500,6 @@
     align-self: flex-start;
   }
 
-  /* ROW 2 – row: text left + Dyson right; deco absolute bottom-left */
   .contest-prizes__row--2 {
     flex-direction: row;
     align-items: flex-start;
@@ -558,7 +514,6 @@
     width: auto;
   }
 
-  /* Dyson: 125px / 349px content = 35.8% */
   .contest-prizes__row--2 .contest-prizes__media {
     flex: 0 0 clamp(90px, 35.8%, 125px);
     height: auto;
@@ -573,7 +528,6 @@
     object-position: center bottom;
   }
 
-  /* Deco: canvas x=15.64, row starts at padding 20px → from row left: -4px; bottom flush with row bottom */
   .contest-prizes__row--2 .contest-prizes__deco {
     display: block;
     position: absolute;
@@ -585,7 +539,6 @@
     pointer-events: none;
   }
 
-  /* ROW 3 – text top-right (72%); Biedronka in-flow below text; deco absolute bottom-right */
   .contest-prizes__row--3 {
     flex-direction: column;
     align-items: stretch;
@@ -594,7 +547,6 @@
     position: relative;
   }
 
-  /* Text: 267/370 = 72% wide, right-aligned */
   .contest-prizes__row--3 .contest-prizes__text {
     flex: none;
     width: 72%;
@@ -602,7 +554,6 @@
     margin-right: 0;
   }
 
-  /* Biedronka: in-flow below text, left-aligned (167px / 349px = 43%) */
   .contest-prizes__row--3 .contest-prizes__media {
     position: static;
     flex: none;
@@ -616,7 +567,6 @@
     object-position: left center;
   }
 
-  /* Deco: canvas x=198, w=123 in 370px frame → right: (370-198-123)*349/370 ≈ 46px */
   .contest-prizes__row--3 .contest-prizes__deco {
     display: block;
     position: absolute;
@@ -628,7 +578,6 @@
     pointer-events: none;
   }
 
-  /* Font sizes – calibrated from Figma mobile SVG dims */
   .contest-prizes__count                        { font-size: 28px; }
   .contest-prizes__main                         { font-size: 44px; }
   .contest-prizes__row--2 .contest-prizes__main { font-size: 40px; }
@@ -636,11 +585,6 @@
   .contest-prizes__desc,
   .contest-prizes__desc p                       { font-size: 14px; }
 }
-
-/* ============================================================
-   Contest Steps – "Jak wziąć udział w konkursie?"
-   All vw: px / 1920 * 100 (Figma 1920px canvas)
-   ============================================================ */
 
 .contest-steps {
   width: 100%;
@@ -667,7 +611,6 @@
   line-height: 1.2;
 }
 
-/* ---- Steps grid ---- */
 .contest-steps__grid {
   display: flex;
   flex-direction: row;
@@ -683,7 +626,6 @@
   min-width: 0;
 }
 
-/* ---- Blob + overlay ---- */
 .contest-steps__blob-wrap {
   position: relative;
   width: 100%;
@@ -799,19 +741,9 @@
   }
 }
 
-/* ============================================================
-   Page background – gradient on #MainContent
-   (only on konkurs-blossom page via this stylesheet)
-   ============================================================ */
-
 #MainContent {
   background: linear-gradient(18deg, #FBE89C 38.18%, #D0F3A3 75%);
 }
-
-/* ============================================================
-   Globo Form Builder – 1:1 Figma node 0-219 (1920px canvas)
-   Inner form: 890px wide, 2-col fields, labels 32px DM Sans
-   ============================================================ */
 
 body,
 .g-container,
@@ -832,7 +764,6 @@ body,
   box-shadow: none !important;
 }
 
-/* ---------- Form centering: override Globo's 650px cap → 890px (Figma) ---------- */
 .globo-form-id-147831 .globo-form-app {
   max-width: clamp(500px, 46.354vw, 890px) !important;
   width: 100% !important;
@@ -844,7 +775,6 @@ body,
   box-sizing: border-box;
 }
 
-/* ---------- Globo header title (Figma: 64px DM Sans Regular, centered) ---------- */
 .globo-formbuilder .header {
   text-align: center;
   margin-bottom: clamp(24px, 3.333vw, 64px);
@@ -863,7 +793,6 @@ body,
   display: none !important;
 }
 
-/* Hides only the step wizard header and step dots (not the form title) */
 .globo-formbuilder .wizard__header,
 .globo-formbuilder .steps {
   display: none !important;
@@ -877,14 +806,12 @@ body,
   padding-top: 0 !important;
 }
 
-/* ---------- 2-column grid (Figma: layout-2-column × 4, then layout-1-column) ---------- */
 .globo-formbuilder .block-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr;
   gap: clamp(20px, 1.719vw, 33px);
 }
 
-/* Full-width: Globo marks single-col fields with layout-1-column */
 .globo-form-control.layout-1-column {
   grid-column: 1 / -1;
 }
@@ -906,7 +833,6 @@ body,
   }
 }
 
-/* ---------- Labels (Figma: DM Sans Regular 32px, black) ---------- */
 .globo-formbuilder .globo-label,
 .globo-formbuilder .gfb__label-v2 {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
@@ -958,7 +884,6 @@ body,
   box-shadow: 0 0 0 2px rgba(227, 167, 246, 0.5) !important;
 }
 
-/* Answer textarea (Figma: 226px height, 30px radius) — .classic_rounded-input IS the <textarea> */
 .globo-form-control[data-type="textarea"] .classic_rounded-input {
   border-radius: 30px !important;
   height: clamp(160px, 11.77vw, 226px) !important;
@@ -967,7 +892,6 @@ body,
   vertical-align: top;
 }
 
-/* ---------- File upload (Figma: #E3A7F6, 51px, 30px radius) ---------- */
 .globo-form-control .gfb__dropzone {
   position: relative;
   background-color: #E3A7F6 !important;
@@ -1026,7 +950,6 @@ body,
   background: transparent !important;
 }
 
-/* ---------- Consent checkbox (Figma: centered, no extra margin) ---------- */
 .globo-form-control[data-type="consent"] {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
@@ -1075,7 +998,6 @@ body,
   cursor: pointer;
 }
 
-/* ---------- Footer / Submit button (Figma: #FF88BF, 445px, DM Sans Bold 24px) ---------- */
 .globo-formbuilder .wizard__footer {
   display: flex;
   flex-direction: column;
@@ -1114,7 +1036,6 @@ body,
   opacity: 0.88;
 }
 
-/* ---------- File info (injected by JS) – Figma: DM Sans 20px ---------- */
 .custom-file-info {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(14px, 1.042vw, 20px);
@@ -1132,7 +1053,6 @@ body,
   font-weight: 400;
 }
 
-/* ---------- Character counter (injected by JS) – Figma: DM Sans 20px ---------- */
 .custom-char-counter {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(14px, 1.042vw, 20px);
@@ -1147,12 +1067,6 @@ body,
   margin-top: 4px;
 }
 
-/* ============================================================
-   Contest Banner – 2 panels side by side  (1:1 Figma node 0-146/0-149)
-   Each panel: 960×983px at 1920px canvas
-   Left bg: #E3A7F6  |  Right bg: #FF88BF
-   ============================================================ */
-
 .contest-banner {
   display: flex;
   flex-direction: row;
@@ -1160,7 +1074,6 @@ body,
   overflow: hidden;
 }
 
-/* Each panel is exactly half the viewport width, same aspect ratio as Figma */
 .contest-banner__panel {
   flex: 0 0 50%;
   min-width: 0;
@@ -1169,7 +1082,6 @@ body,
   overflow: hidden;
 }
 
-/* Full-panel render from Figma (includes bg color + shaped composition) */
 .contest-banner__img {
   display: block;
   width: 100%;
@@ -1195,19 +1107,12 @@ body,
   }
 }
 
-/* ============================================================
-   Contest Winners – "Laureaci/Zwycięscy"  (1:1 Figma node 0-254)
-   All vw: px / 1920 * 100  (Figma canvas = 1920px)
-   Section frame: 1798×1876px; inner max-width ≈ 1587px
-   ============================================================ */
-
 .contest-winners {
   position: relative;
   overflow: visible;
   padding-block-end: clamp(60px, 7.813vw, 150px);
 }
 
-/* Deco: left pink flower — frame x:0, y:1068 */
 .contest-winners__deco-left {
   position: absolute;
   left: 59px;
@@ -1223,7 +1128,6 @@ body,
   height: auto;
 }
 
-/* Deco: right white/purple flower — frame x:1574, y:529 */
 .contest-winners__deco-right {
   position: absolute;
   right: 63px;
@@ -1239,7 +1143,6 @@ body,
   height: auto;
 }
 
-/* Star — frame x:1583, y:1579 (near right edge) */
 .contest-winners__star {
   position: absolute;
   right: clamp(20px, 3.75vw, 72px); /* (1920 - 1583 - 204 - 61) ≈ 72 */
@@ -1255,7 +1158,6 @@ body,
   height: auto;
 }
 
-/* Inner content */
 .contest-winners__inner {
   position: relative;
   z-index: 1;
@@ -1270,7 +1172,6 @@ body,
   box-sizing: border-box;
 }
 
-/* Title: 64px Regular centered */
 .contest-winners__title {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(28px, 3.333vw, 64px); /* 64/1920 */
@@ -1281,7 +1182,6 @@ body,
   line-height: 1.2;
 }
 
-/* Subtitle: 32px Regular centered, w:889px */
 .contest-winners__subtitle {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
@@ -1293,7 +1193,6 @@ body,
   line-height: 1.35;
 }
 
-/* Info box: 890×185px, bg #FFCAE2, radius 30px, padding 34×85px */
 .contest-winners__info {
   background: #FFCAE2;
   border-radius: clamp(16px, 1.563vw, 30px); /* 30/1920 */
@@ -1313,7 +1212,6 @@ body,
   text-align: center;
 }
 
-/* "PAMIĘTAJ!" bold prefix: 32px UPPER letter-spacing 10% */
 .contest-winners__info strong {
   font-size: clamp(18px, 1.667vw, 32px); /* 32/1920 */
   font-weight: 700;
@@ -1321,7 +1219,6 @@ body,
   letter-spacing: 0.1em;
 }
 
-/* Filter buttons row: 3 × 284px, gap 17px, Bold 24px UPPER */
 .contest-winners__filters {
   display: flex;
   flex-direction: row;
@@ -1361,7 +1258,6 @@ body,
   background: #E3A7F6;
 }
 
-/* Prize categories column: gap 98px, max-width 893px */
 .contest-winners__categories {
   display: flex;
   flex-direction: column;
@@ -1377,7 +1273,6 @@ body,
   width: 100%;
 }
 
-/* Category heading: Bold 32px UPPER letter-spacing 10% */
 .contest-winners__category-name {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(16px, 1.667vw, 32px); /* 32/1920 */
@@ -1390,7 +1285,6 @@ body,
   text-align: center;
 }
 
-/* Winners list: Regular 32px; hidden by default */
 .contest-winners__month {
   display: none;
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
@@ -1405,13 +1299,11 @@ body,
   display: block;
 }
 
-/* Two-column layout: gap 104px */
 .contest-winners__month--two-col.is-visible {
   column-count: 2;
   column-gap: clamp(20px, 5.417vw, 104px); /* 104/1920 */
 }
 
-/* ---- Mobile ---- */
 @media (max-width: 768px) {
   .contest-winners {
     overflow: hidden;
