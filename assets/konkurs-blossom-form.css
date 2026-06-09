@@ -1,4 +1,4 @@
-.konkurs-hero {
+\.konkurs-hero {
   overflow: hidden;
 }
 
@@ -578,12 +578,26 @@
     pointer-events: none;
   }
 
-  .contest-prizes__count                        { font-size: 28px; }
-  .contest-prizes__main                         { font-size: 44px; }
-  .contest-prizes__row--2 .contest-prizes__main { font-size: 40px; }
-  .contest-prizes__sub                          { font-size: 20px; }
+  .contest-prizes__count {
+    font-size: 28px;
+  }
+
+  .contest-prizes__main {
+    font-size: 44px;
+  }
+
+  .contest-prizes__row--2 .contest-prizes__main {
+    font-size: 40px;
+  }
+  
+  .contest-prizes__sub { 
+    font-size: 20px;
+  }
+  
   .contest-prizes__desc,
-  .contest-prizes__desc p                       { font-size: 14px; }
+  .contest-prizes__desc p { 
+    font-size: 18px; 
+  }
 }
 
 .contest-steps {
@@ -913,21 +927,29 @@ body,
   padding: 0 !important;
 }
 
-.globo-form-control .gfb__dropzone--placeholder {
+.globo-form-control .gfb__dropzone--placeholder,
+.globo-form-control .gfb__dropzone[data-area-previewing] .gfb__dropzone--placeholder,
+.globo-form-control .gfb__dropzone[data-area-previewing="true"] .gfb__dropzone--placeholder {
   display: flex !important;
   align-items: center !important;
   height: 51px !important;
   width: 100%;
-  padding: 0 clamp(16px, 1.198vw, 23px);
+  padding: 0 5px;
 }
 
-.globo-form-control .gfb__dropzone--placeholder--title {
+.globo-form-control .gfb__dropzone--placeholder--title,
+.globo-form-control .gfb__dropzone[data-area-previewing] .gfb__dropzone--placeholder--title,
+.globo-form-control .gfb__dropzone[data-area-previewing="true"] .gfb__dropzone--placeholder--title {
+  display: block !important;
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
   font-size: clamp(14px, 1.042vw, 20px);
   color: #000000;
   font-weight: 400;
   pointer-events: none;
-  line-height: 1;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .globo-form-control .gfb__dropzone--placeholder--description,
@@ -1044,14 +1066,6 @@ body,
   line-height: 1.5;
 }
 
-/* Selected file name injected by JS */
-.custom-file-selected {
-  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
-  font-size: clamp(14px, 1.042vw, 20px);
-  color: #000000;
-  margin-top: clamp(6px, 0.573vw, 11px);
-  font-weight: 400;
-}
 
 .custom-char-counter {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
