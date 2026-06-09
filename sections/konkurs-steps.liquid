@@ -68,8 +68,14 @@
           <p class="contest-steps__date">{{ section.settings.date_text }}</p>
         {%- endif -%}
         {%- if section.settings.button_label != blank -%}
+          {%- if section.settings.button_anchor != blank -%}
+            {%- assign btn_href = '#' | append: section.settings.button_anchor -%}
+          {%- else -%}
+            {%- assign btn_href = section.settings.button_url | default: '#' -%}
+          {%- endif -%}
           <a
-            href="{{ section.settings.button_url }}"
+            href="{{ btn_href }}"
+            {% if section.settings.button_anchor != blank %}data-anchor="{{ btn_href }}"{% endif %}
             class="contest-steps__btn"
           >{{ section.settings.button_label }}</a>
         {%- endif -%}
@@ -105,6 +111,12 @@
       "type": "url",
       "id": "button_url",
       "label": "t:sections.contest_steps.settings.button_url.label"
+    },
+    {
+      "type": "text",
+      "id": "button_anchor",
+      "label": "ID sekcji (anchor scroll)",
+      "info": "Wpisz ID sekcji (bez #) – przycisk przewinie do tej sekcji zamiast otwierać URL"
     }
   ],
   "blocks": [
