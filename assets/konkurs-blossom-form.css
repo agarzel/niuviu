@@ -451,7 +451,7 @@
 }
 
 .contest-prizes__row--3 .contest-prizes__desc {
-  font-size: clamp(12px, 2.188vw, 42px); /* 42/1920 */
+  font-size: clamp(15px, 2.188vw, 42px);
   font-weight: 700;
 }
 
