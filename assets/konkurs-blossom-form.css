@@ -374,7 +374,7 @@
 
 .contest-prizes__row--3 .contest-prizes__deco {
   flex: 0 0 clamp(50px, 9.583vw, 184px); /* 184/1920 */
-  align-self: center;
+  align-self: end;
 }
 
 .contest-prizes__row--3 .contest-prizes__text {
