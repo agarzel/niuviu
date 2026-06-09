@@ -342,7 +342,7 @@
 .contest-prizes__row--2 .contest-prizes__deco {
   flex: 0 0 clamp(50px, 11.667vw, 224px);   /* 224/1920 */
   margin-left: clamp(20px, 12.708vw, 244px); /* gap 244/1920 to deco */
-  align-self: center;
+  align-self: end;
 }
 
 /* Star: absolute at x:1654, y:139 in 1793×341 frame */
