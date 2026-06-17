@@ -15,7 +15,7 @@
         "image": "shopify://shop_images/zdjecie_baner_na_gorze.png",
         "logo_image": "shopify://shop_images/blossom_time.svg",
         "deco_image": "shopify://shop_images/konkurs-text.svg",
-        "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronki w dniach <strong>01.06-30.09 i wygraj bon o wartości 10 000 zł na wymarzone wakacje z wakacje.pl lub 75 innych nagród!</strong></p>",
+        "text": "<p><strong>Kup dowolny produkt marki niuviu</strong> z kolekcji Blossom Time w sklepach stacjonarnych Biedronka w dniach <strong>01.07-30.09.2026 i zdobądź szansę na wygranie bonu o wartości 10 000 zł na wymarzone wakacje z </strong><a href=\"http://wakacje.pl/\" target=\"_blank\"><strong>wakacje.pl</strong></a><strong> lub 75 innych nagród!</strong></p>",
         "button_url": "",
         "button_anchor": "shopify-section-template--28847900787062__1779950794b0ea708a",
         "button_label": "wyślij zgłoszenie",
@@ -98,7 +98,8 @@
         "title": "Jak wziąć udział w konkursie?",
         "date_text": "Konkurs trwa: 01.06-30.09.2026",
         "button_label": "WYŚLIJ ZGŁOSZENIE",
-        "button_url": ""
+        "button_url": "",
+        "button_anchor": "shopify-section-template--28847900787062__1779950794b0ea708a"
       }
     },
     "main": {
@@ -233,8 +234,8 @@
       ],
       "settings": {
         "title": "Laureaci konkursu",
-        "subtitle": "Jury wybrało 30 czerwca Laureatów - do wszystkich nagrodzonych wysłaliśmy wiadomość e-mail.",
-        "info_text": "<p><strong>Pamiętaj!</strong><br>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>",
+        "subtitle": "Jury wybierze pierwszych laureatów najpóźniej 14.08.2026 – do wszystkich nagrodzonych wyślemy wiadomość e-mail.",
+        "info_text": "<p><strong>Pamiętaj!</strong><br/>Lista Laureatów konkursu będzie aktualizowana na bieżąco, po zakończeniu konkursu, poinformowaniu Laureatów, oraz zweryfikowaniu ich prawa do Nagrody (spełnienie warunków regulaminu) - ten proces chwilę zajmuje! 🙂</p>",
         "month1_label": "LIPIEC",
         "month2_label": "SIERPIEŃ",
         "month3_label": "WRZESIEŃ"
