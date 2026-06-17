@@ -201,7 +201,7 @@
           "settings": {
             "name": "wakacje o wartości 10 000 zł:",
             "two_columns": false,
-            "winners_1": "1. Imię N.",
+            "winners_1": "...",
             "winners_2": "",
             "winners_3": ""
           }
@@ -211,7 +211,7 @@
           "settings": {
             "name": "odkurzacz dyson:",
             "two_columns": false,
-            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.",
+            "winners_1": "...",
             "winners_2": "",
             "winners_3": ""
           }
@@ -220,8 +220,8 @@
           "type": "category",
           "settings": {
             "name": "100 zł na zakupy w biedronce:",
-            "two_columns": true,
-            "winners_1": "1. Aleksandra N.\n  2. Franciszek N.\n  3. Imię N.\n  4. Małgorzata N.\n  5. Imię N.\n  6. Imię N.\n  7. Imię N.\n  8. Imię N.\n  9. Imię N.\n  10. Imię N.\n  11. Aleksandra N.\n  12. Franciszek N.\n  13. Imię N.\n  14. Małgorzata N.\n  15. Imię N.\n  16. Imię N.\n  17. Imię N.\n  18. Imię N.\n  19. Imię N.\n  20. Imię N.",
+            "two_columns": false,
+            "winners_1": "...",
             "winners_2": "",
             "winners_3": ""
           }
