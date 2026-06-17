@@ -49,7 +49,7 @@
     if (fileInput && !form.querySelector('.custom-file-info')) {
       const info = document.createElement('div');
       info.className = 'custom-file-info';
-      info.innerHTML = 'max. waga: 5MB<br>format pliku: JPG / JPEG / PNG / PDF / HEIC';
+      info.innerHTML = 'max. waga: 2MB<br>format pliku: JPG / JPEG / PNG / PDF / HEIC';
       const fileWrap = fileInput.closest('.globo-form-input');
       (fileWrap || fileInput).insertAdjacentElement('afterend', info);
     }
