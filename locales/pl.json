@@ -158,7 +158,7 @@
     "duties_included": "Z wliczonymi cłami.",
     "shipping_policy_html": "<a href=\"{{ link }}\">Koszt wysyłki</a> obliczony przy realizacji zakupu.",
     "taxes_included": "Z wliczonymi podatkami.",
-    "product_badge_sold_out": "",
+    "product_badge_sold_out": "nowość",
     "product_badge_sale": "W promocji",
     "search_input_label": "Szukaj",
     "search_input_placeholder": "Szukaj",
@@ -345,7 +345,7 @@
       "added_to_cart": "Dodano do koszyka",
       "add_to_cart_error": "Błąd podczas dodawania do koszyka",
       "quantity_error_max": "Pozycja ma maksymalny limit {{ maximum }}",
-      "sold_out": "",
+      "sold_out": "nowość",
       "unavailable": "Niedostępny",
       "quantity": "Ilość",
       "quantity_increments": "Przyrost o {{ increment }}",
@@ -359,6 +359,18 @@
   "sections": {
     "collection_banner": {
       "placeholder": "Add a desktop image in the section settings"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "stock": {
+        "sold_out_label": "nowość"
+      },
+      "throttle": {
+        "merchandise": {
+          "sold_out": "nowość"
+        }
+      }
     }
   }
 }
