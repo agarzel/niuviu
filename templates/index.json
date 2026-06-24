@@ -17,7 +17,7 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/premiera_niuviu_1670x656_3fae5760-6fd3-467c-b7a5-e9ad1a37d554.png",
-            "content_direction": "row",
+            "content_direction": "column",
             "vertical_on_mobile": false,
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
