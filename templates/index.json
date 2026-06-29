@@ -305,8 +305,8 @@
               "name": "t:names.collection_title",
               "settings": {
                 "text": "<h3>Znajdziesz w biedronce – teraz na promocji przy zakupie 2 sztuk za 16,99 zł:</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-primary--family)",
