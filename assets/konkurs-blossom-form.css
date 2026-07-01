@@ -832,6 +832,7 @@ body,
 
 .globo-form-control.layout-2-column {
   width: 100% !important;
+  max-width: 333px !important
 }
 
 @media (max-width: 768px) {
