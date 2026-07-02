@@ -172,7 +172,12 @@
 
   slideshow-slide>.slide__image-container img {
     height: 100% !important;
-    object-fit: cover
+  }
+
+  @media screen and ( min-width: 767px) {
+     slideshow-slide>.slide__image-container img {
+      object-fit: cover
+     }
   }
 
   .slide__image-container > .slide__image,
