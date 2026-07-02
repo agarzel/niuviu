@@ -238,7 +238,7 @@
 /* ---- Total pool box ---- */
 .contest-prizes__total {
   display: inline-flex;
-  align-self: flex-start;
+  align-self: center;
   align-items: center;
   justify-content: center;
   border: clamp(2px, 0.208vw, 4px) solid var(--total-pool-color, #FF0000);
