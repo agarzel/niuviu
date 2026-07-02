@@ -1250,8 +1250,9 @@
       "name": "Contest Prizes",
       "presets": { "name": "Contest Prizes" },
       "settings": {
-        "total_pool_text":  { "label": "Total prize pool text" },
-        "total_pool_color": { "label": "Text and border color" }
+        "total_pool_text":      { "label": "Total prize pool text" },
+        "total_pool_color":     { "label": "Text and border color" },
+        "total_pool_font_size": { "label": "Font size" }
       },
       "blocks": {
         "prize_1": {
