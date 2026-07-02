@@ -247,7 +247,7 @@
 
 .contest-prizes__total-text {
   font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
-  font-size: clamp(20px, 2.813vw, 54px);   /* 54/1920 */
+  font-size: clamp(20px, 2.813vw, var(--total-pool-font-size, 54px));
   font-weight: 700;
   font-style: italic;
   letter-spacing: 0.02em;
