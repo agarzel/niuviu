@@ -1,6 +1,6 @@
 <section class="contest-prizes">
   {%- if section.settings.total_pool_text != blank -%}
-    <div class="contest-prizes__total" style="--total-pool-color: {{ section.settings.total_pool_color }};">
+    <div class="contest-prizes__total" style="--total-pool-color: {{ section.settings.total_pool_color }}; --total-pool-font-size: {{ section.settings.total_pool_font_size }}px;">
       <span class="contest-prizes__total-text">{{ section.settings.total_pool_text }}</span>
     </div>
   {%- endif -%}
@@ -140,6 +140,16 @@
       "id": "total_pool_color",
       "label": "t:sections.contest_prizes.settings.total_pool_color.label",
       "default": "#FF0000"
+    },
+    {
+      "type": "range",
+      "id": "total_pool_font_size",
+      "label": "t:sections.contest_prizes.settings.total_pool_font_size.label",
+      "min": 16,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 54
     }
   ],
   "blocks": [
