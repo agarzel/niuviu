@@ -235,6 +235,41 @@
   gap: clamp(24px, 3.646vw, 70px);             /* 70/1920 */
 }
 
+/* ---- Total pool box ---- */
+.contest-prizes__total {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  border: clamp(2px, 0.208vw, 4px) solid var(--total-pool-color, #FF0000);
+  padding: clamp(10px, 1.146vw, 22px) clamp(20px, 2.5vw, 48px);
+}
+
+.contest-prizes__total-text {
+  font-family: var(--font-paragraph--family, 'DM Sans', sans-serif);
+  font-size: clamp(20px, 2.813vw, 54px);   /* 54/1920 */
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--total-pool-color, #FF0000);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .contest-prizes__total {
+    align-self: stretch;
+    padding: 10px 16px;
+  }
+
+  .contest-prizes__total-text {
+    font-size: 20px;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 /* ---- Row base ---- */
 .contest-prizes__row {
   display: flex;
