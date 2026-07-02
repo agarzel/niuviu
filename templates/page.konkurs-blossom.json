@@ -65,7 +65,11 @@
         "prize_2",
         "prize_3"
       ],
-      "settings": {}
+      "settings": {
+        "total_pool_text": "",
+        "total_pool_color": "#ff0000",
+        "total_pool_font_size": 26
+      }
     },
     "konkurs_steps": {
       "type": "konkurs-steps",
