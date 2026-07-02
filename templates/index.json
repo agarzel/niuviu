@@ -19,7 +19,7 @@
             "image_1": "shopify://shop_images/niuviu-blossom-1920x1080.jpg",
             "custom_mobile_image": true,
             "image_1_mobile": "shopify://shop_images/niuviu-blossom-1080x1350.jpg",
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": false,
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
@@ -34,7 +34,7 @@
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "padding-block-start": 0,
-            "padding-block-end": 48,
+            "padding-block-end": 0,
             "padding-inline-start": 48,
             "padding-inline-end": 48
           },
