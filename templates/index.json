@@ -17,6 +17,8 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/premiera-niuviu-4788-x-2956.jpg",
+            "custom_mobile_image": true,
+            "image_1_mobile": "shopify://shop_images/niuviu-blossom_time-INNA_BUTELKA-polne_kwiaty-mgielka_1.png",
             "content_direction": "column",
             "vertical_on_mobile": false,
             "horizontal_alignment": "flex-start",
@@ -43,6 +45,7 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/wlosy-banner-desktop.png",
+            "custom_mobile_image": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -143,6 +146,7 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/IMG_2531_5e075a7c-ca3f-450e-9392-6cd558f11d3e.jpg",
+            "custom_mobile_image": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
