@@ -1249,6 +1249,10 @@
     "contest_prizes": {
       "name": "Contest Prizes",
       "presets": { "name": "Contest Prizes" },
+      "settings": {
+        "total_pool_text":  { "label": "Total prize pool text" },
+        "total_pool_color": { "label": "Text and border color" }
+      },
       "blocks": {
         "prize_1": {
           "name": "Prize Row 1 (vouchers)",

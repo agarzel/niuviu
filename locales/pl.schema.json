@@ -1192,6 +1192,10 @@
     "contest_prizes": {
       "name": "Nagrody konkursu",
       "presets": { "name": "Nagrody konkursu" },
+      "settings": {
+        "total_pool_text":  { "label": "Tekst łącznej puli nagród" },
+        "total_pool_color": { "label": "Kolor tekstu i ramki" }
+      },
       "blocks": {
         "prize_1": {
           "name": "Wiersz nagrody 1 (bony)",
