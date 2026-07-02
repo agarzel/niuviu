@@ -21,7 +21,7 @@
             "image_1_mobile": "shopify://shop_images/niuviu-blossom-1080x1350.jpg",
             "content_direction": "row",
             "vertical_on_mobile": false,
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "center",
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
