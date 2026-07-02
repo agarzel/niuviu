@@ -1,4 +1,10 @@
 <section class="contest-prizes">
+  {%- if section.settings.total_pool_text != blank -%}
+    <div class="contest-prizes__total" style="--total-pool-color: {{ section.settings.total_pool_color }};">
+      <span class="contest-prizes__total-text">{{ section.settings.total_pool_text }}</span>
+    </div>
+  {%- endif -%}
+
   {%- for block in section.blocks -%}
 
     {%- case block.type -%}
@@ -122,6 +128,20 @@
 {% schema %}
 {
   "name": "t:sections.contest_prizes.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "total_pool_text",
+      "label": "t:sections.contest_prizes.settings.total_pool_text.label",
+      "default": "ŁĄCZNA PULA NAGRÓD"
+    },
+    {
+      "type": "color",
+      "id": "total_pool_color",
+      "label": "t:sections.contest_prizes.settings.total_pool_color.label",
+      "default": "#FF0000"
+    }
+  ],
   "blocks": [
     {
       "type": "prize_1",
