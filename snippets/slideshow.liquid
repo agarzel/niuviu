@@ -48,6 +48,17 @@
     when 'large'
       assign slide_min_height = slide_min_height | replace: 'auto', '25rem'
       assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', '45rem'
+    when 'adapt_image'
+      assign adapt_image_block = section.blocks | first
+      assign adapt_preview_image = adapt_image_block.settings.image_1
+      if adapt_image_block.settings.media_type_1 == 'video'
+        assign adapt_preview_image = adapt_image_block.settings.video_1.preview_image
+      endif
+      if adapt_preview_image != blank and adapt_preview_image.aspect_ratio > 0
+        assign adapt_image_height = 100.0 | divided_by: adapt_preview_image.aspect_ratio | round: 2 | append: 'vw'
+        assign slide_min_height = slide_min_height | replace: 'auto', adapt_image_height
+        assign slide_min_height_desktop = slide_min_height_desktop | replace: 'auto', adapt_image_height
+      endif
   endcase
 
   case slide_position
