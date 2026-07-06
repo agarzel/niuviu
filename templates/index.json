@@ -16,7 +16,7 @@
           "type": "_slide",
           "settings": {
             "media_type_1": "image",
-            "image_1": "shopify://shop_images/niuviu_blossom_1920x1080_1.png",
+            "image_1": "shopify://shop_images/test.png",
             "custom_mobile_image": true,
             "image_1_mobile": "shopify://shop_images/Bez_nazwy-2.png",
             "content_direction": "row",
