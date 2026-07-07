@@ -162,10 +162,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function startBlinking() {
         try {
-            // Szukamy elementu wskazującego, że koszyk nie jest pusty
             var hasCartElement = document.querySelector('.header-actions__cart-icon--has-cart');
 
-            // Jeśli taki element istnieje na stronie, odpalamy miganie
             if (hasCartElement && !blinkingInterval) {
                 blinkingInterval = setInterval(function() {
                     document.title = (document.title === title1 ? title2 : title1);

@@ -1,5 +1,5 @@
 (() => {
-  const MAX_CHARS = 1500;
+  const MAX_CHARS = 300;
   let selectedFileName = null;
   let originalTitleText = null;
 
