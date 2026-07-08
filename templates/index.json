@@ -245,6 +245,7 @@
         },
         "slide_U4JTQm": {
           "type": "_slide",
+          "disabled": true,
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/blossom_1920x600_52bd5ead-b1f9-4be7-b397-0e07ba39ebcc.png",
