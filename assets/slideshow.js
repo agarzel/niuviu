@@ -566,6 +566,15 @@ export class Slideshow extends Component {
 
     this.current = this.initialSlideIndex;
 
+    // Seed visible slides with the initial slide synchronously. IntersectionObserver's
+    // first callback is asynchronous, so without this the initial slide is briefly
+    // treated as not visible (aria-hidden flips true then false), which can make
+    // browsers re-resolve <picture> sources incorrectly on the still-loading slide.
+    const initialSlideElement = this.slides?.[this.initialSlideIndex];
+    if (initialSlideElement) {
+      this.#visibleSlides = [initialSlideElement];
+    }
+
     // Batch reads and writes to the DOM
     scheduler.schedule(() => {
       let visibleSlidesAmount = 0;
