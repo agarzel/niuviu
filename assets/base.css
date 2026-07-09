@@ -4108,7 +4108,7 @@ slideshow-slide {
     content-visibility: visible;
   }
 
-  slideshow-component slideshow-slide:not([aria-hidden='false']) {
+  slideshow-component &:not([aria-hidden='false']) {
     content-visibility: hidden;
   }
 
