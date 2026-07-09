@@ -20,19 +20,19 @@
   assign class = class | strip | strip_newlines
   assign style = style | strip | strip_newlines
 
-  assign grid_template_rows = '--grid-template-rows: 50dvh 1fr;'
-  assign grid_template_rows_desktop = '--grid-template-rows-desktop: 70dvh 1fr;'
+  assign grid_template_rows = '--grid-template-rows: 50lvh 1fr;'
+  assign grid_template_rows_desktop = '--grid-template-rows-desktop: 70lvh 1fr;'
 
   case slide_size
     when 'small'
-      assign grid_template_rows = grid_template_rows | replace: '50dvh', '30dvh'
-      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70dvh', '40dvh'
+      assign grid_template_rows = grid_template_rows | replace: '50lvh', '30lvh'
+      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70lvh', '40lvh'
     when 'medium'
-      assign grid_template_rows = grid_template_rows | replace: '50dvh', '35dvh'
-      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70dvh', '50dvh'
+      assign grid_template_rows = grid_template_rows | replace: '50lvh', '35lvh'
+      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70lvh', '50lvh'
     when 'large'
-      assign grid_template_rows = grid_template_rows | replace: '50dvh', '40dvh'
-      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70dvh', '60dvh'
+      assign grid_template_rows = grid_template_rows | replace: '50lvh', '40lvh'
+      assign grid_template_rows_desktop = grid_template_rows_desktop | replace: '70lvh', '60lvh'
   endcase
 -%}
 
