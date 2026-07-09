@@ -20,6 +20,15 @@
       #shopify-section-{{ section.id }} slideshow-slide {
         min-height: {{ 1.0 | divided_by: preview_image.aspect_ratio | times: 100 | round: 2 }}vw;
       }
+
+      {% if block_settings.media_type_1 == 'image' and block_settings.custom_mobile_image and block_settings.image_1_mobile != blank %}
+        @media screen and (max-width: 749px) {
+          #shopify-section-{{ section.id }} slideshow-slides,
+          #shopify-section-{{ section.id }} slideshow-slide {
+            min-height: {{ 1.0 | divided_by: block_settings.image_1_mobile.aspect_ratio | times: 100 | round: 2 }}vw;
+          }
+        }
+      {% endif %}
     {% endstyle %}
   {% endif %}
 
