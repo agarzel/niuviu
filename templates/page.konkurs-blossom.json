@@ -224,8 +224,8 @@
           "type": "category",
           "settings": {
             "name": "100 zł na zakupy w biedronce:",
-            "two_columns": false,
-            "winners_1": "...",
+            "two_columns": true,
+            "winners_1": "Irena K.\nDominika K.\nPaulina W.\nŁukasz N.\nMałgorzata A.\nAlicja D.\nMichał M.\nAgnieszka K.\nAmelia N.\nPatrycja S.\nEmilia Z.\nBarbara M.\nNatalia M.\nAnna G.\nTomasz K.\nMagdalena G.\nBarbara H.\nPatrycja B.\nAlicja L.\nAlicja W.",
             "winners_2": "...",
             "winners_3": "..."
           }
