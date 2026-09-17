@@ -211,6 +211,7 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/niuviu-zdjecie_baner_wlosy.jpg",
+            "custom_mobile_image": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -313,6 +314,7 @@
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/hero-destop.jpg",
+            "custom_mobile_image": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -1762,10 +1764,10 @@
         "image_slots_border_radius": 32,
         "image_slots_enable_custom_border_radius_px": false,
         "image_slots_custom_border_radius_px": "500",
-        "image_slot_1_image": "shopify://shop_images/2242-2242-max_1.jpg",
+        "image_slot_1_image": "shopify://shop_images/2242-2242-max.jpg",
         "image_slot_1_position": 2,
         "image_slot_1_link": "",
-        "image_slot_2_image": "shopify://shop_images/2242-2242-max.jpg",
+        "image_slot_2_image": "shopify://shop_images/grafiki_rich_matcha_-_serum.jpg",
         "image_slot_2_position": 4,
         "image_slot_2_link": "",
         "image_slot_3_position": 6,
