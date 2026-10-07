@@ -338,7 +338,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Znajdziesz w biedronce</h3>",
+                "text": "<h3>Blossom time</h3>",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
