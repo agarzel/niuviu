@@ -1,0 +1,22 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- assign tape_a = section.settings.tape_a | split: '|' -%}
+{%- assign tape_b = section.settings.tape_b | split: '|' -%}
+<div class="nvk">
+  <div class="nvk-tapes" aria-hidden="true">
+    <div class="nvk-tape nvk-tape--b">{%- for n in (1..5) -%}{%- for t in tape_b -%}<span>{{ t | strip | escape }}</span><i>✦</i>{%- endfor -%}{%- endfor -%}</div>
+    <div class="nvk-tape nvk-tape--a">{%- for n in (1..4) -%}{%- for t in tape_a -%}<span>{{ t | strip | escape }}</span><i>✦</i>{%- endfor -%}{%- endfor -%}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – taśmy",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "text", "id": "tape_a", "label": "Taśma brązowa", "info": "Hasła oddziel znakiem |", "default": "Wygraj|szczotka Dyson|vouchery do Biedronki" },
+    { "type": "text", "id": "tape_b", "label": "Taśma różowa", "info": "Hasła oddziel znakiem |", "default": "7–13 grudnia|konkurs niuviu" }
+  ],
+  "presets": [{ "name": "Konkurs – taśmy" }]
+}
+{% endschema %}

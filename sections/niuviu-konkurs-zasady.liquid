@@ -1,0 +1,81 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- assign s = section.settings -%}
+<div class="nvk">
+  <section class="nvk-sec nvk-dark" id="nvk-jak">
+    <div class="nvk-wrap">
+      <header class="nvk-head">
+        <div><span class="nvk-eyebrow"><b>{{ s.number | escape }}</b>{{ s.label | escape }}</span><h2 class="nvk-h2">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2></div>
+        {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
+      </header>
+      <div class="nvk-steps">
+        {%- for block in section.blocks -%}
+          <div class="nvk-step" {{ block.shopify_attributes }}>
+            <div class="nvk-step__top">
+              <span class="nvk-step__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <span class="nvk-step__ico">{% render 'niuviu-konkurs-icon', name: block.settings.icon %}</span>
+            </div>
+            <h3>{{ block.settings.title | escape }}</h3>
+            <p>{{ block.settings.text | escape }}</p>
+            {%- if block.settings.tag != blank -%}<span class="nvk-pill">{{ block.settings.tag | escape }}</span>{%- endif -%}
+            {%- unless forloop.last -%}<span class="nvk-step__arrow" aria-hidden="true">{% render 'niuviu-konkurs-icon', name: 'arrow' %}</span>{%- endunless -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="nvk-steps-cta">
+        {%- if s.btn != blank -%}
+          <a class="nvk-btn nvk-btn--pink" href="{{ s.btn_link | default: '#nvk-zgloszenie' }}">{{ s.btn | escape }} {% render 'niuviu-konkurs-icon', name: 'arrow' %}</a>
+        {%- endif -%}
+        {%- if s.note != blank -%}<p>{{ s.note | escape }}</p>{%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – zasady",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "text", "id": "number", "label": "Numer sekcji", "default": "02" },
+    { "type": "text", "id": "label", "label": "Etykieta", "default": "Zasady" },
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Jak wziąć" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "udział?" },
+    { "type": "text", "id": "text", "label": "Opis", "default": "Trzy kroki i gotowe — całe zgłoszenie zajmie Ci kilka minut." },
+    { "type": "text", "id": "btn", "label": "Przycisk", "default": "Wyślij zgłoszenie" },
+    { "type": "text", "id": "btn_link", "label": "Przycisk – link", "default": "#nvk-zgloszenie" },
+    { "type": "text", "id": "note", "label": "Tekst obok przycisku", "default": "Szczegóły znajdziesz w regulaminie konkursu." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Krok",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tytuł", "default": "Krok" },
+        { "type": "textarea", "id": "text", "label": "Opis", "default": "Opis kroku." },
+        { "type": "text", "id": "tag", "label": "Plakietka" },
+        {
+          "type": "select", "id": "icon", "label": "Ikona", "default": "cart",
+          "options": [
+            { "value": "cart", "label": "Koszyk" },
+            { "value": "receipt", "label": "Paragon" },
+            { "value": "send", "label": "Wysyłka" },
+            { "value": "upload", "label": "Przesyłanie" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Konkurs – zasady",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Kup produkt", "text": "Kup min. jeden dowolny produkt z serii Stylizacja lub Brązy w sklepie Biedronka.", "tag": "7–13.12.2026", "icon": "cart" } },
+        { "type": "step", "settings": { "title": "Zachowaj paragon", "text": "Zrób czytelne zdjęcie paragonu i zachowaj oryginał — będzie potrzebny przy weryfikacji.", "tag": "JPG · PNG · PDF · HEIC", "icon": "receipt" } },
+        { "type": "step", "settings": { "title": "Wyślij zgłoszenie", "text": "Wypełnij formularz, dodaj zdjęcie paragonu i odpowiedz na pytanie konkursowe.", "tag": "do 13.12.2026", "icon": "send" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
