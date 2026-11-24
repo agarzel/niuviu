@@ -21,7 +21,8 @@
         "btn1": "Wyślij zgłoszenie",
         "btn1_link": "#nvk-zgloszenie",
         "btn2": "Jak wziąć udział?",
-        "btn2_link": "#nvk-jak"
+        "btn2_link": "#nvk-jak",
+        "image": "shopify://shop_images/Image_4_6083e77e-ab2f-46b5-b576-32077ba63302.jpg"
       }
     },
     "tasmy": {
@@ -44,10 +45,10 @@
         "main_title": "szczotka stylizująca",
         "main_name": "Dyson",
         "voucher_label": "Nagrody dodatkowe",
-        "voucher_count": "",
+        "voucher_count": "30",
         "voucher_title": "voucher na zakupy w Biedronce",
         "voucher_value_prefix": "o wartości",
-        "voucher_value": "",
+        "voucher_value": "100",
         "ticket_text": "na zakupy\nw Biedronce",
         "ticket_footer": "niuviu ✦ konkurs\ngrudzień 2026"
       }
@@ -179,8 +180,8 @@
         "w1_count_label": "4 nagrody",
         "w1_names": "",
         "w1_slots": 4,
-        "w2_title": "Voucher do Biedronki",
-        "w2_count_label": "",
+        "w2_title": "Voucher do Biedronki o wartości 100 zł",
+        "w2_count_label": "30 nagród",
         "w2_names": "",
         "w2_slots": 8,
         "note_label": "Pamiętaj",
