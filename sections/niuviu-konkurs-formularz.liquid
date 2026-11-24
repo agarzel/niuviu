@@ -1,0 +1,170 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- liquid
+  assign s = section.settings
+  assign form_mode = s.form_mode
+  assign form_fallback = false
+  if form_mode == 'external' and s.form_action == blank
+    assign form_mode = 'shopify'
+    assign form_fallback = true
+  endif
+  assign fid = 'nvk-f-' | append: section.id
+  assign count_id = 'nvk-count-' | append: section.id
+  assign rules_url = s.rules_url | default: '#'
+-%}
+<div class="nvk">
+  <section class="nvk-form-sec" id="nvk-zgloszenie">
+    {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark', style: 'width:70px;height:70px;left:7%;top:110px;color:#fff' %}
+    {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark nvk-spark--hide-m', style: 'width:28px;height:28px;left:12%;top:220px;color:var(--hot)' %}
+    {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark', style: 'width:54px;height:54px;right:8%;top:170px;color:var(--hot)' %}
+    {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark nvk-spark--hide-m', style: 'width:24px;height:24px;right:14%;top:90px;color:#fff' %}
+    <div class="nvk-wrap">
+      <header class="nvk-form-head">
+        {%- if s.pill != blank -%}<span class="nvk-pill">{{ s.pill | escape }}</span>{%- endif -%}
+        <h2 class="nvk-h2">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2>
+        {%- if s.text != blank -%}<p>{{ s.text }}</p>{%- endif -%}
+      </header>
+
+      {%- if request.design_mode -%}
+        {%- if form_fallback -%}
+          <div class="nvk-editor-note"><strong>Widoczne tylko w edytorze:</strong> nie podano „Adresu formularza (action URL)”, więc działa formularz kontaktowy Shopify. Formularz Shopify <strong>nie przesyła plików</strong>, dlatego pole na zdjęcie paragonu jest ukryte. Uzupełnij adres albo wybierz tryb „Aplikacja formularzy / kod osadzenia”.</div>
+        {%- elsif form_mode == 'shopify' -%}
+          <div class="nvk-editor-note"><strong>Widoczne tylko w edytorze:</strong> formularz kontaktowy Shopify nie przesyła plików, więc pole na zdjęcie paragonu jest ukryte.</div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if form_mode == 'app' -%}
+        {%- assign has_embed = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == '@app' -%}
+            {%- assign has_embed = true -%}
+            <div class="nvk-embed">{% render block %}</div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if s.form_embed != blank -%}
+          {%- assign has_embed = true -%}
+          <div class="nvk-embed">{{ s.form_embed }}</div>
+        {%- endif -%}
+        {%- if has_embed == false and request.design_mode -%}
+          <div class="nvk-editor-note"><strong>Widoczne tylko w edytorze:</strong> dodaj blok aplikacji formularzy (Dodaj blok → Aplikacje) albo wklej kod osadzenia w ustawieniach sekcji.</div>
+        {%- endif -%}
+      {%- else -%}
+        {%- liquid
+          if form_mode == 'shopify'
+            assign n_name = 'contact[name]'
+            assign n_email = 'contact[email]'
+            assign n_phone = 'contact[phone]'
+            assign n_answer = 'contact[body]'
+            assign n_consent = 'contact[Regulamin]'
+          else
+            assign n_name = 'imie_nazwisko'
+            assign n_email = 'email'
+            assign n_phone = 'telefon'
+            assign n_answer = 'odpowiedz'
+            assign n_consent = 'regulamin'
+          endif
+        -%}
+        {%- capture nvk_fields -%}
+          <div class="nvk-row nvk-row--3">
+            <div class="nvk-field"><label for="{{ fid }}-name">{{ s.f_name | escape }} *</label><input class="nvk-input" id="{{ fid }}-name" type="text" name="{{ n_name }}" autocomplete="name" required placeholder="{{ s.f_name_ph | escape }}"></div>
+            <div class="nvk-field"><label for="{{ fid }}-email">{{ s.f_email | escape }} *</label><input class="nvk-input" id="{{ fid }}-email" type="email" name="{{ n_email }}" autocomplete="email" required placeholder="{{ s.f_email_ph | escape }}"></div>
+            <div class="nvk-field"><label for="{{ fid }}-phone">{{ s.f_phone | escape }} *</label><input class="nvk-input" id="{{ fid }}-phone" type="tel" name="{{ n_phone }}" autocomplete="tel" required placeholder="{{ s.f_phone_ph | escape }}"></div>
+          </div>
+          <div class="nvk-row{% if form_mode == 'external' %} nvk-row--2{% endif %}">
+            {%- if form_mode == 'external' -%}
+              <div class="nvk-field">
+                <span class="nvk-label">{{ s.f_file | escape }} *</span>
+                <label class="nvk-drop" for="{{ fid }}-file">
+                  <input id="{{ fid }}-file" type="file" name="{{ s.file_field_name | default: 'paragon' }}" accept=".jpg,.jpeg,.png,.pdf,.heic,image/*,application/pdf" required>
+                  <span class="nvk-drop__ico">{% render 'niuviu-konkurs-icon', name: 'upload' %}</span>
+                  <span><b data-nvk-file>{{ s.f_file_cta | escape }} <u>{{ s.f_file_link | escape }}</u></b><small>{{ s.f_file_hint | escape }}</small></span>
+                </label>
+              </div>
+            {%- endif -%}
+            <div class="nvk-field">
+              <label for="{{ fid }}-answer">{{ s.q_label | escape }} *</label>
+              <div class="nvk-q">
+                <p class="nvk-q__text">{{ s.question | escape }}</p>
+                <textarea class="nvk-ta" id="{{ fid }}-answer" name="{{ n_answer }}" maxlength="{{ s.answer_max }}" required placeholder="{{ s.answer_ph | escape }}" data-nvk-count="{{ count_id }}"></textarea>
+                <div class="nvk-count"><span id="{{ count_id }}">0</span> / {{ s.answer_max }} znaków</div>
+              </div>
+            </div>
+          </div>
+          <div class="nvk-foot">
+            <label class="nvk-check"><input type="checkbox" name="{{ n_consent }}" value="Akceptuję regulamin" required> <span>{{ s.consent_text | escape }} <a href="{{ rules_url }}" target="_blank" rel="noopener">{{ s.consent_link | escape }}</a> *</span></label>
+            <span class="nvk-req">{{ s.required_note | escape }}</span>
+            <button class="nvk-btn nvk-btn--dark" type="submit">{{ s.submit | escape }} {% render 'niuviu-konkurs-icon', name: 'arrow' %}</button>
+          </div>
+        {%- endcapture -%}
+
+        {%- if form_mode == 'external' -%}
+          <form class="nvk-form" action="{{ s.form_action | escape }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+            <input type="hidden" name="konkurs" value="{{ s.form_tag | escape }}">
+            {{ nvk_fields }}
+          </form>
+        {%- else -%}
+          {%- form 'contact', id: fid, class: 'nvk-form' -%}
+            {%- if form.posted_successfully? -%}
+              <div class="nvk-msg nvk-msg--ok" role="status">{{ s.success_msg | escape }}</div>
+            {%- elsif form.errors -%}
+              <div class="nvk-msg nvk-msg--err" role="alert">{{ form.errors | default_errors }}</div>
+            {%- endif -%}
+            <input type="hidden" name="contact[Konkurs]" value="{{ s.form_tag | escape }}">
+            {{ nvk_fields }}
+          {%- endform -%}
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – formularz",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "header", "content": "Obsługa formularza" },
+    {
+      "type": "select", "id": "form_mode", "label": "Tryb", "default": "external",
+      "options": [
+        { "value": "external", "label": "Zewnętrzny adres (ze zdjęciem paragonu)" },
+        { "value": "app", "label": "Aplikacja formularzy / kod osadzenia" },
+        { "value": "shopify", "label": "Formularz kontaktowy Shopify (bez pliku)" }
+      ],
+      "info": "Formularz kontaktowy Shopify nie przesyła plików. Zdjęcie paragonu wymaga adresu zewnętrznego albo aplikacji formularzy."
+    },
+    { "type": "text", "id": "form_action", "label": "Adres formularza (action URL)", "info": "Adres endpointu, np. z Formspree, Basin, Make lub własnego serwera. Dane są wysyłane jako multipart/form-data." },
+    { "type": "text", "id": "file_field_name", "label": "Nazwa pola z plikiem", "default": "paragon" },
+    { "type": "html", "id": "form_embed", "label": "Kod osadzenia (tryb aplikacji)", "info": "Opcjonalnie: kod iframe/script z aplikacji formularzy. Możesz też dodać blok aplikacji." },
+    { "type": "text", "id": "form_tag", "label": "Oznaczenie zgłoszeń (pole ukryte)", "default": "niuviu – konkurs grudzień 2026" },
+    { "type": "text", "id": "success_msg", "label": "Komunikat po wysłaniu (formularz Shopify)", "default": "Dziękujemy! Twoje zgłoszenie zostało wysłane." },
+    { "type": "header", "content": "Treści" },
+    { "type": "text", "id": "pill", "label": "Plakietka", "default": "✦ Krok 3 z 3 · ostatni" },
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Wyślij" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "zgłoszenie" },
+    { "type": "inline_richtext", "id": "text", "label": "Opis", "default": "Zgłoszenia przyjmujemy do <strong>13 grudnia 2026 r.</strong> Zachowaj oryginał paragonu — będzie potrzebny do weryfikacji." },
+    { "type": "header", "content": "Pola" },
+    { "type": "text", "id": "f_name", "label": "Imię i nazwisko – etykieta", "default": "Imię i nazwisko" },
+    { "type": "text", "id": "f_name_ph", "label": "Imię i nazwisko – podpowiedź", "default": "Anna Kowalska" },
+    { "type": "text", "id": "f_email", "label": "E-mail – etykieta", "default": "E-mail" },
+    { "type": "text", "id": "f_email_ph", "label": "E-mail – podpowiedź", "default": "twoj@email.pl" },
+    { "type": "text", "id": "f_phone", "label": "Telefon – etykieta", "default": "Numer telefonu" },
+    { "type": "text", "id": "f_phone_ph", "label": "Telefon – podpowiedź", "default": "+48 000 000 000" },
+    { "type": "text", "id": "f_file", "label": "Paragon – etykieta", "default": "Zdjęcie paragonu" },
+    { "type": "text", "id": "f_file_cta", "label": "Paragon – tekst", "default": "Przeciągnij plik lub" },
+    { "type": "text", "id": "f_file_link", "label": "Paragon – link", "default": "wybierz z urządzenia" },
+    { "type": "text", "id": "f_file_hint", "label": "Paragon – formaty", "default": "JPG, PNG, PDF lub HEIC" },
+    { "type": "text", "id": "q_label", "label": "Pytanie – etykieta", "default": "Pytanie konkursowe" },
+    { "type": "text", "id": "question", "label": "Treść pytania", "default": "Jaką fryzurę stworzysz na święta z produktami niuviu?" },
+    { "type": "text", "id": "answer_ph", "label": "Odpowiedź – podpowiedź", "default": "Twoja odpowiedź…" },
+    { "type": "range", "id": "answer_max", "label": "Limit znaków odpowiedzi", "min": 100, "max": 1000, "step": 50, "default": 300 },
+    { "type": "text", "id": "consent_text", "label": "Zgoda – tekst", "default": "Akceptuję" },
+    { "type": "text", "id": "consent_link", "label": "Zgoda – tekst linku", "default": "regulamin konkursu" },
+    { "type": "url", "id": "rules_url", "label": "Link do regulaminu (PDF)", "info": "Wgraj PDF w Treści → Pliki i wklej tu link." },
+    { "type": "text", "id": "required_note", "label": "Notka o polach wymaganych", "default": "* pola wymagane" },
+    { "type": "text", "id": "submit", "label": "Przycisk wysyłki", "default": "Wyślij zgłoszenie" }
+  ],
+  "blocks": [{ "type": "@app" }],
+  "presets": [{ "name": "Konkurs – formularz" }]
+}
+{% endschema %}

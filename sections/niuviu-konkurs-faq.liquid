@@ -1,0 +1,61 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- assign s = section.settings -%}
+<div class="nvk">
+  <section class="nvk-sec" id="nvk-faq">
+    <div class="nvk-wrap nvk-faq-grid">
+      <div class="nvk-faq-intro">
+        <span class="nvk-eyebrow"><b>{{ s.number | escape }}</b>{{ s.label | escape }}</span>
+        <h2 class="nvk-h2">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2>
+        {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
+        {%- if s.rules_url != blank and s.btn != blank -%}
+          <a class="nvk-btn nvk-btn--ghost" href="{{ s.rules_url }}" target="_blank" rel="noopener">{{ s.btn | escape }} {% render 'niuviu-konkurs-icon', name: 'down' %}</a>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- for block in section.blocks -%}
+          <details class="nvk-acc" {{ block.shopify_attributes }}{% if block.settings.open %} open{% endif %}>
+            <summary>{{ block.settings.question | escape }}</summary>
+            <div class="nvk-acc__a">{{ block.settings.answer }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – FAQ",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "text", "id": "number", "label": "Numer sekcji", "default": "05" },
+    { "type": "text", "id": "label", "label": "Etykieta", "default": "FAQ" },
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Masz" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "pytania?" },
+    { "type": "text", "id": "text", "label": "Opis", "default": "Najczęstsze odpowiedzi zebrałyśmy poniżej. Wszystkie szczegóły znajdziesz w regulaminie." },
+    { "type": "text", "id": "btn", "label": "Przycisk regulaminu", "default": "Regulamin (PDF)" },
+    { "type": "url", "id": "rules_url", "label": "Link do regulaminu (PDF)", "info": "Przycisk pojawi się, gdy podasz link." }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Pytanie",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pytanie", "default": "Pytanie" },
+        { "type": "richtext", "id": "answer", "label": "Odpowiedź", "default": "<p>Odpowiedź</p>" },
+        { "type": "checkbox", "id": "open", "label": "Rozwinięte domyślnie", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Konkurs – FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Gdzie kupię produkty biorące udział w konkursie?", "answer": "<p>W sklepach Biedronka. Liczy się zakup min. jednego produktu z serii Stylizacja lub Brązy w dniach 7–13 grudnia 2026 r.</p>", "open": true } },
+        { "type": "faq", "settings": { "question": "Kiedy i gdzie poznam wyniki?", "answer": "<p>Wyniki ogłosimy na tej stronie do 21 grudnia 2026 r. Wszystkie nagrodzone osoby powiadomimy również e-mailem.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
