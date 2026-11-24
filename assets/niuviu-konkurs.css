@@ -361,7 +361,7 @@
 .nvk .globo-form-app .gfb__dropzone{flex:1;position:relative;display:flex!important;align-items:center;justify-content:center;min-height:0!important;margin:0!important;padding:36px!important;
   border:2px dashed var(--choc2)!important;border-radius:20px!important;background:#fff!important;cursor:pointer;text-align:center}
 .nvk .globo-form-app .gfb__dropzone--content{width:100%;display:block!important;background:none!important}
-.nvk .globo-form-app .gfb__dropzone--placeholder{width:100%;max-width:none!important;display:flex!important;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:.3em;row-gap:4px}
+.nvk .globo-form-app .gfb__dropzone--placeholder{width:100%;max-width:none!important;display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center;align-items:baseline;column-gap:.3em;row-gap:4px}
 .nvk .globo-form-app .gfb__dropzone--placeholder::before{content:"";flex:none;width:72px;height:72px;margin:0 calc(50% - 36px) 14px;border-radius:50%;
   background:var(--choc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7EFE8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 16V4M7 9l5-5 5 5M5 20h14'/%3E%3C/svg%3E") center/28px no-repeat}
 .nvk .globo-form-app .gfb__dropzone--placeholder--title{order:1;margin:0!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important;color:var(--choc)!important}
