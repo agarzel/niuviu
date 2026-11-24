@@ -340,14 +340,13 @@
 /* Etykiety */
 .nvk .globo-form-app .globo-label{display:block!important;position:static!important;transform:none!important;margin:0 0 8px!important;padding:0!important;
   font-family:'NVK DM Sans',sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1.5!important;color:var(--choc)!important;letter-spacing:normal!important;text-transform:none!important;background:none!important}
-.nvk .globo-form-app .text-danger{color:inherit!important;font-size:inherit!important;margin-left:.25em}
+.nvk .globo-form-app .text-danger{color:inherit!important;font-size:inherit!important;margin-left:0!important}
 /* Pola tekstowe */
-.nvk .globo-form-app .globo-form-input{position:relative;margin:0!important;padding:0!important}
+.nvk .globo-form-app .globo-form-input{position:relative;margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
 .nvk .globo-form-app input.flat_rounded-input:not([type=file]),.nvk .globo-form-app textarea.flat_rounded-input{display:block;width:100%!important;margin:0!important;border:0!important;border-radius:16px!important;
   background:#fff!important;box-shadow:none!important;outline-offset:2px;font-family:'NVK DM Sans',sans-serif!important;font-size:16px!important;letter-spacing:normal!important;color:var(--choc)!important;-webkit-appearance:none;appearance:none}
 .nvk .globo-form-app input.flat_rounded-input:not([type=file]){height:58px!important;min-height:0!important;padding:0 20px!important;line-height:1.2!important}
 .nvk .globo-form-app .flat_rounded-input::placeholder{color:rgba(59,34,25,.42)!important;opacity:1!important}
-.nvk .globo-form-app .gfb__phone-placeholder{display:none!important}
 /* Pytanie konkursowe: różowa karta z pytaniem nad polem odpowiedzi */
 .nvk .globo-form-app .globo-form-control:has(textarea){display:grid;grid-template-rows:auto auto 1fr auto;position:relative}
 .nvk .globo-form-app .globo-form-control:has(textarea)::before{content:"";grid-area:2/1/4/2;border-radius:22px;background:var(--pink2)}
@@ -361,8 +360,8 @@
 .nvk .globo-form-app .globo-form-control:has(.gfb__dropzone)>.globo-form-input{flex:1;display:flex}
 .nvk .globo-form-app .gfb__dropzone{flex:1;position:relative;display:flex!important;align-items:center;justify-content:center;min-height:0!important;margin:0!important;padding:36px!important;
   border:2px dashed var(--choc2)!important;border-radius:20px!important;background:#fff!important;cursor:pointer;text-align:center}
-.nvk .globo-form-app .gfb__dropzone--content{width:100%}
-.nvk .globo-form-app .gfb__dropzone--placeholder{display:flex!important;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:.3em;row-gap:4px}
+.nvk .globo-form-app .gfb__dropzone--content{width:100%;display:block!important;background:none!important}
+.nvk .globo-form-app .gfb__dropzone--placeholder{width:100%;max-width:none!important;display:flex!important;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:.3em;row-gap:4px}
 .nvk .globo-form-app .gfb__dropzone--placeholder::before{content:"";flex:none;width:72px;height:72px;margin:0 calc(50% - 36px) 14px;border-radius:50%;
   background:var(--choc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F7EFE8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 16V4M7 9l5-5 5 5M5 20h14'/%3E%3C/svg%3E") center/28px no-repeat}
 .nvk .globo-form-app .gfb__dropzone--placeholder--title{order:1;margin:0!important;font-size:18px!important;font-weight:700!important;line-height:1.5!important;color:var(--choc)!important}
@@ -374,7 +373,7 @@
 /* Zgoda */
 .nvk .globo-form-app .panel>.globo-form-control{grid-column:1;width:auto!important}
 .nvk .globo-form-app .checkbox-wrapper{display:flex!important;align-items:center;gap:14px;margin:0!important;padding:0!important;font-size:15px;line-height:1.5}
-.nvk .globo-form-app .checkbox-wrapper .checkbox-input{position:static!important;opacity:1!important;width:24px!important;height:24px!important;margin:0!important;flex:none;accent-color:var(--choc);cursor:pointer;-webkit-appearance:checkbox;appearance:auto}
+.nvk .globo-form-app .checkbox-wrapper input.checkbox-input[type=checkbox]{display:block!important;visibility:visible!important;clip:auto!important;clip-path:none!important;min-width:24px;position:static!important;opacity:1!important;width:24px!important;height:24px!important;margin:0!important;flex:none;accent-color:var(--choc);cursor:pointer;-webkit-appearance:checkbox;appearance:auto}
 .nvk .globo-form-app .checkbox-label{display:block!important;margin:0!important;padding:0!important;font-family:'NVK DM Sans',sans-serif!important;font-size:15px!important;font-weight:400!important;color:var(--choc)!important;cursor:pointer}
 .nvk .globo-form-app .checkbox-label::before,.nvk .globo-form-app .checkbox-label::after{display:none!important}
 .nvk .globo-form-app .checkbox-label .label-content,.nvk .globo-form-app .checkbox-label p{display:inline!important;margin:0!important;font-size:inherit!important}
