@@ -65,7 +65,10 @@
     },
     "formularz": {
       "type": "niuviu-konkurs-formularz",
-      "settings": {}
+      "settings": {
+        "form_mode": "app",
+        "form_embed": "<div class=\"globo-formbuilder\" data-id=\"MTcyNzAw\"></div>"
+      }
     },
     "laureaci": {
       "type": "niuviu-konkurs-laureaci",
