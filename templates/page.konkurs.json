@@ -11,15 +11,46 @@
   "sections": {
     "hero": {
       "type": "niuviu-konkurs-hero",
-      "settings": {}
+      "settings": {
+        "badge": "Konkurs · 7–13 grudnia 2026",
+        "line1": "Wygraj",
+        "line2": "szczotkę",
+        "line3": "stylizującą",
+        "line4": "Dyson",
+        "text": "Kup dowolny produkt z serii <strong>Stylizacja</strong> lub <strong>Brązy</strong> w Biedronce, wyślij zgłoszenie i zawalcz o szczotkę stylizującą Dyson oraz vouchery na zakupy.",
+        "btn1": "Wyślij zgłoszenie",
+        "btn1_link": "#nvk-zgloszenie",
+        "btn2": "Jak wziąć udział?",
+        "btn2_link": "#nvk-jak"
+      }
     },
     "tasmy": {
       "type": "niuviu-konkurs-tasmy",
-      "settings": {}
+      "settings": {
+        "tape_a": "Wygraj|szczotka Dyson|vouchery do Biedronki",
+        "tape_b": "7–13 grudnia|konkurs niuviu"
+      }
     },
     "nagrody": {
       "type": "niuviu-konkurs-nagrody",
-      "settings": {}
+      "settings": {
+        "number": "01",
+        "label": "Nagrody",
+        "title_a": "Co możesz",
+        "title_b": "wygrać?",
+        "text": "Nagrody przyzna jury za najciekawsze odpowiedzi na pytanie konkursowe.",
+        "main_label": "Nagroda główna",
+        "main_count": "4×",
+        "main_title": "szczotka stylizująca",
+        "main_name": "Dyson",
+        "voucher_label": "Nagrody dodatkowe",
+        "voucher_count": "",
+        "voucher_title": "voucher na zakupy w Biedronce",
+        "voucher_value_prefix": "o wartości",
+        "voucher_value": "",
+        "ticket_text": "na zakupy\nw Biedronce",
+        "ticket_footer": "niuviu ✦ konkurs\ngrudzień 2026"
+      }
     },
     "zasady": {
       "type": "niuviu-konkurs-zasady",
@@ -57,22 +88,104 @@
         "krok-2",
         "krok-3"
       ],
-      "settings": {}
+      "settings": {
+        "number": "02",
+        "label": "Zasady",
+        "title_a": "Jak wziąć",
+        "title_b": "udział?",
+        "text": "Trzy kroki i gotowe — całe zgłoszenie zajmie Ci kilka minut.",
+        "btn": "Wyślij zgłoszenie",
+        "btn_link": "#nvk-zgloszenie",
+        "note": "Szczegóły znajdziesz w regulaminie konkursu."
+      }
     },
     "produkty": {
       "type": "niuviu-konkurs-produkty",
-      "settings": {}
+      "settings": {
+        "number": "03",
+        "label": "Produkty",
+        "title_a": "Wystarczy",
+        "title_b": "jeden",
+        "title_c": "produkt",
+        "text": "Do konkursu kwalifikuje się każdy produkt z serii Stylizacja lub Brązy.",
+        "s1_tag": "Proteiny",
+        "s1_name": "Brązy",
+        "s1_sub": "Do włosów brązowych · zapach musu czekoladowego",
+        "s1_items": "Szampon do brązów\nOdżywka do brązów\nSpray termoochronny",
+        "s1_url": "",
+        "s2_tag": "Inulina",
+        "s2_name": "Stylizacja",
+        "s2_sub": "Produkty do stylizacji · zapach białej czekolady",
+        "s2_items": "Krem wygładzający\nSpray teksturyzujący\nLakier do włosów",
+        "s2_url": "",
+        "note": "Produkty kupisz w sklepach <strong>Biedronka</strong> · zakup musi zostać dokonany w dniach <strong>7–13.12.2026</strong>"
+      }
     },
     "formularz": {
       "type": "niuviu-konkurs-formularz",
+      "blocks": {
+        "powerful_form_builder_app_block_graqqQ": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTcyNzAw\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_graqqQ"
+      ],
       "settings": {
         "form_mode": "app",
-        "form_embed": "<div class=\"globo-formbuilder\" data-id=\"MTcyNzAw\"></div>"
+        "form_action": "",
+        "file_field_name": "paragon",
+        "form_embed": "<div class=\"globo-formbuilder\" data-id=\"MTcyNzAw\"></div>",
+        "form_tag": "niuviu – konkurs grudzień 2026",
+        "success_msg": "Dziękujemy! Twoje zgłoszenie zostało wysłane.",
+        "pill": "✦ Krok 3 z 3 · ostatni",
+        "title_a": "Wyślij",
+        "title_b": "zgłoszenie",
+        "text": "Zgłoszenia przyjmujemy do <strong>13 grudnia 2026 r.</strong> Zachowaj oryginał paragonu — będzie potrzebny do weryfikacji.",
+        "f_name": "Imię i nazwisko",
+        "f_name_ph": "Anna Kowalska",
+        "f_email": "E-mail",
+        "f_email_ph": "twoj@email.pl",
+        "f_phone": "Numer telefonu",
+        "f_phone_ph": "+48 000 000 000",
+        "f_file": "Zdjęcie paragonu",
+        "f_file_cta": "Przeciągnij plik lub",
+        "f_file_link": "wybierz z urządzenia",
+        "f_file_hint": "JPG, PNG, PDF lub HEIC",
+        "q_label": "Pytanie konkursowe",
+        "question": "Jaką fryzurę stworzysz na święta z produktami niuviu?",
+        "answer_ph": "Twoja odpowiedź…",
+        "answer_max": 300,
+        "consent_text": "Akceptuję",
+        "consent_link": "regulamin konkursu",
+        "rules_url": "",
+        "required_note": "* pola wymagane",
+        "submit": "Wyślij zgłoszenie"
       }
     },
     "laureaci": {
       "type": "niuviu-konkurs-laureaci",
-      "settings": {}
+      "settings": {
+        "number": "04",
+        "label": "Laureaci",
+        "title_a": "Laureaci",
+        "title_b": "konkursu",
+        "text": "Wyniki ogłosimy tutaj do <strong>21 grudnia 2026 r.</strong> — wszystkie nagrodzone osoby powiadomimy również e-mailem.",
+        "status": "Wyniki wkrótce",
+        "w1_title": "Szczotka stylizująca Dyson",
+        "w1_count_label": "4 nagrody",
+        "w1_names": "",
+        "w1_slots": 4,
+        "w2_title": "Voucher do Biedronki",
+        "w2_count_label": "",
+        "w2_names": "",
+        "w2_slots": 8,
+        "note_label": "Pamiętaj",
+        "note_text": "Listę laureatów uzupełniamy po weryfikacji zgłoszeń i prawa do nagród — to może chwilę potrwać."
+      }
     },
     "faq": {
       "type": "niuviu-konkurs-faq",
@@ -125,7 +238,15 @@
         "faq-4",
         "faq-5"
       ],
-      "settings": {}
+      "settings": {
+        "number": "05",
+        "label": "FAQ",
+        "title_a": "Masz",
+        "title_b": "pytania?",
+        "text": "Najczęstsze odpowiedzi zebrałyśmy poniżej. Wszystkie szczegóły znajdziesz w regulaminie.",
+        "btn": "Regulamin (PDF)",
+        "rules_url": ""
+      }
     }
   },
   "order": [
