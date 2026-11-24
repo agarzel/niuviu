@@ -1,0 +1,73 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- liquid
+  assign s = section.settings
+  assign w1 = s.w1_names | strip | newline_to_br | split: '<br />'
+  assign w2 = s.w2_names | strip | newline_to_br | split: '<br />'
+-%}
+<div class="nvk">
+  <section class="nvk-sec nvk-winners" id="nvk-laureaci">
+    <div class="nvk-wrap">
+      <div class="nvk-w-head">
+        <div>
+          <span class="nvk-eyebrow"><b>{{ s.number | escape }}</b>{{ s.label | escape }}</span>
+          <h2 class="nvk-h2">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2>
+          {%- if s.text != blank -%}<p>{{ s.text }}</p>{%- endif -%}
+        </div>
+        {%- if s.status != blank -%}<span class="nvk-pill nvk-status"><span class="nvk-dot"></span>{{ s.status | escape }}</span>{%- endif -%}
+      </div>
+      <div class="nvk-w-grid">
+        <div class="nvk-w-col">
+          <h4>{{ s.w1_title | escape }} <span>{{ s.w1_count_label | escape }}</span></h4>
+          {%- if w1.size > 0 -%}
+            {%- for name in w1 -%}<div class="nvk-w-row"><span class="nvk-w-av">{{ forloop.index }}</span><span>{{ name | strip | escape }}</span></div>{%- endfor -%}
+          {%- else -%}
+            {%- for n in (1..s.w1_slots) -%}<div class="nvk-w-row"><span class="nvk-w-av">{{ n }}</span><span class="nvk-sk" style="width:{% cycle 'w1': '58%', '46%', '62%', '50%' %}"></span></div>{%- endfor -%}
+          {%- endif -%}
+        </div>
+        <div class="nvk-w-col">
+          <h4>{{ s.w2_title | escape }} <span>{% if s.w2_count_label != blank %}{{ s.w2_count_label | escape }}{% else %}<i class="nvk-ph">XX</i> nagród{% endif %}</span></h4>
+          <div class="nvk-w-list">
+            {%- if w2.size > 0 -%}
+              {%- for name in w2 -%}<div class="nvk-w-row"><span class="nvk-w-av">✦</span><span>{{ name | strip | escape }}</span></div>{%- endfor -%}
+            {%- else -%}
+              {%- for n in (1..s.w2_slots) -%}<div class="nvk-w-row"><span class="nvk-w-av">✦</span><span class="nvk-sk" style="width:{% cycle 'w2': '60%', '48%', '55%', '42%', '64%', '50%', '44%', '58%' %}"></span></div>{%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      {%- if s.note_text != blank -%}
+        <div class="nvk-note"><b>{{ s.note_label | escape }}</b><span>{{ s.note_text | escape }}</span></div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – laureaci",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "text", "id": "number", "label": "Numer sekcji", "default": "04" },
+    { "type": "text", "id": "label", "label": "Etykieta", "default": "Laureaci" },
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Laureaci" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "konkursu" },
+    { "type": "inline_richtext", "id": "text", "label": "Opis", "default": "Wyniki ogłosimy tutaj do <strong>21 grudnia 2026 r.</strong> — wszystkie nagrodzone osoby powiadomimy również e-mailem." },
+    { "type": "text", "id": "status", "label": "Status", "default": "Wyniki wkrótce", "info": "Po ogłoszeniu zmień np. na „Wyniki ogłoszone”." },
+    { "type": "header", "content": "Lista 1" },
+    { "type": "text", "id": "w1_title", "label": "Tytuł", "default": "Szczotka stylizująca Dyson" },
+    { "type": "text", "id": "w1_count_label", "label": "Liczba nagród", "default": "4 nagrody" },
+    { "type": "textarea", "id": "w1_names", "label": "Laureaci", "info": "Jedna osoba w linii, np. Anna K. Puste = szare pola „wkrótce”." },
+    { "type": "range", "id": "w1_slots", "label": "Liczba pustych pól", "min": 1, "max": 10, "step": 1, "default": 4 },
+    { "type": "header", "content": "Lista 2" },
+    { "type": "text", "id": "w2_title", "label": "Tytuł", "default": "Voucher do Biedronki" },
+    { "type": "text", "id": "w2_count_label", "label": "Liczba nagród", "info": "Np. 20 nagród. Puste = znacznik XX." },
+    { "type": "textarea", "id": "w2_names", "label": "Laureaci", "info": "Jedna osoba w linii. Puste = szare pola „wkrótce”." },
+    { "type": "range", "id": "w2_slots", "label": "Liczba pustych pól", "min": 2, "max": 40, "step": 2, "default": 8 },
+    { "type": "header", "content": "Notka" },
+    { "type": "text", "id": "note_label", "label": "Etykieta", "default": "Pamiętaj" },
+    { "type": "text", "id": "note_text", "label": "Treść", "default": "Listę laureatów uzupełniamy po weryfikacji zgłoszeń i prawa do nagród — to może chwilę potrwać." }
+  ],
+  "presets": [{ "name": "Konkurs – laureaci" }]
+}
+{% endschema %}

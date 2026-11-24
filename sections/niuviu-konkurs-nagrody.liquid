@@ -1,0 +1,85 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- assign s = section.settings -%}
+<div class="nvk">
+  <section class="nvk-sec nvk-prizes-sec" id="nvk-nagrody">
+    <div class="nvk-wrap">
+      <header class="nvk-head">
+        <div><span class="nvk-eyebrow"><b>{{ s.number | escape }}</b>{{ s.label | escape }}</span><h2 class="nvk-h2">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2></div>
+        {%- if s.text != blank -%}<p>{{ s.text | escape }}</p>{%- endif -%}
+      </header>
+      <div class="nvk-prizes">
+        <article class="nvk-card nvk-card--main">
+          <div class="nvk-pm-bg" aria-hidden="true">
+            <div class="nvk-circle"></div><div class="nvk-ring nvk-r1"></div><div class="nvk-ring nvk-r2"></div>
+            {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark', style: 'width:34px;height:34px;left:58%;top:16%;color:var(--pink)' %}
+            {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark', style: 'width:18px;height:18px;left:93%;top:58%;color:var(--cream)' %}
+            {% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-spark', style: 'width:14px;height:14px;left:64%;top:78%;color:var(--hot)' %}
+          </div>
+          <div class="nvk-pm-copy">
+            <span class="nvk-pill">✦ {{ s.main_label | escape }}</span>
+            <div class="nvk-mega">{{ s.main_count | escape }}</div>
+            <div class="nvk-prize-title">{{ s.main_title | escape }} <em>{{ s.main_name | escape }}</em></div>
+          </div>
+          <div class="nvk-pm-visual">
+            <div class="nvk-brush">
+              {%- if s.prize_image != blank -%}
+                {{ s.prize_image | image_url: height: 1100 | image_tag: loading: 'lazy', alt: s.prize_image.alt }}
+              {%- else -%}
+                <img src="{{ 'niuviu-konkurs-dyson.png' | asset_url }}" alt="{{ s.main_title | escape }} {{ s.main_name | escape }}" width="161" height="852" loading="lazy">
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+
+        <article class="nvk-card nvk-card--voucher">
+          <span class="nvk-pill">{{ s.voucher_label | escape }}</span>
+          <div>
+            <div class="nvk-v-num">{%- if s.voucher_count != blank -%}{{ s.voucher_count | escape }}{%- else -%}<i class="nvk-ph">XX</i>{%- endif -%}×</div>
+            <div class="nvk-v-txt">{{ s.voucher_title | escape }}
+              <small>{{ s.voucher_value_prefix | escape }} {% if s.voucher_value != blank %}{{ s.voucher_value | escape }}{% else %}<i class="nvk-ph">XX</i>{% endif %} zł</small>
+            </div>
+          </div>
+          <div class="nvk-ticket" aria-hidden="true">
+            <b>VOUCHER</b>
+            <div>
+              <div class="nvk-ticket__amt">{% if s.voucher_value != blank %}{{ s.voucher_value | escape }}{% else %}<i class="nvk-ph">XX</i>{% endif %} zł</div>
+              <small>{{ s.ticket_text | escape | newline_to_br }}</small>
+            </div>
+            <span class="nvk-ticket__cut"></span>
+            <small>{{ s.ticket_footer | escape | newline_to_br }}</small>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – nagrody",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "text", "id": "number", "label": "Numer sekcji", "default": "01" },
+    { "type": "text", "id": "label", "label": "Etykieta", "default": "Nagrody" },
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Co możesz" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "wygrać?" },
+    { "type": "text", "id": "text", "label": "Opis", "default": "Nagrody przyzna jury za najciekawsze odpowiedzi na pytanie konkursowe." },
+    { "type": "header", "content": "Nagroda główna" },
+    { "type": "text", "id": "main_label", "label": "Etykieta", "default": "Nagroda główna" },
+    { "type": "text", "id": "main_count", "label": "Liczba", "default": "4×" },
+    { "type": "text", "id": "main_title", "label": "Nazwa", "default": "szczotka stylizująca" },
+    { "type": "text", "id": "main_name", "label": "Marka (kursywa)", "default": "Dyson" },
+    { "type": "image_picker", "id": "prize_image", "label": "Zdjęcie nagrody", "info": "Pionowe, przezroczyste tło (PNG, min. 1100 px wysokości). Puste = obecne zdjęcie szczotki." },
+    { "type": "header", "content": "Nagrody dodatkowe" },
+    { "type": "text", "id": "voucher_label", "label": "Etykieta", "default": "Nagrody dodatkowe" },
+    { "type": "text", "id": "voucher_count", "label": "Liczba voucherów", "info": "Np. 20. Puste = znacznik XX." },
+    { "type": "text", "id": "voucher_title", "label": "Nazwa nagrody", "default": "voucher na zakupy w Biedronce" },
+    { "type": "text", "id": "voucher_value_prefix", "label": "Tekst przed kwotą", "default": "o wartości" },
+    { "type": "text", "id": "voucher_value", "label": "Wartość vouchera (zł)", "info": "Sama liczba, np. 100. Puste = znacznik XX." },
+    { "type": "textarea", "id": "ticket_text", "label": "Bilet – tekst pod kwotą", "default": "na zakupy\nw Biedronce" },
+    { "type": "textarea", "id": "ticket_footer", "label": "Bilet – stopka", "default": "niuviu ✦ konkurs\ngrudzień 2026" }
+  ],
+  "presets": [{ "name": "Konkurs – nagrody" }]
+}
+{% endschema %}

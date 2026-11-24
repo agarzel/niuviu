@@ -1,0 +1,59 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- assign s = section.settings -%}
+<div class="nvk">
+  <section class="nvk-hero">
+    <div class="nvk-wrap nvk-hero__grid">
+      <div>
+        {%- if s.badge != blank -%}
+          <span class="nvk-chip"><span class="nvk-dot"></span>{{ s.badge | escape }}</span>
+        {%- endif -%}
+        <h1 class="nvk-h1">
+          <span>{{ s.line1 | escape }}</span>
+          <span class="nvk-serif">{{ s.line2 | escape }}</span>
+          <span>{{ s.line3 | escape }}</span>
+          <span class="nvk-h1__last"><mark class="nvk-mark">{{ s.line4 | escape }}</mark>{% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-h1__spark' %}</span>
+        </h1>
+        {%- if s.text != blank -%}<p class="nvk-lead">{{ s.text }}</p>{%- endif -%}
+        <div class="nvk-cta">
+          {%- if s.btn1 != blank -%}
+            <a class="nvk-btn nvk-btn--dark" href="{{ s.btn1_link | default: '#nvk-zgloszenie' }}">{{ s.btn1 | escape }} {% render 'niuviu-konkurs-icon', name: 'arrow' %}</a>
+          {%- endif -%}
+          {%- if s.btn2 != blank -%}
+            <a class="nvk-btn nvk-btn--ghost" href="{{ s.btn2_link | default: '#nvk-jak' }}">{{ s.btn2 | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="nvk-photo">
+        {%- if s.image != blank -%}
+          {{ s.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600', sizes: '(min-width: 750px) 50vw, 100vw', alt: s.image.alt }}
+        {%- else -%}
+          <img src="{{ 'niuviu-konkurs-hero.jpg' | asset_url }}" alt="" width="2000" height="1333" loading="eager">
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – hero",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Plakietka nad tytułem", "default": "Konkurs · 7–13 grudnia 2026" },
+    { "type": "text", "id": "line1", "label": "Tytuł – linia 1", "default": "Wygraj" },
+    { "type": "text", "id": "line2", "label": "Tytuł – linia 2 (kursywa)", "default": "szczotkę" },
+    { "type": "text", "id": "line3", "label": "Tytuł – linia 3", "default": "stylizującą" },
+    { "type": "text", "id": "line4", "label": "Tytuł – linia 4 (wyróżniona)", "default": "Dyson" },
+    { "type": "inline_richtext", "id": "text", "label": "Tekst pod tytułem", "default": "Kup dowolny produkt z serii <strong>Stylizacja</strong> lub <strong>Brązy</strong> w Biedronce, wyślij zgłoszenie i zawalcz o szczotkę stylizującą Dyson oraz vouchery na zakupy." },
+    { "type": "header", "content": "Przyciski" },
+    { "type": "text", "id": "btn1", "label": "Przycisk 1", "default": "Wyślij zgłoszenie" },
+    { "type": "text", "id": "btn1_link", "label": "Przycisk 1 – link", "default": "#nvk-zgloszenie", "info": "#nvk-zgloszenie przewija do formularza" },
+    { "type": "text", "id": "btn2", "label": "Przycisk 2", "default": "Jak wziąć udział?" },
+    { "type": "text", "id": "btn2_link", "label": "Przycisk 2 – link", "default": "#nvk-jak", "info": "#nvk-jak przewija do zasad" },
+    { "type": "header", "content": "Zdjęcie" },
+    { "type": "image_picker", "id": "image", "label": "Zdjęcie", "info": "Puste = zdjęcie z sesji (ze znakiem wodnym – podmień na finalne)." }
+  ],
+  "presets": [{ "name": "Konkurs – hero" }]
+}
+{% endschema %}
