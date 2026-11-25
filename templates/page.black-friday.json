@@ -1,0 +1,88 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "niuviu-bf-hero",
+      "settings": {
+        "box_link": "shopify://collections/zestawy"
+      }
+    },
+    "licznik": {
+      "type": "niuviu-bf-licznik",
+      "settings": {
+        "end_date": ""
+      }
+    },
+    "tasma": {
+      "type": "niuviu-bf-tasma",
+      "settings": {}
+    },
+    "kategorie": {
+      "type": "niuviu-bf-kategorie",
+      "settings": {
+        "link": "shopify://collections/all"
+      },
+      "blocks": {
+        "wlosy": {
+          "type": "category",
+          "settings": {
+            "title": "Włosy",
+            "text": "szampony · maski · odżywki · sera",
+            "link": "shopify://collections/wlosy",
+            "badge": "−35%"
+          }
+        },
+        "cialo": {
+          "type": "category",
+          "settings": {
+            "title": "Ciało",
+            "text": "żele · mleczka · kremy · masła",
+            "link": "shopify://collections/cialo",
+            "badge": "−35%"
+          }
+        }
+      },
+      "block_order": [
+        "wlosy",
+        "cialo"
+      ]
+    },
+    "produkty": {
+      "type": "niuviu-bf-produkty",
+      "settings": {
+        "products": [
+          "szampon-do-wlosow-kreconych-bounce-skret",
+          "maska-do-wlosow-farbowanych-lumi-blask-regeneracja",
+          "peeling-do-skory-glowy-pure-oczyszczajacy",
+          "nawilzajacy-krem-do-ciala-pink-therapy",
+          "wzmacniajaca-maska-do-wlosow-matcha-time-rewitalizacja",
+          "nawilzajace-mleczko-do-ciala-juicy-fruit",
+          "olejek-pod-prysznic-nawilzajacy-green-reset",
+          "bogate-maslo-do-ciala-pumpkin-time-babasierzuca"
+        ],
+        "link": "shopify://collections/all",
+        "btn_link": "shopify://collections/all"
+      }
+    },
+    "info": {
+      "type": "niuviu-bf-info",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "licznik",
+    "tasma",
+    "kategorie",
+    "produkty",
+    "info"
+  ]
+}
