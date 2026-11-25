@@ -1,0 +1,10 @@
+{%- comment -%}
+  Ikony sekcji „Black Friday”.
+  Użycie: {% render 'niuviu-bf-icon', name: 'arrow', class: 'nbf-i' %}
+{%- endcomment -%}
+{%- capture attrs -%}class="{{ class | default: 'nbf-i' }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false"{%- endcapture -%}
+{%- case name -%}
+  {%- when 'sp' -%}<svg {{ attrs }}><path d="M12 0C12.9 7.6 16.4 11.1 24 12 16.4 12.9 12.9 16.4 12 24 11.1 16.4 7.6 12.9 0 12 7.6 11.1 11.1 7.6 12 0Z"/></svg>
+  {%- when 'arrow' -%}<svg {{ attrs }}><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  {%- when 'plus' -%}<svg {{ attrs }}><path d="M12 5v14M5 12h14"/></svg>
+{%- endcase -%}
