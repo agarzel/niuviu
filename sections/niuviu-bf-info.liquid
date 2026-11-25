@@ -1,0 +1,16 @@
+{%- render 'niuviu-bf-assets' -%}
+<div class="nbf">
+  <div class="nbf-terms"><div class="nbf-wrap">{{ section.settings.text }}</div></div>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday – informacja",
+  "tag": "div",
+  "class": "nbf-section",
+  "settings": [
+    { "type": "inline_richtext", "id": "text", "label": "Treść", "default": "Szczegóły promocji −35% znajdziesz w regulaminie promocji. Przy każdym produkcie podajemy najniższą cenę z 30 dni przed obniżką.", "info": "Zaznacz słowa i dodaj link do regulaminu promocji." }
+  ],
+  "presets": [{ "name": "Black Friday – informacja" }]
+}
+{% endschema %}

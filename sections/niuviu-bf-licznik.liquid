@@ -1,0 +1,59 @@
+{%- render 'niuviu-bf-assets' -%}
+{%- liquid
+  assign s = section.settings
+  assign end_date = s.end_date | strip
+  assign end_time = s.end_time | strip | default: '23:59'
+-%}
+<div class="nbf">
+  {%- if end_date != blank -%}
+    <section class="nbf-count" data-nbf-countdown data-end="{{ end_date }}T{{ end_time }}:00{{ s.utc_offset }}">
+      <div class="nbf-wrap">
+        <div>
+          {%- if s.label != blank -%}<small>{{ s.label | escape }}</small>{%- endif -%}
+          <h2 class="nbf-disp">{{ s.title | escape }}</h2>
+          <p>{{ s.text_before | escape }} {{ end_date | date: '%d.%m' }}, do {{ end_time }}.</p>
+        </div>
+        <div>
+          <div class="nbf-timer" aria-label="Czas do końca promocji">
+            <div><b data-d>00</b><span>DNI</span></div><i>:</i>
+            <div><b data-h>00</b><span>GODZ.</span></div><i>:</i>
+            <div><b data-m>00</b><span>MIN.</span></div><i>:</i>
+            <div><b data-s>00</b><span>SEK.</span></div>
+          </div>
+          <div class="nbf-timer-end" hidden>{{ s.ended | escape }}</div>
+        </div>
+        {%- if s.btn != blank -%}
+          <a class="nbf-btn nbf-btn--ghost" href="{{ s.btn_link | default: '#nbf-produkty' }}">{{ s.btn | escape }} {% render 'niuviu-bf-icon', name: 'arrow' %}</a>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- elsif request.design_mode -%}
+    <div class="nbf-wrap" style="padding-top:24px;padding-bottom:24px"><div class="nbf-note"><strong>Widoczne tylko w edytorze:</strong> wpisz datę końca promocji (np. 2026-11-30), żeby pokazać licznik.</div></div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday – licznik",
+  "tag": "div",
+  "class": "nbf-section",
+  "settings": [
+    { "type": "text", "id": "end_date", "label": "Data końca promocji", "info": "Format RRRR-MM-DD, np. 2026-11-30. Puste = licznik ukryty." },
+    { "type": "text", "id": "end_time", "label": "Godzina końca", "default": "23:59", "info": "Format GG:MM" },
+    {
+      "type": "select", "id": "utc_offset", "label": "Strefa czasowa", "default": "+01:00",
+      "options": [
+        { "value": "+01:00", "label": "Polska – czas zimowy (listopad–marzec)" },
+        { "value": "+02:00", "label": "Polska – czas letni" }
+      ]
+    },
+    { "type": "text", "id": "label", "label": "Mały napis", "default": "Black Friday w niuviu" },
+    { "type": "text", "id": "title", "label": "Tytuł", "default": "Nie przegap" },
+    { "type": "text", "id": "text_before", "label": "Tekst przed datą", "default": "Rabat obowiązuje do" },
+    { "type": "text", "id": "ended", "label": "Tekst po zakończeniu", "default": "Promocja zakończona" },
+    { "type": "text", "id": "btn", "label": "Przycisk", "default": "Kupuję teraz" },
+    { "type": "text", "id": "btn_link", "label": "Przycisk – link", "default": "#nbf-produkty" }
+  ],
+  "presets": [{ "name": "Black Friday – licznik" }]
+}
+{% endschema %}

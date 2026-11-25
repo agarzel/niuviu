@@ -1,0 +1,23 @@
+{%- render 'niuviu-bf-assets' -%}
+{%- assign items = section.settings.items | split: '|' -%}
+<div class="nbf">
+  <div class="nbf-tapes" aria-hidden="true">
+    <div class="nbf-tape">
+      {%- for n in (1..4) -%}
+        {%- for t in items -%}<span>{{ t | strip | escape }}</span>{% render 'niuviu-bf-icon', name: 'sp', class: 'nbf-st' %}{%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday – taśma",
+  "tag": "div",
+  "class": "nbf-section",
+  "settings": [
+    { "type": "text", "id": "items", "label": "Hasła", "info": "Oddziel znakiem |", "default": "Black Friday|−35% na wszystko|darmowa dostawa od 99 zł" }
+  ],
+  "presets": [{ "name": "Black Friday – taśma" }]
+}
+{% endschema %}

@@ -1,0 +1,113 @@
+{%- render 'niuviu-bf-assets' -%}
+{%- liquid
+  assign s = section.settings
+  assign keep = 100 | minus: s.discount
+  if s.products != blank and s.products.size > 0
+    assign list = s.products
+  elsif s.collection != blank
+    assign list = s.collection.products
+  else
+    assign list = blank
+  endif
+-%}
+<div class="nbf">
+  <section class="nbf-sec" id="nbf-produkty" style="padding-top:20px">
+    <div class="nbf-wrap">
+      <header class="nbf-head">
+        <h2 class="nbf-disp">{{ s.title_a | escape }} <em>{{ s.title_b | escape }}</em></h2>
+        {%- if s.link_text != blank -%}
+          <a class="nbf-all" href="{{ s.link | default: routes.all_products_collection_url }}">{{ s.link_text | escape }} {% render 'niuviu-bf-icon', name: 'arrow' %}</a>
+        {%- endif -%}
+      </header>
+
+      {%- if list == blank and request.design_mode -%}
+        <div class="nbf-note"><strong>Widoczne tylko w edytorze:</strong> wybierz produkty albo kolekcję w ustawieniach sekcji.</div>
+      {%- endif -%}
+
+      <div class="nbf-grid">
+        {%- for product in list limit: s.count -%}
+          {%- liquid
+            if s.price_mode == 'discount'
+              assign price_old = product.price
+              assign price_new = product.price | times: keep | divided_by: 100.0 | round
+              assign on_sale = true
+            else
+              assign price_new = product.price
+              assign price_old = product.compare_at_price
+              assign on_sale = false
+              if product.compare_at_price > product.price
+                assign on_sale = true
+              endif
+            endif
+            assign lowest = product.metafields.custom.najnizsza_cena_30_dni.value
+          -%}
+          <article class="nbf-pc">
+            <a class="nbf-pc__img" href="{{ product.url }}">
+              {%- if product.featured_media -%}
+                {{ product.featured_media | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 500, 700', sizes: '(min-width: 750px) 25vw, 50vw', alt: product.featured_media.alt | default: product.title }}
+              {%- endif -%}
+              {%- if on_sale and s.badge != blank -%}<span class="nbf-chip">{{ s.badge | escape }}</span>{%- endif -%}
+            </a>
+            <div class="nbf-pc__body">
+              <h3><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+              <div class="nbf-price-row">
+                <span class="nbf-price">{{ price_new | money }}{% if on_sale %} <s>{{ price_old | money }}</s>{% endif %}</span>
+                {%- if product.available -%}
+                  {%- form 'product', product, class: 'nbf-add-form' -%}
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button class="nbf-add" type="submit" aria-label="Dodaj do koszyka: {{ product.title | escape }}">{% render 'niuviu-bf-icon', name: 'plus' %}</button>
+                  {%- endform -%}
+                {%- else -%}
+                  <span class="nbf-soldout">{{ s.soldout | escape }}</span>
+                {%- endif -%}
+              </div>
+              {%- if s.omnibus and on_sale -%}
+                <span class="nbf-omni">{{ s.omnibus_label | escape }}<br>{% if lowest != blank %}{{ lowest }}{% else %}{{ price_old | money }}{% endif %}</span>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+
+      {%- if s.btn != blank -%}
+        <div class="nbf-more"><a class="nbf-btn nbf-btn--pink" href="{{ s.btn_link | default: routes.all_products_collection_url }}">{{ s.btn | escape }} {% render 'niuviu-bf-icon', name: 'arrow' %}</a></div>
+      {%- endif -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday – produkty",
+  "tag": "div",
+  "class": "nbf-section",
+  "settings": [
+    { "type": "text", "id": "title_a", "label": "Tytuł", "default": "Polecamy" },
+    { "type": "text", "id": "title_b", "label": "Tytuł – kursywa", "default": "w promocji" },
+    { "type": "text", "id": "link_text", "label": "Link obok tytułu", "default": "Zobacz wszystkie" },
+    { "type": "url", "id": "link", "label": "Link obok tytułu – adres" },
+    { "type": "header", "content": "Produkty" },
+    { "type": "product_list", "id": "products", "label": "Wybrane produkty", "limit": 12, "info": "Jeśli puste – produkty z kolekcji poniżej." },
+    { "type": "collection", "id": "collection", "label": "albo kolekcja", "info": "Np. „bestsellery”." },
+    { "type": "range", "id": "count", "label": "Liczba produktów", "min": 4, "max": 12, "step": 4, "default": 8 },
+    { "type": "header", "content": "Ceny" },
+    {
+      "type": "select", "id": "price_mode", "label": "Sposób pokazywania ceny", "default": "discount",
+      "options": [
+        { "value": "discount", "label": "Wylicz cenę po rabacie (rabat automatyczny)" },
+        { "value": "compare", "label": "Ceny promocyjne ustawione w produktach" }
+      ],
+      "info": "Szczegóły w instrukcji: „Rabat 35% – dwa sposoby”."
+    },
+    { "type": "number", "id": "discount", "label": "Rabat (%)", "default": 35, "info": "Używany tylko w trybie „Wylicz cenę po rabacie”." },
+    { "type": "text", "id": "badge", "label": "Plakietka na zdjęciu", "default": "−35%" },
+    { "type": "checkbox", "id": "omnibus", "label": "Pokaż najniższą cenę z 30 dni", "default": true, "info": "Wartość z metapola produktu custom.najnizsza_cena_30_dni; gdy puste – cena przed obniżką." },
+    { "type": "text", "id": "omnibus_label", "label": "Tekst przy najniższej cenie", "default": "Najniższa cena z 30 dni przed obniżką:" },
+    { "type": "text", "id": "soldout", "label": "Tekst – brak w magazynie", "default": "wyprzedane" },
+    { "type": "header", "content": "Przycisk pod produktami" },
+    { "type": "text", "id": "btn", "label": "Tekst", "default": "Zobacz wszystkie produkty" },
+    { "type": "url", "id": "btn_link", "label": "Link" }
+  ],
+  "presets": [{ "name": "Black Friday – produkty" }]
+}
+{% endschema %}

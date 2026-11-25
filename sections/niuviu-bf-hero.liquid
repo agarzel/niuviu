@@ -1,0 +1,60 @@
+{%- render 'niuviu-bf-assets' -%}
+{%- assign s = section.settings -%}
+<div class="nbf">
+  <section class="nbf-hero">
+    <div class="nbf-wrap nbf-hero__grid">
+      <div>
+        {%- if s.eyebrow != blank -%}<div class="nbf-eyebrow3">{{ s.eyebrow | escape | newline_to_br }}</div>{%- endif -%}
+        <h1 class="nbf-h1 nbf-disp">
+          <span>{{ s.line1 | escape }}</span>
+          <span>{{ s.line2 | escape }}</span>
+          <span class="nbf-hot"><span class="nbf-minus">−</span>{{ s.discount }}% {% render 'niuviu-bf-icon', name: 'sp', class: 'nbf-h1__spark' %}</span>
+        </h1>
+        {%- if s.serif != blank -%}<p class="nbf-h1-serif">{{ s.serif | escape }}</p>{%- endif -%}
+        {%- if s.text != blank -%}<p class="nbf-lead">{{ s.text }}</p>{%- endif -%}
+        {%- if s.btn != blank -%}
+          <div class="nbf-cta"><a class="nbf-btn nbf-btn--pink" href="{{ s.btn_link | default: '#nbf-produkty' }}">{{ s.btn | escape }} {% render 'niuviu-bf-icon', name: 'arrow' %}</a></div>
+        {%- endif -%}
+      </div>
+      <div class="nbf-hero__visual">
+        <div class="nbf-photo">
+          {%- if s.image != blank -%}
+            {{ s.image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '600, 900, 1200, 1400', sizes: '(min-width: 750px) 50vw, 100vw', alt: s.image.alt }}
+          {%- else -%}
+            <img src="{{ 'niuviu-bf-hero.jpg' | asset_url }}" alt="" width="1200" height="1800" loading="eager">
+          {%- endif -%}
+        </div>
+        {%- if s.box_show -%}
+          <a class="nbf-promo" href="{{ s.box_link | default: routes.all_products_collection_url }}">
+            <b>{{ s.box_label | escape }}</b><strong>{{ s.box_title | escape }}</strong>{% render 'niuviu-bf-icon', name: 'arrow' %}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday – hero",
+  "tag": "div",
+  "class": "nbf-section",
+  "settings": [
+    { "type": "textarea", "id": "eyebrow", "label": "Mały napis nad tytułem", "default": "Pielęgnacja włosów\ni ciała\nna Black Friday" },
+    { "type": "text", "id": "line1", "label": "Tytuł – linia 1", "default": "Black" },
+    { "type": "text", "id": "line2", "label": "Tytuł – linia 2", "default": "Friday" },
+    { "type": "number", "id": "discount", "label": "Rabat (%)", "default": 35, "info": "Wyświetla się jako −35% pod tytułem." },
+    { "type": "text", "id": "serif", "label": "Tekst pod rabatem (kursywa)", "default": "na wszystko" },
+    { "type": "inline_richtext", "id": "text", "label": "Opis", "default": "Szampony, maski, kosmetyki do ciała i zestawy niuviu taniej o <strong>35%</strong>. Zrób zapas ulubieńców albo skompletuj prezenty pod choinkę." },
+    { "type": "text", "id": "btn", "label": "Przycisk", "default": "Kupuję z rabatem" },
+    { "type": "text", "id": "btn_link", "label": "Przycisk – link", "default": "#nbf-produkty", "info": "#nbf-produkty przewija do produktów. Możesz wpisać też np. /collections/all" },
+    { "type": "image_picker", "id": "image", "label": "Zdjęcie", "info": "Puste = zdjęcie z linii pink therapy." },
+    { "type": "header", "content": "Plakietka na zdjęciu" },
+    { "type": "checkbox", "id": "box_show", "label": "Pokaż plakietkę", "default": true },
+    { "type": "text", "id": "box_label", "label": "Mały napis", "default": "Prezent gotowy" },
+    { "type": "text", "id": "box_title", "label": "Tekst (kursywa)", "default": "zestawy na prezent" },
+    { "type": "url", "id": "box_link", "label": "Link", "info": "Np. kolekcja „zestawy”." }
+  ],
+  "presets": [{ "name": "Black Friday – hero" }]
+}
+{% endschema %}
