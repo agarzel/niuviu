@@ -12,24 +12,42 @@
     "hero": {
       "type": "niuviu-bf-hero",
       "settings": {
+        "eyebrow": "Pielęgnacja włosów\ni ciała\nna Black Friday",
+        "line1": "Black",
+        "line2": "Friday",
+        "discount": 35,
+        "serif": "na wszystko",
+        "text": "Szampony, maski, kosmetyki do pielęgnacji ciała taniej aż o <strong>35%</strong>. Zrób zapas ulubieńców albo skompletuj prezenty pod choinkę.",
+        "btn": "Kupuję z rabatem",
+        "btn_link": "#nbf-produkty",
+        "box_show": true,
+        "box_label": "Prezent gotowy",
+        "box_title": "zestawy na prezent",
         "box_link": "shopify://collections/zestawy"
       }
     },
     "licznik": {
       "type": "niuviu-bf-licznik",
       "settings": {
-        "end_date": ""
+        "end_date": "2026-11-30",
+        "end_time": "23:59",
+        "utc_offset": "+01:00",
+        "label": "Black Friday w niuviu",
+        "title": "Nie przegap",
+        "text_before": "Rabat obowiązuje do",
+        "ended": "Promocja zakończona",
+        "btn": "Kupuję teraz",
+        "btn_link": "#nbf-produkty"
       }
     },
     "tasma": {
       "type": "niuviu-bf-tasma",
-      "settings": {}
+      "settings": {
+        "items": "Black Friday|−35% na wszystko|darmowa dostawa od 99 zł"
+      }
     },
     "kategorie": {
       "type": "niuviu-bf-kategorie",
-      "settings": {
-        "link": "shopify://collections/all"
-      },
       "blocks": {
         "wlosy": {
           "type": "category",
@@ -37,6 +55,7 @@
             "title": "Włosy",
             "text": "szampony · maski · odżywki · sera",
             "link": "shopify://collections/wlosy",
+            "position": "object-position:50% 25%",
             "badge": "−35%"
           }
         },
@@ -46,6 +65,7 @@
             "title": "Ciało",
             "text": "żele · mleczka · kremy · masła",
             "link": "shopify://collections/cialo",
+            "position": "object-position:50% 25%",
             "badge": "−35%"
           }
         }
@@ -53,11 +73,21 @@
       "block_order": [
         "wlosy",
         "cialo"
-      ]
+      ],
+      "settings": {
+        "title_a": "Co wrzucasz",
+        "title_b": "do koszyka?",
+        "link_text": "Cały sklep",
+        "link": "shopify://collections/all"
+      }
     },
     "produkty": {
       "type": "niuviu-bf-produkty",
       "settings": {
+        "title_a": "Polecamy",
+        "title_b": "w promocji",
+        "link_text": "Zobacz wszystkie",
+        "link": "shopify://collections/all",
         "products": [
           "szampon-do-wlosow-kreconych-bounce-skret",
           "maska-do-wlosow-farbowanych-lumi-blask-regeneracja",
@@ -68,13 +98,23 @@
           "olejek-pod-prysznic-nawilzajacy-green-reset",
           "bogate-maslo-do-ciala-pumpkin-time-babasierzuca"
         ],
-        "link": "shopify://collections/all",
+        "collection": "",
+        "count": 8,
+        "price_mode": "discount",
+        "discount": 35,
+        "badge": "−35%",
+        "omnibus": true,
+        "omnibus_label": "Najniższa cena z 30 dni przed obniżką:",
+        "soldout": "wyprzedane",
+        "btn": "Zobacz wszystkie produkty",
         "btn_link": "shopify://collections/all"
       }
     },
     "info": {
       "type": "niuviu-bf-info",
-      "settings": {}
+      "settings": {
+        "text": "Szczegóły promocji −35% znajdziesz w regulaminie promocji. Przy każdym produkcie podajemy najniższą cenę z 30 dni przed obniżką."
+      }
     }
   },
   "order": [
