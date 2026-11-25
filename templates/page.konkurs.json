@@ -203,7 +203,7 @@
           "type": "faq",
           "settings": {
             "question": "Czy mogę wysłać więcej niż jedno zgłoszenie?",
-            "answer": "<p>[Uzupełnij zgodnie z regulaminem konkursu.]</p>",
+            "answer": "<p>Tak! Tylko pamiętaj, że do każdego zgłoszenia potrzebny jest inny paragon spełniający warunki wzięcia udziału w konkursie.</p>",
             "open": false
           }
         },
@@ -211,7 +211,7 @@
           "type": "faq",
           "settings": {
             "question": "Jak długo muszę przechowywać paragon?",
-            "answer": "<p>[Uzupełnij zgodnie z regulaminem konkursu.]</p>",
+            "answer": "<p>Paragon należy przechować do 3 tygodni po zakończeniu konkursu.</p>",
             "open": false
           }
         },
@@ -227,7 +227,7 @@
           "type": "faq",
           "settings": {
             "question": "Jak otrzymam nagrodę?",
-            "answer": "<p>[Uzupełnij zgodnie z regulaminem konkursu.]</p>",
+            "answer": "<p>Główna nagroda zostanie przesyłana bezpośrednio na adres podany przez laureata. Vouchery na zakupy w Biedronce zostaną przesłane w formie elektronicznej.</p>",
             "open": false
           }
         }
