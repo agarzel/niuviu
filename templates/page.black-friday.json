@@ -109,12 +109,6 @@
         "btn": "Zobacz wszystkie produkty",
         "btn_link": "shopify://collections/all"
       }
-    },
-    "info": {
-      "type": "niuviu-bf-info",
-      "settings": {
-        "text": "Szczegóły promocji −35% znajdziesz w regulaminie promocji. Przy każdym produkcie podajemy najniższą cenę z 30 dni przed obniżką."
-      }
     }
   },
   "order": [
@@ -122,7 +116,6 @@
     "licznik",
     "tasma",
     "kategorie",
-    "produkty",
-    "info"
+    "produkty"
   ]
 }
