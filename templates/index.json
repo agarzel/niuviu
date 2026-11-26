@@ -14,7 +14,6 @@
       "blocks": {
         "slide_6qcriC": {
           "type": "_slide",
-          "disabled": true,
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/Image_9.jpg",
@@ -40,23 +39,19 @@
             "padding-inline-end": 48
           },
           "blocks": {
-            "button_DM79qw": {
-              "type": "button",
+            "link_slajdu_kaadWb": {
+              "type": "link-slajdu",
+              "name": "Link całego slajdu",
               "settings": {
-                "label": "Kup teraz",
-                "link": "shopify://pages/konkurs",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "link": "/pages/konkurs",
+                "label": "Zobacz limitowaną serię",
+                "new_tab": false
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "button_DM79qw"
+            "link_slajdu_kaadWb"
           ]
         },
         "slide_6A7tRV": {
