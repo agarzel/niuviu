@@ -1,0 +1,99 @@
+{%- comment -%}
+  niuviu – „Link całego slajdu”
+  Dodaj ten blok do slajdu w sliderze: cały slajd staje się klikalny i prowadzi pod wybrany adres.
+  Strzałki i kropki slidera działają dalej. Poza sliderem blok nic nie wyświetla.
+{%- endcomment -%}
+{%- liquid
+  assign link = block.settings.link
+  assign label = block.settings.label | strip
+  if label == blank
+    assign label = 'Zobacz więcej'
+  endif
+-%}
+{%- if link != blank -%}
+  <a
+    class="nv-slide-link{% if request.design_mode %} nv-slide-link--editor{% endif %}"
+    href="{{ link }}"
+    {% if block.settings.new_tab %}
+      target="_blank" rel="noopener"
+    {% endif %}
+    aria-label="{{ label | escape }}"
+    {{ block.shopify_attributes }}
+  ></a>
+{%- elsif request.design_mode -%}
+  <span class="nv-slide-link-note" {{ block.shopify_attributes }}>Link slajdu: wybierz stronę w ustawieniach bloku</span>
+{%- endif -%}
+
+{% stylesheet %}
+  .nv-slide-link {
+    display: none;
+  }
+
+  slideshow-slide .nv-slide-link {
+    display: block;
+    position: absolute;
+    inset: -100vw;
+    z-index: 2;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  slideshow-slide .nv-slide-link:focus-visible {
+    outline: none;
+  }
+
+  slideshow-slide:has(.nv-slide-link:focus-visible) {
+    outline: 3px solid #f4317b;
+    outline-offset: -3px;
+  }
+
+  .nv-slide-link--editor {
+    pointer-events: none;
+  }
+
+  .nv-slide-link-note {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px dashed currentColor;
+    border-radius: 8px;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Link całego slajdu",
+  "tag": null,
+  "settings": [
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link",
+      "info": "Np. strona Black Weekend. Cały slajd będzie prowadził pod ten adres."
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Opis linku",
+      "default": "Zobacz więcej",
+      "info": "Niewidoczny – odczytują go czytniki ekranu. Np. „Black Weekend – zobacz promocję”."
+    },
+    {
+      "type": "checkbox",
+      "id": "new_tab",
+      "label": "Otwórz w nowej karcie",
+      "default": false
+    },
+    {
+      "type": "paragraph",
+      "content": "Przyciski na tym slajdzie nie są potrzebne – możesz je usunąć. W podglądzie edytora slajd nie jest klikalny, żeby dało się wybierać bloki."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Link całego slajdu"
+    }
+  ]
+}
+{% endschema %}
