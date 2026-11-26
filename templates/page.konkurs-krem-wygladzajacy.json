@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "produkt": {
+      "type": "niuviu-konkurs-produkt",
+      "settings": {
+        "series": "styl",
+        "series_tag": "Inulina",
+        "series_name": "Stylizacja",
+        "name_a": "Krem",
+        "name_b": "wygładzający",
+        "claim": "z efektem tafli",
+        "scent": "zapach białej czekolady",
+        "scent_short": "biała czekolada",
+        "capacity": "150 ml",
+        "image_asset": "niuviu-konkurs-krem-wygladzajacy.jpg",
+        "lead": "Wygładza strukturę włosów, pomaga ograniczyć puszenie i dodaje blasku. Uelastycznia pasma, pozostawiając je bardziej sprężyste, z uczuciem nawilżenia, odżywienia i regeneracji. Ułatwia stylizację i widocznie poprawia kondycję włosów.",
+        "where_label": "Dostępny w sieci sklepów",
+        "where_dates": "od 7.12 do 13.12",
+        "store_name": "Biedronka",
+        "store_logo_asset": "niuviu-konkurs-biedronka.png",
+        "cta": "Weź udział w konkursie",
+        "cta_link": "/pages/konkurs#nvk-zgloszenie",
+        "back_text": "Wszystkie produkty w konkursie",
+        "back_link": "/pages/konkurs#nvk-produkty",
+        "inside": "Inulina | pomaga nawilżać i wygładzać włosy, zwiększając ich miękkość i ułatwiając stylizację\nEstry jojoba | wygładzają i zmiękczają włosy, pomagając poprawić ich elastyczność i połysk\nMasło shea | odżywia włosy i pomaga chronić je przed przesuszeniem oraz szorstkością\nProteiny roślinne | pomagają wzmocnić strukturę włosów, wygładzić je i poprawić ich kondycję",
+        "how_to": "<p>Nałóż na wilgotne pasma, odciśnięte z nadmiaru wody. Rozprowadź równomiernie. Następnie przejdź do stylizacji: wysusz włosy i ułóż je tak, jak lubisz.</p>",
+        "contest_show": true,
+        "contest_pill": "✦ Konkurs · 7–13 grudnia 2026",
+        "contest_title_a": "Kup i wygraj",
+        "contest_title_b": "szczotkę Dyson",
+        "contest_text": "Kup min. jeden produkt z serii Stylizacja lub Brązy w Biedronce w dniach <strong>7–13.12.2026</strong>, wyślij zgłoszenie i zawalcz o jedną z czterech szczotek stylizujących Dyson.",
+        "contest_btn": "Wyślij zgłoszenie",
+        "contest_link": "/pages/konkurs#nvk-zgloszenie",
+        "others_title": "Inne produkty z serii Stylizacja",
+        "others": "Spray teksturyzujący | /pages/spray-teksturyzujacy\nLakier do włosów | /pages/lakier-do-wlosow"
+      },
+      "blocks": {
+        "zdjecie-1": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-krem.jpg"
+          }
+        },
+        "zdjecie-2": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-krem-lakier.jpg"
+          }
+        },
+        "zdjecie-3": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-lakier-spray.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "zdjecie-1",
+        "zdjecie-2",
+        "zdjecie-3"
+      ]
+    }
+  },
+  "order": [
+    "produkt"
+  ]
+}

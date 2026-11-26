@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "produkt": {
+      "type": "niuviu-konkurs-produkt",
+      "settings": {
+        "series": "braz",
+        "series_tag": "Proteiny",
+        "series_name": "Brązy",
+        "collab": "Magda Banaś × niuviu",
+        "name_a": "Spray",
+        "name_b": "termoochronny",
+        "claim": "do włosów brązowych",
+        "scent": "zapach musu czekoladowego",
+        "scent_short": "mus czekoladowy",
+        "capacity": "150 ml",
+        "image_asset": "niuviu-konkurs-spray-termoochronny.jpg",
+        "lead": "Suszarka, prostownica, lokówka: rób swoje, Twoje włosy mają ochronę. Spray otula kosmyki, dzięki czemu nawet po stylizacji wyglądają zdrowo. Są gładkie i lśniące, nie puszą się i nie elektryzują. Bez sklejenia, bez ciężaru.",
+        "where_label": "Dostępny w sieci sklepów",
+        "where_dates": "od 7.12 do 13.12",
+        "store_name": "Biedronka",
+        "store_logo_asset": "niuviu-konkurs-biedronka.png",
+        "cta": "Weź udział w konkursie",
+        "cta_link": "/pages/konkurs#nvk-zgloszenie",
+        "back_text": "Wszystkie produkty w konkursie",
+        "back_link": "/pages/konkurs#nvk-produkty",
+        "inside": "Henna + ekstrakt z orzecha | podkreślają głębię brązu\nKompleks protein roślinnych | wzmacnia i chroni pasma\nFiltr UV | tarcza dla koloru\nProwitamina B5 | dba o nawilżenie i elastyczność",
+        "how_to": "<p>Nanieś na wilgotne lub suche włosy z odległości ok. 15–20 cm, rozczesz i stylizuj. Nie spłukuj.</p>",
+        "contest_show": true,
+        "contest_pill": "✦ Konkurs · 7–13 grudnia 2026",
+        "contest_title_a": "Kup i wygraj",
+        "contest_title_b": "szczotkę Dyson",
+        "contest_text": "Kup min. jeden produkt z serii Stylizacja lub Brązy w Biedronce w dniach <strong>7–13.12.2026</strong>, wyślij zgłoszenie i zawalcz o jedną z czterech szczotek stylizujących Dyson.",
+        "contest_btn": "Wyślij zgłoszenie",
+        "contest_link": "/pages/konkurs#nvk-zgloszenie",
+        "others_title": "Inne produkty z serii Brązy",
+        "others": "Szampon do brązów | /pages/szampon-do-brazow\nOdżywka do brązów | /pages/odzywka-do-brazow"
+      },
+      "blocks": {
+        "zdjecie-1": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-spray-termoochronny.jpg"
+          }
+        },
+        "zdjecie-2": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-odzywka-wlosy.jpg"
+          }
+        },
+        "zdjecie-3": {
+          "type": "photo",
+          "settings": {
+            "image_asset": "niuviu-konkurs-sesja-odzywka.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "zdjecie-1",
+        "zdjecie-2",
+        "zdjecie-3"
+      ]
+    }
+  },
+  "order": [
+    "produkt"
+  ]
+}
