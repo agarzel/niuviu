@@ -1,0 +1,199 @@
+{%- comment -%}
+  niuviu – „Seria limitowana” na stronie głównej.
+  Karty produktów (Brązy + Stylizacja) prowadzą do podstron /pages/… z paczki konkursowej.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div
+  class="nsl nsl--{{ s.desktop_layout }}"
+  data-nsl
+  style="--nsl-pt: {{ s.padding_top }}px; --nsl-pb: {{ s.padding_bottom }}px; --nsl-btn-bg: {{ s.button_bg }}; --nsl-btn-fg: {{ s.button_fg }}; --nsl-count: {{ section.blocks.size }};"
+>
+  <div class="nsl__head">
+    {%- if s.title != blank -%}<h2 class="nsl__title">{{ s.title | escape }}</h2>{%- endif -%}
+    <div class="nsl__arrows">
+      <button type="button" class="nsl__arrow" data-nsl-prev aria-label="Poprzednie produkty">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+      <button type="button" class="nsl__arrow" data-nsl-next aria-label="Następne produkty">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+  {%- if s.text != blank -%}<p class="nsl__text">{{ s.text }}</p>{%- endif -%}
+
+  <ul class="nsl__track" role="list">
+    {%- for block in section.blocks -%}
+      {%- assign b = block.settings -%}
+      {%- assign b_alt = b.series | append: ' – ' | append: b.name -%}
+      <li class="nsl__card" {{ block.shopify_attributes }}>
+        <a class="nsl__link" href="{{ b.link | default: '#' }}">
+          <div class="nsl__media{% if s.show_badge %} nsl__media--badge{% endif %}" style="--nsl-card-bg: {{ b.card_bg }};">
+            {%- if b.image != blank -%}
+              {{ b.image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'nsl__img', widths: '300, 500, 700, 900', sizes: '(min-width: 990px) 25vw, 60vw', alt: b_alt }}
+            {%- elsif b.image_asset != blank -%}
+              <img class="nsl__img" src="{{ b.image_asset | asset_url }}" alt="{{ b_alt | escape }}" width="1231" height="1400" loading="lazy">
+            {%- endif -%}
+            {%- if s.show_badge -%}
+              <span class="nsl__badge">
+                <span>{{ s.badge_text | escape }}</span>
+                {%- if s.badge_logo_asset != blank -%}
+                  <img src="{{ s.badge_logo_asset | asset_url }}" alt="Biedronka" width="400" height="120" loading="lazy" onerror="this.parentNode.classList.add('is-text');this.remove();">
+                {%- endif -%}
+                <b>{{ s.badge_fallback | escape }}</b>
+              </span>
+            {%- endif -%}
+          </div>
+          <div class="nsl__info">
+            {%- if b.series != blank -%}<p class="nsl__series">{{ b.series | escape }}</p>{%- endif -%}
+            {%- if b.name != blank -%}<p class="nsl__name">{{ b.name | escape }}</p>{%- endif -%}
+            {%- if b.price != blank -%}<p class="nsl__price">{{ b.price | escape }}</p>{%- endif -%}
+            {%- if s.button != blank -%}<span class="nsl__btn">{{ s.button | escape }}</span>{%- endif -%}
+          </div>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .nsl{--nsl-gap:16px;box-sizing:border-box;max-width:1600px;margin:0 auto;padding:var(--nsl-pt) 40px var(--nsl-pb);font-family:inherit;color:inherit}
+  .nsl *,.nsl *::before,.nsl *::after{box-sizing:border-box}
+  .nsl__head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+  .nsl .nsl__title{margin:0;font-family:inherit;font-size:32px;line-height:1;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:inherit}
+  .nsl .nsl__text{margin:-8px 0 24px;font-size:16px;line-height:1.5;max-width:720px}
+  .nsl__arrows{display:none;gap:8px}
+  .nsl--carousel .nsl__arrows{display:flex}
+  .nsl--carousel.nsl--noscroll .nsl__arrows{display:none}
+  .nsl__arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid currentColor;background:transparent;color:inherit;display:grid;place-items:center;cursor:pointer;padding:0}
+  .nsl__arrow:disabled{opacity:.25;cursor:default}
+  .nsl__arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .nsl .nsl__track{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--nsl-count,6),minmax(0,1fr));gap:var(--nsl-gap)}
+  .nsl--grid3 .nsl__track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:44px}
+  .nsl--carousel .nsl__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nsl--carousel .nsl__card{flex:0 0 calc((100% - 3 * var(--nsl-gap)) / 4);scroll-snap-align:start}
+  .nsl__track::-webkit-scrollbar{display:none}
+  .nsl .nsl__card{margin:0;padding:0;min-width:0}
+  .nsl .nsl__link{display:flex;flex-direction:column;align-items:center;height:100%;text-align:center;color:inherit;text-decoration:none}
+  .nsl__media{position:relative;width:100%;aspect-ratio:4/5;border-radius:32px;overflow:hidden;background:var(--nsl-card-bg,#F1EAE0)}
+  .nsl .nsl__img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+  .nsl__media--badge .nsl__img{position:absolute;left:0;right:0;bottom:0;height:87%;object-position:center bottom;transform-origin:center bottom}
+  .nsl__link:hover .nsl__img{transform:scale(1.03)}
+  .nsl__badge{position:absolute;z-index:1;top:14px;right:14px;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:999px;background:#fff;color:#000;font-size:11px;line-height:1;white-space:nowrap}
+  .nsl .nsl__badge img{display:block;height:18px;width:auto;max-width:90px}
+  .nsl__badge b{display:none;font-weight:700}
+  .nsl__badge.is-text b{display:inline}
+  .nsl__info{display:flex;flex-direction:column;align-items:center;flex:1;gap:6px;padding-top:18px;width:100%}
+  .nsl .nsl__series,.nsl .nsl__name{margin:0;font-size:20px;line-height:1.1}
+  .nsl .nsl__info>p:last-of-type{margin-bottom:12px}
+  .nsl .nsl__price{margin-top:4px;font-size:16px;line-height:1;color:#5B5757}
+  .nsl__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:auto;padding:15px 24px;border-radius:32px;background:var(--nsl-btn-bg);color:var(--nsl-btn-fg);font-size:14px;line-height:22px;transition:opacity .2s ease}
+  .nsl__link:hover .nsl__btn{opacity:.88}
+  @media (min-width:750px) and (max-width:1099px){
+    .nsl--row .nsl__track{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px}
+    .nsl--carousel .nsl__card{flex-basis:calc((100% - 2 * var(--nsl-gap)) / 3)}
+  }
+  @media (max-width:749px){
+    .nsl{padding-left:16px;padding-right:16px}
+    .nsl .nsl__title{font-size:24px}
+    .nsl__head{margin-bottom:18px}
+    .nsl .nsl__arrows{display:none}
+    .nsl .nsl__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:0 16px;scroll-padding-left:16px;scrollbar-width:none}
+    .nsl .nsl__card{flex:0 0 60%;scroll-snap-align:start}
+    .nsl .nsl__series,.nsl .nsl__name{font-size:18px}
+    .nsl__media{border-radius:28px}
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    function initNsl(root) {
+      if (!root || root.dataset.nslReady) return;
+      root.dataset.nslReady = '1';
+      var track = root.querySelector('.nsl__track');
+      var prev = root.querySelector('[data-nsl-prev]');
+      var next = root.querySelector('[data-nsl-next]');
+      if (!track || !prev || !next) return;
+      function step() {
+        var card = track.querySelector('.nsl__card');
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+        return card ? card.getBoundingClientRect().width + gap : 300;
+      }
+      function update() {
+        var max = track.scrollWidth - track.clientWidth;
+        root.classList.toggle('nsl--noscroll', max <= 2);
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max - 2;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    }
+    function initAll() { document.querySelectorAll('[data-nsl]').forEach(initNsl); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initAll); else initAll();
+    document.addEventListener('shopify:section:load', function (e) { initNsl(e.target.querySelector('[data-nsl]')); });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Seria limitowana",
+  "tag": "section",
+  "class": "nsl-section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Nagłówek", "default": "Seria limitowana" },
+    { "type": "inline_richtext", "id": "text", "label": "Tekst pod nagłówkiem", "info": "Opcjonalnie." },
+    {
+      "type": "select", "id": "desktop_layout", "label": "Układ na komputerze", "default": "row",
+      "options": [
+        { "value": "row", "label": "Wszystkie w jednym rzędzie" },
+        { "value": "carousel", "label": "Przewijany pasek (4 widoczne + strzałki)" },
+        { "value": "grid3", "label": "Siatka – 3 w rzędzie" }
+      ],
+      "info": "Na telefonie karty zawsze przewija się palcem w bok."
+    },
+    { "type": "header", "content": "Przycisk" },
+    { "type": "text", "id": "button", "label": "Tekst przycisku", "default": "zobacz produkt", "info": "Puste = bez przycisku (cała karta i tak jest linkiem)." },
+    { "type": "color", "id": "button_bg", "label": "Kolor przycisku", "default": "#FF337E" },
+    { "type": "color", "id": "button_fg", "label": "Kolor tekstu przycisku", "default": "#FFFFFF" },
+    { "type": "header", "content": "Oznaczenie „tylko w Biedronce”" },
+    { "type": "checkbox", "id": "show_badge", "label": "Pokaż oznaczenie na zdjęciach", "default": true },
+    { "type": "text", "id": "badge_text", "label": "Tekst przed logo", "default": "tylko w" },
+    { "type": "text", "id": "badge_logo_asset", "label": "Logo (plik z motywu)", "default": "niuviu-konkurs-biedronka.png", "info": "Ten sam plik co na podstronach produktów." },
+    { "type": "text", "id": "badge_fallback", "label": "Tekst zamiast logo", "default": "Biedronce", "info": "Widoczny, dopóki logo nie jest wgrane." },
+    { "type": "header", "content": "Odstępy" },
+    { "type": "range", "id": "padding_top", "label": "Odstęp nad sekcją", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Odstęp pod sekcją", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 }
+  ],
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produkt",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nazwa", "default": "szampon do brązów" },
+        { "type": "text", "id": "series", "label": "Seria (nad nazwą)", "default": "brązy" },
+        { "type": "text", "id": "link", "label": "Link", "default": "/pages/szampon-do-brazow", "info": "Adres podstrony, np. /pages/szampon-do-brazow" },
+        { "type": "image_picker", "id": "image", "label": "Zdjęcie", "info": "Zastępuje zdjęcie domyślne. Najlepiej pionowe 4:5." },
+        { "type": "text", "id": "image_asset", "label": "Zdjęcie domyślne (plik z motywu)", "default": "niuviu-konkurs-szampon-do-brazow.jpg" },
+        { "type": "color", "id": "card_bg", "label": "Tło karty", "default": "#F1EAE0", "info": "Widoczne przy zdjęciach z przezroczystym tłem." },
+        { "type": "text", "id": "price", "label": "Cena", "info": "Opcjonalnie, np. 16,99 zł." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Seria limitowana",
+      "blocks": [
+        { "type": "product", "settings": { "name": "szampon do brązów", "series": "brązy", "link": "/pages/szampon-do-brazow", "image_asset": "niuviu-konkurs-szampon-do-brazow.jpg", "card_bg": "#F1EAE0" } },
+        { "type": "product", "settings": { "name": "odżywka do brązów", "series": "brązy", "link": "/pages/odzywka-do-brazow", "image_asset": "niuviu-konkurs-odzywka-do-brazow.jpg", "card_bg": "#F1EAE0" } },
+        { "type": "product", "settings": { "name": "spray termoochronny", "series": "brązy", "link": "/pages/spray-termoochronny", "image_asset": "niuviu-konkurs-spray-termoochronny.jpg", "card_bg": "#F1EAE0" } },
+        { "type": "product", "settings": { "name": "krem wygładzający", "series": "stylizacja", "link": "/pages/krem-wygladzajacy", "image_asset": "niuviu-konkurs-krem-wygladzajacy.jpg", "card_bg": "#FCEBF1" } },
+        { "type": "product", "settings": { "name": "spray teksturyzujący", "series": "stylizacja", "link": "/pages/spray-teksturyzujacy", "image_asset": "niuviu-konkurs-spray-teksturyzujacy.jpg", "card_bg": "#FCEBF1" } },
+        { "type": "product", "settings": { "name": "lakier do włosów", "series": "stylizacja", "link": "/pages/lakier-do-wlosow", "image_asset": "niuviu-konkurs-lakier-do-wlosow.jpg", "card_bg": "#FCEBF1" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
