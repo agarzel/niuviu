@@ -43,11 +43,16 @@
             {%- if sr_sub != blank -%}<p class="nvk-series__sub">{{ sr_sub | escape }}</p>{%- endif -%}
             <ul>
               {%- for item in sr_items -%}
-                {%- assign item_txt = item | strip -%}
+                {%- assign item_parts = item | split: '|' -%}
+                {%- assign item_txt = item_parts[0] | strip -%}
+                {%- assign item_url = item_parts[1] | strip | default: sr_url -%}
                 {%- if item_txt != blank -%}
                   <li>
-                    {%- if sr_url != blank -%}<a href="{{ sr_url }}">{{ item_txt | escape }}</a>{%- else -%}<span>{{ item_txt | escape }}</span>{%- endif -%}
-                    {% render 'niuviu-konkurs-icon', name: 'arrow' %}
+                    {%- if item_url != blank -%}
+                      <a href="{{ item_url }}"><span>{{ item_txt | escape }}</span>{% render 'niuviu-konkurs-icon', name: 'arrow' %}</a>
+                    {%- else -%}
+                      <span>{{ item_txt | escape }}</span>{% render 'niuviu-konkurs-icon', name: 'arrow' %}
+                    {%- endif -%}
                   </li>
                 {%- endif -%}
               {%- endfor -%}
@@ -77,14 +82,14 @@
     { "type": "text", "id": "s1_tag", "label": "Plakietka", "default": "Proteiny" },
     { "type": "text", "id": "s1_name", "label": "Nazwa", "default": "Brązy" },
     { "type": "text", "id": "s1_sub", "label": "Opis", "default": "Do włosów brązowych · zapach musu czekoladowego" },
-    { "type": "textarea", "id": "s1_items", "label": "Produkty", "info": "Jeden produkt w linii", "default": "Szampon do brązów\nOdżywka do brązów\nSpray termoochronny" },
-    { "type": "url", "id": "s1_url", "label": "Link do serii (opcjonalnie)" },
+    { "type": "textarea", "id": "s1_items", "label": "Produkty", "info": "Jeden produkt w linii: nazwa | link do podstrony", "default": "Szampon do brązów | /pages/szampon-do-brazow\nOdżywka do brązów | /pages/odzywka-do-brazow\nSpray termoochronny | /pages/spray-termoochronny" },
+    { "type": "url", "id": "s1_url", "label": "Link do serii (opcjonalnie)", "info": "Używany tylko dla produktów bez własnego linku." },
     { "type": "header", "content": "Seria 2 (czerwona karta)" },
     { "type": "text", "id": "s2_tag", "label": "Plakietka", "default": "Inulina" },
     { "type": "text", "id": "s2_name", "label": "Nazwa", "default": "Stylizacja" },
     { "type": "text", "id": "s2_sub", "label": "Opis", "default": "Produkty do stylizacji · zapach białej czekolady" },
-    { "type": "textarea", "id": "s2_items", "label": "Produkty", "info": "Jeden produkt w linii", "default": "Krem wygładzający\nSpray teksturyzujący\nLakier do włosów" },
-    { "type": "url", "id": "s2_url", "label": "Link do serii (opcjonalnie)" },
+    { "type": "textarea", "id": "s2_items", "label": "Produkty", "info": "Jeden produkt w linii: nazwa | link do podstrony", "default": "Krem wygładzający | /pages/krem-wygladzajacy\nSpray teksturyzujący | /pages/spray-teksturyzujacy\nLakier do włosów | /pages/lakier-do-wlosow" },
+    { "type": "url", "id": "s2_url", "label": "Link do serii (opcjonalnie)", "info": "Używany tylko dla produktów bez własnego linku." },
     { "type": "header", "content": "Notka" },
     { "type": "inline_richtext", "id": "note", "label": "Notka pod produktami", "default": "Produkty kupisz w sklepach <strong>Biedronka</strong> · zakup musi zostać dokonany w dniach <strong>7–13.12.2026</strong>" }
   ],

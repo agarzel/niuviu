@@ -1,0 +1,238 @@
+{%- render 'niuviu-konkurs-assets' -%}
+{%- liquid
+  assign s = section.settings
+  assign inside = s.inside | strip | newline_to_br | split: '<br />'
+  assign others = s.others | strip | newline_to_br | split: '<br />'
+  assign full_name = s.name_a | append: ' ' | append: s.name_b | strip
+-%}
+<div class="nvk nvk-pd nvk-pd--{{ s.series }}">
+
+  {%- comment -%} ===================== KARTA PRODUKTU ===================== {%- endcomment -%}
+  <section class="nvk-pd-hero">
+    <div class="nvk-wrap">
+      {%- if s.back_text != blank -%}
+        <a class="nvk-pd-back" href="{{ s.back_link | default: '/pages/konkurs#nvk-produkty' }}">{% render 'niuviu-konkurs-icon', name: 'arrow', class: 'nvk-i nvk-pd-back__ico' %}{{ s.back_text | escape }}</a>
+      {%- endif -%}
+      <div class="nvk-pd-grid">
+        <figure class="nvk-pd-media">
+          {%- if s.image != blank -%}
+            {{ s.image | image_url: width: 1400 | image_tag: loading: 'eager', class: 'nvk-pd-media__contain', widths: '500, 800, 1100, 1400', sizes: '(min-width: 750px) 50vw, 100vw', alt: full_name }}
+          {%- elsif s.image_asset != blank -%}
+            <img src="{{ s.image_asset | asset_url }}" alt="{{ full_name | escape }}" width="1231" height="1400" loading="eager">
+          {%- else -%}
+            <div class="nvk-pd-fallback" aria-hidden="true">
+              {%- if s.series == 'braz' -%}PRO<br>TEINY{%- else -%}INU<br>LI<br>NA{%- endif -%}
+            </div>
+            {%- if request.design_mode -%}
+              <div class="nvk-editor-note nvk-pd-note"><strong>Widoczne tylko w edytorze:</strong> dodaj zdjęcie produktu w ustawieniach sekcji.</div>
+            {%- endif -%}
+          {%- endif -%}
+        </figure>
+
+        <div class="nvk-pd-info">
+          <div class="nvk-pd-tags">
+            <span class="nvk-pill nvk-pd-series">{{ s.series_tag | escape }} · {{ s.series_name | escape }}</span>
+            {%- if s.collab != blank -%}<span class="nvk-pd-collab">{{ s.collab | escape }}</span>{%- endif -%}
+          </div>
+          <h1 class="nvk-pd-title">{{ s.name_a | escape }} <em>{{ s.name_b | escape }}</em></h1>
+          <ul class="nvk-pd-facts">
+            {%- if s.claim != blank -%}<li>{{ s.claim | escape }}</li>{%- endif -%}
+            {%- if s.scent != blank -%}<li>{{ s.scent | escape }}</li>{%- endif -%}
+            {%- if s.capacity != blank -%}<li>{{ s.capacity | escape }}</li>{%- endif -%}
+          </ul>
+          {%- if s.lead != blank -%}<p class="nvk-pd-lead">{{ s.lead }}</p>{%- endif -%}
+          {%- if s.where_label != blank or s.where_dates != blank -%}
+            <div class="nvk-pd-where">
+              <div class="nvk-pd-where__row">
+                {%- if s.where_label != blank -%}<span class="nvk-pd-where__label">{{ s.where_label | escape }}</span>{%- endif -%}
+                <span class="nvk-pd-where__logo">
+                  {%- if s.store_logo != blank -%}
+                    {{ s.store_logo | image_url: width: 480 | image_tag: loading: 'eager', alt: s.store_name }}
+                  {%- elsif s.store_logo_asset != blank -%}
+                    <img src="{{ s.store_logo_asset | asset_url }}" alt="{{ s.store_name | escape }}" width="400" height="120" loading="eager" onerror="this.parentNode.classList.add('is-empty');this.remove();">
+                  {%- endif -%}
+                  {%- if request.design_mode -%}
+                    <span class="nvk-pd-where__name nvk-pd-where__name--editor">tu pojawi się logo</span>
+                  {%- else -%}
+                    <span class="nvk-pd-where__name">{{ s.store_name | escape }}</span>
+                  {%- endif -%}
+                </span>
+              </div>
+              {%- if s.where_dates != blank -%}<b class="nvk-pd-where__dates">{{ s.where_dates | escape }}</b>{%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if s.cta != blank -%}
+            <div class="nvk-pd-cta"><a class="nvk-btn nvk-pd-btn" href="{{ s.cta_link | default: '/pages/konkurs#nvk-zgloszenie' }}">{{ s.cta | escape }} {% render 'niuviu-konkurs-icon', name: 'arrow' %}</a></div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} ===================== ZDJĘCIA Z SESJI ===================== {%- endcomment -%}
+  {%- if section.blocks.size > 0 -%}
+    <section class="nvk-pd-gallery">
+      <div class="nvk-wrap">
+        <h2 class="nvk-pd-h nvk-pd-gallery__h">Seria {{ s.series_name | escape }} <em>w kadrze</em></h2>
+        <div class="nvk-pd-gallery__grid">
+          {%- for block in section.blocks -%}
+            {%- assign ph_alt = full_name | append: ' – zdjęcie z sesji' -%}
+            <figure class="nvk-pd-photo" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {%- if block.settings.image.alt != blank -%}{%- assign ph_alt = block.settings.image.alt -%}{%- endif -%}
+                {{ block.settings.image | image_url: width: 1100 | image_tag: loading: 'lazy', widths: '400, 700, 1100', sizes: '(min-width: 750px) 33vw, 80vw', alt: ph_alt }}
+              {%- elsif block.settings.image_asset != blank -%}
+                <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ ph_alt | escape }}" width="1100" height="1650" loading="lazy">
+              {%- endif -%}
+            </figure>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} ===================== W ŚRODKU / JAK UŻYWAĆ ===================== {%- endcomment -%}
+  {%- if inside.size > 0 or s.how_to != blank or s.ingredients != blank -%}
+    <section class="nvk-pd-details">
+      <div class="nvk-wrap nvk-pd-cols">
+        {%- if inside.size > 0 -%}
+          <div class="nvk-pd-card">
+            <h2 class="nvk-pd-h">W środku</h2>
+            <ul class="nvk-pd-inside">
+              {%- for row in inside -%}
+                {%- assign parts = row | split: '|' -%}
+                {%- assign i_name = parts[0] | strip -%}
+                {%- assign i_desc = parts[1] | strip -%}
+                {%- if i_name != blank -%}
+                  <li>{% render 'niuviu-konkurs-icon', name: 'sp', class: 'nvk-pd-inside__ico' %}<div><b>{{ i_name | escape }}</b>{%- if i_desc != blank -%}<span>{{ i_desc | escape }}</span>{%- endif -%}</div></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+        {%- if s.how_to != blank or s.capacity != blank or s.scent_short != blank or s.price != blank -%}
+          <div class="nvk-pd-card">
+            {%- if s.how_to != blank -%}
+              <h2 class="nvk-pd-h">Jak używać</h2>
+              <div class="nvk-pd-rte">{{ s.how_to }}</div>
+            {%- endif -%}
+            <dl class="nvk-pd-table">
+              {%- if s.capacity != blank -%}<div><dt>Pojemność</dt><dd>{{ s.capacity | escape }}</dd></div>{%- endif -%}
+              {%- if s.scent_short != blank -%}<div><dt>Zapach</dt><dd>{{ s.scent_short | escape }}</dd></div>{%- endif -%}
+              {%- if s.price != blank -%}<div><dt>Cena</dt><dd>{{ s.price | escape }}</dd></div>{%- endif -%}
+            </dl>
+          </div>
+        {%- endif -%}
+        {%- if s.ingredients != blank -%}
+          <details class="nvk-pd-card nvk-pd-card--wide nvk-pd-inci">
+            <summary class="nvk-pd-h">Pełny skład (INCI)</summary>
+            <div class="nvk-pd-rte">{{ s.ingredients }}</div>
+          </details>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- elsif request.design_mode -%}
+    <div class="nvk-wrap"><div class="nvk-editor-note"><strong>Widoczne tylko w edytorze:</strong> uzupełnij „W środku” i „Jak używać” w ustawieniach sekcji.</div></div>
+  {%- endif -%}
+
+  {%- comment -%} ===================== KONKURS ===================== {%- endcomment -%}
+  {%- if s.contest_show -%}
+    <section class="nvk-pd-contest">
+      <div class="nvk-wrap nvk-pd-contest__in">
+        <div>
+          {%- if s.contest_pill != blank -%}<span class="nvk-pill">{{ s.contest_pill | escape }}</span>{%- endif -%}
+          <h2 class="nvk-h2">{{ s.contest_title_a | escape }} <em>{{ s.contest_title_b | escape }}</em></h2>
+          {%- if s.contest_text != blank -%}<p>{{ s.contest_text }}</p>{%- endif -%}
+        </div>
+        <a class="nvk-btn nvk-btn--dark" href="{{ s.contest_link | default: '/pages/konkurs#nvk-zgloszenie' }}">{{ s.contest_btn | escape }} {% render 'niuviu-konkurs-icon', name: 'arrow' %}</a>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- comment -%} ===================== INNE Z SERII ===================== {%- endcomment -%}
+  {%- if others.size > 0 -%}
+    <section class="nvk-pd-others">
+      <div class="nvk-wrap">
+        <h2 class="nvk-pd-h">{{ s.others_title | escape }}</h2>
+        <div class="nvk-pd-others__grid">
+          {%- for o in others -%}
+            {%- assign parts = o | split: '|' -%}
+            {%- assign o_name = parts[0] | strip -%}
+            {%- assign o_link = parts[1] | strip -%}
+            {%- if o_name != blank -%}
+              <a class="nvk-pd-other" href="{{ o_link | default: '#' }}"><span>{{ o_name | escape }}</span>{% render 'niuviu-konkurs-icon', name: 'arrow' %}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Konkurs – karta produktu",
+  "tag": "div",
+  "class": "nvk-shopify-section",
+  "settings": [
+    { "type": "header", "content": "Seria" },
+    {
+      "type": "select", "id": "series", "label": "Seria (kolory strony)", "default": "braz",
+      "options": [
+        { "value": "braz", "label": "Brązy (brązowa)" },
+        { "value": "styl", "label": "Stylizacja (różowo-czerwona)" }
+      ]
+    },
+    { "type": "text", "id": "series_tag", "label": "Linia", "default": "Proteiny" },
+    { "type": "text", "id": "series_name", "label": "Nazwa serii", "default": "Brązy" },
+    { "type": "text", "id": "collab", "label": "Współpraca", "info": "Np. Magda Banaś × niuviu. Puste = ukryte." },
+    { "type": "header", "content": "Produkt" },
+    { "type": "text", "id": "name_a", "label": "Nazwa – pierwsze słowo", "default": "Szampon" },
+    { "type": "text", "id": "name_b", "label": "Nazwa – dalej (kursywa)", "default": "do brązów" },
+    { "type": "text", "id": "claim", "label": "Hasło z opakowania", "default": "podkreślający kolor" },
+    { "type": "text", "id": "scent", "label": "Zapach (plakietka)", "default": "zapach musu czekoladowego" },
+    { "type": "text", "id": "scent_short", "label": "Zapach (tabela)", "info": "Puste = bez wiersza w tabeli." },
+    { "type": "text", "id": "capacity", "label": "Pojemność", "default": "300 ml" },
+    { "type": "text", "id": "price", "label": "Cena", "info": "Np. 16,99 zł. Puste = ukryta." },
+    { "type": "image_picker", "id": "image", "label": "Zdjęcie produktu", "info": "Zastępuje zdjęcie domyślne. Najlepiej PNG z przezroczystym tłem." },
+    { "type": "text", "id": "image_asset", "label": "Zdjęcie domyślne (plik z motywu)", "info": "Ustawione w szablonie – nie trzeba zmieniać." },
+    { "type": "inline_richtext", "id": "lead", "label": "Opis" },
+    { "type": "text", "id": "where_label", "label": "Gdzie kupić – tekst", "default": "Dostępny w sieci sklepów" },
+    { "type": "text", "id": "where_dates", "label": "Gdzie kupić – daty", "default": "od 7.12 do 13.12" },
+    { "type": "text", "id": "store_name", "label": "Nazwa sklepu", "default": "Biedronka", "info": "Tekst zastępczy, gdy brak logo." },
+    { "type": "image_picker", "id": "store_logo", "label": "Logo sklepu", "info": "Opcjonalnie – zastępuje plik logo z motywu." },
+    { "type": "text", "id": "store_logo_asset", "label": "Logo sklepu (plik z motywu)", "default": "niuviu-konkurs-biedronka.png", "info": "Wgraj logo do assets pod tą nazwą – pojawi się na wszystkich podstronach." },
+    { "type": "text", "id": "cta", "label": "Przycisk", "default": "Weź udział w konkursie" },
+    { "type": "text", "id": "cta_link", "label": "Przycisk – link", "default": "/pages/konkurs#nvk-zgloszenie" },
+    { "type": "text", "id": "back_text", "label": "Link powrotu", "default": "Wszystkie produkty w konkursie" },
+    { "type": "text", "id": "back_link", "label": "Link powrotu – adres", "default": "/pages/konkurs#nvk-produkty" },
+    { "type": "header", "content": "W środku i jak używać" },
+    { "type": "textarea", "id": "inside", "label": "W środku", "info": "Jeden składnik w linii: nazwa | działanie" },
+    { "type": "richtext", "id": "how_to", "label": "Jak używać" },
+    { "type": "richtext", "id": "ingredients", "label": "Pełny skład (INCI)", "info": "Opcjonalnie. Wyświetla się jako rozwijana lista." },
+    { "type": "header", "content": "Baner konkursu" },
+    { "type": "checkbox", "id": "contest_show", "label": "Pokaż baner konkursu", "default": true, "info": "Po konkursie odznacz – strona produktu zostaje." },
+    { "type": "text", "id": "contest_pill", "label": "Plakietka", "default": "✦ Konkurs · 7–13 grudnia 2026" },
+    { "type": "text", "id": "contest_title_a", "label": "Tytuł", "default": "Kup i wygraj" },
+    { "type": "text", "id": "contest_title_b", "label": "Tytuł – kursywa", "default": "szczotkę Dyson" },
+    { "type": "inline_richtext", "id": "contest_text", "label": "Tekst", "default": "Kup min. jeden produkt z serii Stylizacja lub Brązy w Biedronce w dniach <strong>7–13.12.2026</strong>, wyślij zgłoszenie i zawalcz o jedną z czterech szczotek stylizujących Dyson." },
+    { "type": "text", "id": "contest_btn", "label": "Przycisk", "default": "Wyślij zgłoszenie" },
+    { "type": "text", "id": "contest_link", "label": "Przycisk – link", "default": "/pages/konkurs#nvk-zgloszenie" },
+    { "type": "header", "content": "Inne produkty z serii" },
+    { "type": "text", "id": "others_title", "label": "Nagłówek", "default": "Inne produkty z serii" },
+    { "type": "textarea", "id": "others", "label": "Produkty", "info": "Jeden w linii: nazwa | link, np. odżywka do brązów | /pages/odzywka-do-brazow" }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Zdjęcie z sesji",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Zdjęcie", "info": "Zastępuje zdjęcie domyślne. Najlepiej pionowe 2:3." },
+        { "type": "text", "id": "image_asset", "label": "Zdjęcie domyślne (plik z motywu)", "info": "Ustawione w szablonie – nie trzeba zmieniać." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Konkurs – karta produktu" }]
+}
+{% endschema %}
