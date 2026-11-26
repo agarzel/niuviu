@@ -284,6 +284,100 @@
         "padding-block-end": 0
       }
     },
+    "niuviu_seria_limitowana_arRyit": {
+      "type": "niuviu-seria-limitowana",
+      "blocks": {
+        "product_dwKjJW": {
+          "type": "product",
+          "settings": {
+            "name": "szampon do brązów",
+            "series": "brązy",
+            "link": "/pages/szampon-do-brazow",
+            "image_asset": "niuviu-konkurs-szampon-do-brazow.jpg",
+            "card_bg": "#f1eae0",
+            "price": ""
+          }
+        },
+        "product_xiyBb8": {
+          "type": "product",
+          "settings": {
+            "name": "odżywka do brązów",
+            "series": "brązy",
+            "link": "/pages/odzywka-do-brazow",
+            "image_asset": "niuviu-konkurs-odzywka-do-brazow.jpg",
+            "card_bg": "#f1eae0",
+            "price": ""
+          }
+        },
+        "product_CgEtrK": {
+          "type": "product",
+          "settings": {
+            "name": "spray termoochronny",
+            "series": "brązy",
+            "link": "/pages/spray-termoochronny",
+            "image_asset": "niuviu-konkurs-spray-termoochronny.jpg",
+            "card_bg": "#f1eae0",
+            "price": ""
+          }
+        },
+        "product_GmExw9": {
+          "type": "product",
+          "settings": {
+            "name": "krem wygładzający",
+            "series": "stylizacja",
+            "link": "/pages/krem-wygladzajacy",
+            "image_asset": "niuviu-konkurs-krem-wygladzajacy.jpg",
+            "card_bg": "#fcebf1",
+            "price": ""
+          }
+        },
+        "product_XjUJ3i": {
+          "type": "product",
+          "settings": {
+            "name": "spray teksturyzujący",
+            "series": "stylizacja",
+            "link": "/pages/spray-teksturyzujacy",
+            "image_asset": "niuviu-konkurs-spray-teksturyzujacy.jpg",
+            "card_bg": "#fcebf1",
+            "price": ""
+          }
+        },
+        "product_mmbRjm": {
+          "type": "product",
+          "settings": {
+            "name": "lakier do włosów",
+            "series": "stylizacja",
+            "link": "/pages/lakier-do-wlosow",
+            "image_asset": "niuviu-konkurs-lakier-do-wlosow.jpg",
+            "card_bg": "#fcebf1",
+            "price": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_dwKjJW",
+        "product_xiyBb8",
+        "product_CgEtrK",
+        "product_GmExw9",
+        "product_XjUJ3i",
+        "product_mmbRjm"
+      ],
+      "name": "Seria limitowana",
+      "settings": {
+        "title": "Seria limitowana",
+        "text": "Produkty dostępne tylko w sieciach sklepów Biedronka",
+        "desktop_layout": "grid3",
+        "button": "zobacz produkt",
+        "button_bg": "#FF337E",
+        "button_fg": "#FFFFFF",
+        "show_badge": true,
+        "badge_text": "tylko w",
+        "badge_logo_asset": "niuviu-konkurs-biedronka.png",
+        "badge_fallback": "Biedronce",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
     "product_list_z7QLNk": {
       "type": "product-list",
       "blocks": {
@@ -1079,6 +1173,7 @@
   },
   "order": [
     "slideshow_m9nw8B",
+    "niuviu_seria_limitowana_arRyit",
     "product_list_z7QLNk",
     "product_list_JcKLxQ",
     "he_collections_highlights_RErKba",
