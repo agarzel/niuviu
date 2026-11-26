@@ -194,6 +194,16 @@
               },
               "blocks": {}
             },
+            "link_slajdu_ga3f9V": {
+              "type": "link-slajdu",
+              "name": "Link całego slajdu",
+              "settings": {
+                "link": "shopify://collections/cialo",
+                "label": "Sprawdź produkty do ciała od niuviu",
+                "new_tab": false
+              },
+              "blocks": {}
+            },
             "text_L3aC7q": {
               "type": "text",
               "disabled": true,
@@ -224,6 +234,7 @@
           },
           "block_order": [
             "text_mnywM7",
+            "link_slajdu_ga3f9V",
             "text_L3aC7q"
           ]
         },
@@ -280,6 +291,16 @@
               },
               "blocks": {}
             },
+            "link_slajdu_DhRQJT": {
+              "type": "link-slajdu",
+              "name": "Link całego slajdu",
+              "settings": {
+                "link": "shopify://collections/wlosy",
+                "label": "Sprawdź regularne produkty do włosów od niuviu",
+                "new_tab": false
+              },
+              "blocks": {}
+            },
             "text_RbH4MW": {
               "type": "text",
               "settings": {
@@ -305,26 +326,12 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
-            "button_TzXEcY": {
-              "type": "button",
-              "settings": {
-                "label": "Kup teraz",
-                "link": "shopify://collections/wlosy",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "text_cLxgXY",
-            "text_RbH4MW",
-            "button_TzXEcY"
+            "link_slajdu_DhRQJT",
+            "text_RbH4MW"
           ]
         },
         "slide_U4JTQm": {
