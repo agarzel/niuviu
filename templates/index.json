@@ -86,23 +86,19 @@
             "padding-inline-end": 48
           },
           "blocks": {
-            "button_X6ENJT": {
-              "type": "button",
+            "link_slajdu_jfjYmB": {
+              "type": "link-slajdu",
+              "name": "Link całego slajdu",
               "settings": {
-                "label": "Kup teraz",
                 "link": "shopify://pages/black-weekend",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
+                "label": "Black Weekend – zobacz promocję",
+                "new_tab": false
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "button_X6ENJT"
+            "link_slajdu_jfjYmB"
           ]
         },
         "slide_NeCBgm": {
@@ -360,6 +356,7 @@
         "slide_CgFXWF",
         "slide_U4JTQm"
       ],
+      "custom_css": [],
       "name": "t:names.slideshow_full_frame",
       "settings": {
         "display_mode": "full_frame",
