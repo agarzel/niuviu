@@ -122,7 +122,21 @@
             "padding-inline-start": 48,
             "padding-inline-end": 48
           },
-          "blocks": {}
+          "blocks": {
+            "link_slajdu_QAw9gc": {
+              "type": "link-slajdu",
+              "name": "Link całego slajdu",
+              "settings": {
+                "link": "shopify://collections/blossom-time",
+                "label": "Sprawdź produkty z serii Blossom Time",
+                "new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "link_slajdu_QAw9gc"
+          ]
         },
         "slide_kVKFm4": {
           "type": "_slide",
