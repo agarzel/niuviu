@@ -112,12 +112,12 @@
         "s1_tag": "Proteiny",
         "s1_name": "Brązy",
         "s1_sub": "Do włosów brązowych · zapach musu czekoladowego",
-        "s1_items": "Szampon do brązów\nOdżywka do brązów\nSpray termoochronny",
+        "s1_items": "Szampon do brązów | /pages/szampon-do-brazow\nOdżywka do brązów | /pages/odzywka-do-brazow\nSpray termoochronny | /pages/spray-termoochronny",
         "s1_url": "",
         "s2_tag": "Inulina",
         "s2_name": "Stylizacja",
         "s2_sub": "Produkty do stylizacji · zapach białej czekolady",
-        "s2_items": "Krem wygładzający\nSpray teksturyzujący\nLakier do włosów",
+        "s2_items": "Krem wygładzający | /pages/krem-wygladzajacy\nSpray teksturyzujący | /pages/spray-teksturyzujacy\nLakier do włosów | /pages/lakier-do-wlosow",
         "s2_url": "",
         "note": "Produkty kupisz w sklepach <strong>Biedronka</strong> · zakup musi zostać dokonany w dniach <strong>7–13.12.2026</strong>"
       }
