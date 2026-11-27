@@ -143,6 +143,7 @@
         "slide_kVKFm4": {
           "type": "_slide",
           "name": "t:names.slide",
+          "disabled": true,
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/niuviu_body_care_glowa.png",
@@ -242,6 +243,7 @@
         },
         "slide_CgFXWF": {
           "type": "_slide",
+          "disabled": true,
           "settings": {
             "media_type_1": "image",
             "image_1": "shopify://shop_images/wlosy-banner-desktop.png",
