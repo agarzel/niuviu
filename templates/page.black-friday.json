@@ -100,7 +100,7 @@
         ],
         "collection": "",
         "count": 8,
-        "price_mode": "discount",
+        "price_mode": "compare",
         "discount": 35,
         "badge": "−35%",
         "omnibus": true,
